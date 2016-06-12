@@ -1,0 +1,149 @@
+\section{Una puerta}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/press_225p_v4_onedoor_3_6.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/flujo_door_3_6m.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/pv_vel_t_100_3_6.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/press_225p_v4_onedoor_1_2.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/flujo_door_1_2m.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/pv_vel_t_100_1_2.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+
+
+\section{Dos puertas}
+
+\subsection{Faster is slower}
+
+\subsection{Tiempo de evacuación}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/gap_vste_225p.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/gap_vsten_all.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/gap_vste_v4_961p.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/gap_vste_v4_v8.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+
+
+
+\subsection{Blocking clusters}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/proba_vsgap_small_225p_v4.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/proba_vsgap_small_961p_v4.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/proba_vsgap_small_all.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/proba_vsgap_v4_big_small.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+
+
+
+\subsection{Presión}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/press_225p_v4_g0.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/press_225p_v4_g1_5.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5.5cm]{figuras/press_225p_v4_g5.png}
+    \caption[width=5cm]{\centering\textit{}}
+    \label{sintesis}
+\end{figure}
+
+
+
+
+%\subsection{Velocidad}
+\subsection{Comportamiento asintótico}
+
+
+
+

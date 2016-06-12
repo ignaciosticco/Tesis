@@ -1,0 +1,4 @@
+Para realizar las simulaciones se uso el programa LAMMPS (Large-scale Atomic/Molecular Massively Parallel Simulator), este código se caracteriza por hacer uso de las listas de vecinos [rapaport] para efecuar cálculos que permiten reducir la complejidad algorítmica. 
+
+
+

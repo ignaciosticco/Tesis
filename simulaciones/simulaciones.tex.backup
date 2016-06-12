@@ -1,0 +1,26 @@
+
+\noindent En este capítulo se describirán los métodos usados para llevar a cabo las simulaciones. 
+
+\noindent Para realizar las simulaciones se utilizó el programa LAMMPS (Large-scale Atomic/Molecular Massively Parallel Simulator).
+Es un software de código libre distribuido bajo los términos de GPL.
+LAMMPS se caracteriza por hacer uso de las listas de vecinos [rapaport] para efecuar cálculos que permiten reducir la
+complejidad algorítmica, además cuenta con una gran cantidad de funciones implementadas orientadas al uso de simulaciones
+de dinámica molecular. 
+
+\noindent Todas las simulaciones constaron de N individuos en un recinto cuadrado cuyo tamaño estaba ligado a la cantidad de
+peatones de modo tal que mantenga constante la densidad. En una de las paredes se ubicó una o dos puertas dependiendo de qué 
+se buscaba analizar.
+Para todas los sistemas estudiados se configuró un arreglo bidimensional de individuos, ordenados inicialmente tipo
+red cuadrada, separados entre si por una distancia de 1,3 m. La velocidad inicial se estipuló de modo que todos los individuos
+tengan en promedio 1.7 m/s (en módulo) con una dispersion de ## m/s, la dirección fue generada aleatoriamente para
+cada uno de ellos. Luego del instante inicial, los agentes cambiaban su velocidad acorde a la velocidad de deseo configurada 
+(con el fin de que todos busquen evacuar la habitación). Una vez que los individuos abandonaban el recinto no se los reinyectaba.
+De modo que al evacuar dejaba de importar sus observables. 
+Para resolver la dinámica se utilizó el algoritmo de Verlet. 
+
+
+
+
+
+
+

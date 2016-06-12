@@ -1,0 +1,15 @@
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{4}
+\contentsline {section}{\numberline {1.1}Objetivos}{4}
+\contentsline {chapter}{\numberline {2}Marco Te\IeC {\'o}rico}{5}
+\contentsline {chapter}{\numberline {3}Simulaciones}{6}
+\contentsline {chapter}{\numberline {4}Resultados y Discusi\IeC {\'o}n}{7}
+\contentsline {section}{\numberline {4.1}Una puerta}{7}
+\contentsline {subsubsection}{Puerta ancha (3,6 m)}{7}
+\contentsline {subsubsection}{Puerta angosta (1,2 m)}{8}
+\contentsline {section}{\numberline {4.2}Dos puertas}{9}
+\contentsline {subsection}{\numberline {4.2.1}Faster is slower}{9}
+\contentsline {subsection}{\numberline {4.2.2}Tiempo de evacuaci\IeC {\'o}n}{9}
+\contentsline {subsection}{\numberline {4.2.3}Blocking clusters}{11}
+\contentsline {subsection}{\numberline {4.2.4}Presi\IeC {\'o}n}{12}
+\contentsline {subsection}{\numberline {4.2.5}Comportamiento asint\IeC {\'o}tico}{13}
+\contentsline {chapter}{\numberline {5}Conclusiones}{14}

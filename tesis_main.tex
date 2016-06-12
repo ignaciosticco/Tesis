@@ -1,0 +1,46 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+ 
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{mathtools}
+%\usepackage[spanish,es-tabla]{babel}
+%\usepackage[nottoc,numbib]{tocbibind}
+
+%caracteristicas de paginas
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\setlength\oddsidemargin{-0,21in}
+\setlength\evensidemargin{-0,21in}
+\setlength\topmargin{-2cm}
+\setlength\textwidth{7in}
+\setlength\textheight{23.7cm}
+\setlength\parskip{0.1in}
+\def\thechapter{\arabic{chapter}}
+\renewcommand{\chaptername}{Capítulo}
+
+
+
+\begin{document} 
+
+\input{caratula/caratula.tex}
+\input{agradecimientos/agradecimientos.tex}
+\tableofcontents
+\chapter{Introducción}
+\input{introduccion/introduccion.tex}
+\chapter{Marco Teórico}
+\input{marco_teorico/marco_teorico.tex}
+\chapter{Simulaciones}
+\input{simulaciones/simulaciones.tex}
+\chapter{Resultados y Discusión}
+\input{resultados_discusion/resultados_discusion.tex}
+\chapter{Conclusiones}
+\input{conclusiones/conclusiones.tex}
+
+
+\end{document}
+ 
+
+
