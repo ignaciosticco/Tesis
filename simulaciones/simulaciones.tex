@@ -12,17 +12,44 @@ peatones de modo tal que mantenga constante la densidad. En una de las paredes s
 se buscaba analizar.
 Para todas los sistemas estudiados se configuró un arreglo bidimensional de individuos, ordenados inicialmente tipo
 red cuadrada, separados entre si por una distancia de 1,3 m. La velocidad inicial se estipuló de modo que todos los individuos
-tengan en promedio 1.7 m/s (en módulo) con una dispersion de ## m/s, la dirección fue generada aleatoriamente para
+tengan en promedio 1.7 m/s (en módulo) con una dispersion de m/s, la dirección fue generada aleatoriamente para
 cada uno de ellos. Luego del instante inicial, los agentes cambiaban su velocidad acorde a la velocidad de deseo configurada 
 (con el fin de que todos busquen evacuar la habitación). Una vez que los individuos abandonaban el recinto no se los reinyectaba.
 De modo que al evacuar dejaba de importar sus observables. 
 Para resolver la dinámica se utilizó el algoritmo de Verlet. 
 \noindent Con el fin de compatibilizar el modelo de fuerza social con LAMMPS, se crearon varios módulos con las fuerzas que
-caracterizan al modelo.   
+caracterizan al modelo y algulas fnnciones que sirvieron para caracterizar al sistema. Todos estos fueron escritos en c++.
 
+\section{Módulos}
 
+{\Large pair\_social}
 
+Este módulo se hizo para incluir la fuerza social del modelo de Helbing. Toma como parámetros la constante B y la distancia 
+de corte (si los individuos estan separados por una distancia mayor a este corte, la fuerza social entre ellos no se calcula).
+Otros parámetros son agregados a través de la función pair\_coef. Estos son la constante A del modelo de Helbing, la distancia 
+de corte y el radio de los individuos. Los valores utilizados fueron: A $=$ 2000, B$=$ 0,08 r\_cut $=$ 3,5 d $=$ 0,30.
+La elección de la distancia de corte se tomó de modo tal que la fuerza social que sienten individuos separados a esa distancia
+sea despreciable ($\sim$ 10$^{-12}$). El resto de los parámetros se extrajeron de la bibliografia del modelo de fuerza social[].
 
+{\Large pair\_gran\_social}
 
+Se creó para que exista rozamiento entre los individuos que están en contacto. Requiere como parámetro el valor de la constante de rozamiento, el mismo fue $\kappa =$ 240000, tanto este valor como la expresión de la fuerza son acordes al modelo de Helbing.
 
+{\Large fix\_wall\_social y fix\_wall\_gran}
 
+Estos módulos son análogos a pair\_social y pair\_gran\_social pero aplicados a las fuerzas de interacción entre los individuos y las paredes. El primero simula la fuerza de repulsión y poseé los mismos parámetros que la repulsión entre individuos mientras que el segundo modela la fuerza de rozamiento dinámico. 
+
+{\Large fix\_social\_self y fix\_social\_self\_multi}
+
+La fuerza de deseo del modelo de Helbing fue simulada con estos módulos. El primero se usó para los recintos con una única puerta mientras que el segundo para recintos con dos. 
+El primero requiere como parámetro la masa de los individuos y la velocidad de deseo. El target que tiene cada individuo, depende de la posición en donde se encuentre. Por cada puerta hay tres targets: superior, medio e inferior. El medio está ubicado en la mitad de la puerta, los otros 0,3 m por encima y por debajo.  Los individuos cuya posición en la coordenada 'y' sea mayor (menor) que el target superior (inferior) actualizan su velocidad para apuntar al target superior (inferior). Si se encuentran en medio de éstos, apuntan al centro de la puerta. 
+Cuando se simularon recintos con dos puertas se usó fix$\_$social$\_$self$\_$multi, sus parámetros son: la masa de los individuos, la velocidad de deseo y el gap (la distancia de separación entre puertas). Si el gap es nulo, las dos puertas estan unidas (formando una única puerta ancha). En este caso, se establecen tres targets: el superior (inferior) 0.3 m debajo (encima) del final de la puerta superior (inferior). Los individuos que se encuentran en el medio apuntan al centro (al igual que en el caso de una única puerta).
+Si el gap es no nulo, es decir, existe una porción de pared entre ambas puertas, la dirección de la velocidad de los individuos se actualiza de forma análoga al caso de una puerta. 
+
+{\Large compute\_social\_pressure}
+
+Calcula la presión que siente cada individuo debida a la interacción de repulsión social. Para cada timestep devuelve un vector con la pesión de cada uno. 
+
+{\Large compute\_dijkstra\_atom}
+
+Rotula con la misma etiqueta a todos los elementos que forman parte de un blocking cluster. Requiere como parámetro las posiciones en la coordenada 'y' de los puntos de origen y terminación del blocking cluster y la posición de la pared en la coordenada 'x'. Para cada timestep, devuelve un vector con un número no nulo para los individuos que forman el cluster de bloqueo y cero para los que no. 
