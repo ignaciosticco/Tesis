@@ -1,6 +1,13 @@
+En este capítulo se exhibirán y discutiran los resultados obtenidos a lo largo del trabajo. Está dividido en dos secciones, la primera muetra los resultados de recintos con una única puerta y la segunda los resultados para recintos con dos puertas sobre la misma pared.  
+
 \section{Una puerta}
 
-\subsubsection{Puerta ancha (3,6 m)}
+En esta sección se compararán los campos de presión y velocidad para recintos con puerta ancha (3,6~m) y angosta (1,2~m), también se hará una comparación de la presión y velocidad en función del tiempo que soporta un individuo que comieza en el medio de la habitacón.    
+
+\subsubsection{Puerta ancha (3,6~m)}
+
+Los resultados que se muestran en esta subsección son de simulaciones hechas para un recinto de  $20\times 20$~(m) con 225 individuos y una puerta centrada en la posición $x=20$~m e $y=10$~m con un ancho $L=3,6$~m.\\
+En la figura \ref{isobaras_3_6m} se muestra un gráfico de isobaras. Puede verse que la zona de mayor presión se da a los costados de la puerta mientras que en el medio la presión es menor (sobre todo en la zona más proxima a la puerta). La distribución de presiones es simétrica con respecto a la mitad del recinto en la coordenada y. 
 
 \begin{figure}[H]
     \centering
@@ -9,18 +16,24 @@
     \label{isobaras_3_6m}
 \end{figure}
 
+El gráfico de la figura \ref{flujo_3_6} muestra el promedio del flujo de velocidades. El ancho del trazo denota la magnitud del módulo de la velocidad. La mayor celeridad se obtiene para la zona del medio (para la coordenada y), dando a entender que los individuos que se encuentran en en dicha región evacúan más rapido que los indvididuos que van por los costados. 
+Puede verse que las zonas de alta presión coinciden con zonas de baja velocidad (costados) mientras que las zonas de alta velocidad son áreas con menor presión. 
+
+
 \begin{figure}[H]
     \centering
     \includegraphics[height=5.5cm]{figuras/flujo_door_3_6m.png}
     \caption[width=5cm]{Gráfico de velocidad. La salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=3,6$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar el campo de velocidades. La velocidad deseada de los individuos fue de $v_d=4$~m/s.}
-    \label{sintesis}
+    \label{flujo_3_6}
 \end{figure}
+
+La correlación espacial entre presión y velocidad se condice con los resultados obtenidos en la figura \ref{pv_vel_t_100_3_6}. Se muestra la presión y velocidad en función del tiempo para un individuo que comienza en el medio de la habitación ($x=20$~m e $y=10$~m). Al comienzo su velocidad aumenta sin que la presión se vea afectada ya que corre hacia la salida sin tocarse con el resto de los peatones. Luego, su velocidad disminuye y la presión que soporta aumenta. Este es el momento en el que la salida se obstruye y la multitud se amontona. Finalmente la velocidad vuelve a aumentar tanto como su presión disminuye, en este momento el individuo logra hacerse paso para evacuar. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[height=5.5cm]{figuras/pv_vel_t_100_3_6.png}
     \caption[width=5cm]{Gráfico de velocidad(inferior) y presión(superior) en función del tiempo para un individuo ubicado inicialmente en $x=10$~m e $y=10$~m.  La salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=3,6$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a cinco iteraciones diferentes (variando la velocidad incial). La velocidad deseada del individuo fue de $v_d=4$~m/s.}
-    \label{sintesis}
+    \label{pv_vel_t_100_3_6}
 \end{figure}
 
 \subsubsection{Puerta angosta (1,2 m)}
