@@ -38,6 +38,9 @@ La correlación espacial entre presión y velocidad se condice con los resultado
 
 \subsubsection{Puerta angosta (1,2 m)}
 
+Los resultados que se muestran en esta subsección son de simulaciones hechas para un recinto de  $20\times 20$~(m) con 225 individuos y una puerta centrada en la posición $x=20$~m e $y=10$~m con un ancho $L=1,2$~m.\\
+En la figura \ref{isobaras_1_2m} se muestra la distribución de presión  para este tipo de recintos. Si bien se tiene una distribución simétrica, la presión maxima se da en el centro, a diferencia de lo que ocurre con recintos con puerta angosta donde la presión máxima está a los costados
+
 \begin{figure}[H]
     \centering
     \includegraphics[height=5.5cm]{figuras/press_225p_v4_onedoor_1_2.png}
@@ -45,27 +48,46 @@ La correlación espacial entre presión y velocidad se condice con los resultado
     \label{isobaras_1_2m}
 \end{figure}
 
+En el gráfico de la figura \ref{flujo_1_2} se exhibe el flujo de velocidad. Al igual que en \ref{flujo_3_6}, la máxima celeridad se tiene en el medio (coordenada y).
+Es notable que a diferencia de recintos con puerta ancha, la zona de mayor velocidad no coincida con una región de baja presión. De hecho se tiene máxima presión y velocidad en la misma área.  
+
 \begin{figure}[H]
     \centering
     \includegraphics[height=5.5cm]{figuras/flujo_door_1_2m.png}
     \caption[width=5cm]{Gráfico de velocidad. La salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=1,2$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar el campo de velocidades. La velocidad deseada de los individuos fue de $v_d=4$~m/s.}
-    \label{sintesis}
+    \label{flujo_1_2}
 \end{figure}
+
+En la figura \ref{pv_vel_t_100_1_2} se ve la correlación presión-velocidad que siente un individuo que comienza en el centro del recinto ($x=20$~m e $y=10$~m). Luego del estados estacionario (primeros segundos), los instantes en los que soporta alta presión, tiene baja velocidad y visceversa. Esto coincide con lo obtenido para un peatón ubicado con la misma posición inicial para una habitación con puerta angosta (fig. \ref{pv_vel_t_100_1_2}). \\
+Puede decirse que la correlación presión-velocidad se pierde para el caso de recintos con puerta de $1,2$~m (en promedio espacial), sin embargo, para cada individuo en cada instante de tiempo, la correlación se mantiene. \\
+La relación presión-velocidad presenta diferencias entre recintos con puerta ancha y puerta angosta ; los primeros tienen correlación tanto a nivel espacial (figs \ref{isobaras_3_6m} ) como a nivel temporal (fig \ref{flujo_3_6}). Se obtuvo que zonas de alta presión concuerdan con zonas de baja velocidad. El mismo comportamiento ocurre en cada instante para cada individuo. 
+En cambio, cuando la puerta es angosta la zona de mayor presión es también zona de mayor velocidad (para promedio espacial) pero en cada instante de tiempo y para cada individuo se tiene que al soportar altas presiones sus velocidades son bajas y visceversa. \\
+Esta diferencia se debe al hecho que cuando la puerta es ancha el flujo de la evacuación es permanente. Se forma un canal en el medio por donde los individuos transitan de forma continua. Esto tiene como consecuencia que la mayor velocidad se de en el medio y estimula la acumulación de peatones en los costados (formando focos de alta presión). No hay diferencias en cuanto al comportamiento presión-velocidad que sufren los individuos en cada instante de tiempo.
+En cambio, cuando se trabaja con recintos de puerta angosta se tiene un flujo intermitente de evacuados. Por momentos el movimiento fluye y por momentos se encuentra detenido. Este efecto de Stop-and-go [cita] es determinante a la hora de promediar presión y velocidad ya que los momentos en los cueles la evacuación fluye aportan mucha velocidad en le medio (fig. \ref{flujo_1_2}) y en los momentos en los que las personas están quietas se suma mucha presión en el centro (fig. \ref{isobaras_1_2m}) por ser la región de mayor amontonamiento. Es por eso que para cada instante se preserva la correlación presión-velocidad pero para promedios espaciales se rompe.
 
 \begin{figure}[H]
     \centering
     \includegraphics[height=5.5cm]{figuras/pv_vel_t_100_1_2.png}
     \caption[width=5cm]{Gráfico de velocidad(inferior) y presión(superior) en función del tiempo para un individuo ubicado inicialmente en $x=10$~m e $y=10$~m.  La salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=1,2$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a cinco iteraciones diferentes (variando la velocidad incial). La velocidad deseada del individuo fue de $v_d=4$~m/s.}
-    \label{sintesis}
+    \label{pv_vel_t_100_1_2}
 \end{figure}
 
+
+En está subsección se comparó la presión y velocidad tanto a nivel macroscópico (promedio espacial) como a nivel microscopico (variación temporal para un individuo en particular) para recintos con puerta angosta ($1,2$~m) y ancha ($3,6$~m). Se obtuvo que con puertas angostas surge el efecto Stop-and-go que provoca altas presiones en el centro mientras que con puertas anchas este efecto no aparece y la evacuación fluye permanentemente, con lo cual la mayor presión se da en los bordes de la puerta. La mayor velocidad se tiene en el medio para ambos recintos. Por lo tanto, la correlación presión-velocidad se verifica en habitaciones con puertas anchas (tanto a nivel macroscópico como a nivel microscópico) mientras que en recintos con puertas angostas solo se da a nivel microscópico.  
 
 
 \section{Dos puertas}
 
+En esta sección se muestran los resultados para recintos con dos puertas ubicadas sobre la misma pared. Se estudió como varía el tiempo de evacuación, la probabilidad de formar clusters de bloqueo y la distribución de presión como función del gap (distancia de separación entre puertas).  
+
 \subsection{Faster is slower}
 
+
 \subsection{Tiempo de evacuación}
+
+En esta subsección se muestran los resultados de las mediciones de tiempo de evacuación en función de gap.
+El tiempo de evacuación se define como el lapso que tarda una determinada cantidad de individuos $>70%$ en evacuar el recinto. 
+
 
 \begin{figure}[H]
     \centering
@@ -94,8 +116,6 @@ La correlación espacial entre presión y velocidad se condice con los resultado
     \caption[width=5cm]{Gráfico de tiempo de evacuación en función del gap. El recinto es de $20\times 20$~(m) con 225 individuos y dos puertas, cada una tiene un ancho de $L=1,2$~m. La gráfica corresponde al promedio de treinta iteraciones. Las velocidades de deseo de los individuos es de $v_d=4$~m/s y $v_d=8$~m/s. Cada simulación termina cuando evacúan 160 individuos.}
     \label{sintesis}
 \end{figure}
-
-
 
 
 \subsection{Blocking clusters}
@@ -154,10 +174,6 @@ La correlación espacial entre presión y velocidad se condice con los resultado
 
 
 
-
-%\subsection{Velocidad}
 \subsection{Comportamiento asintótico}
-
-
 
 
