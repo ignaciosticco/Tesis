@@ -1,14 +1,20 @@
 \documentclass[a4paper,12pt]{report}
+\usepackage{listings}
 \usepackage[utf8]{inputenc}
- 
+\usepackage{import}
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
 \usepackage{float}
 \usepackage{subfig}
 \usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{epstopdf}
+
 %\usepackage[spanish,es-tabla]{babel}
 %\usepackage[nottoc,numbib]{tocbibind}
-
+\renewcommand{\baselinestretch}{1.5}
 %caracteristicas de paginas
 \pdfpagewidth 8.5in
 \pdfpageheight 11in
@@ -20,8 +26,10 @@
 \setlength\parskip{0.1in}
 \def\thechapter{\arabic{chapter}}
 \renewcommand{\chaptername}{Capítulo}
+\renewcommand{\contentsname}{Contenidos}
+\renewcommand\bibname{Bibliografía}
 
-
+% Biblio: http://www.csse.monash.edu.au/documents/bibtex/
 
 \begin{document} 
 
@@ -38,9 +46,9 @@
 \input{resultados_discusion/resultados_discusion.tex}
 \chapter{Conclusiones}
 \input{conclusiones/conclusiones.tex}
+\bibliographystyle{plain} %Choose a bibliograhpic style
+\bibliography{bibliografia/biblio}
+
 
 
 \end{document}
- 
-
-
