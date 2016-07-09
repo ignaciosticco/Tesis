@@ -43,7 +43,7 @@ Se utilizó el concepto de blocking cluster para estudiar a los individuos más 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=5.5cm]{figuras/dos_puertas.png}
+    \includegraphics[height=5.5cm]{figuras/in_image_2_120000_bkg.png}
     \caption[width=5cm]{}
     \label{bc}
 \end{figure}
@@ -52,8 +52,18 @@ A lo largo del trabajo se han usado dos tipos de blocking clusters: Big blocking
 
 \section{Algoritmo de Verlet}
 
-Para integrar las ecuaciones de moviemiento se usó el algoritmo de Verlet. El mismo se basa en actualizar las velocidades, luego las posiciones, en tercer lugar actualiza las fuerzas y vuelve a repetir el ciclo hasta completar las trayectorias. 
+Para integrar las ecuaciones de moviemiento se usó el algoritmo de Verlet, este método es ampliamente utilizado en el campo de dinámica molecular.\\
+Este algoritmo es una combinación de dos expansiones de taylor sumadas para dar lugar a una expresión con términos pares únicamente~\cite{haile}
 
-%% Poner fórmulas, ventajas y orden del error. (ver haile)
-
-
+\begin{equation}
+x(t+\Delta t)=2x(t)-x(t-\Delta t)+\frac{d^2x(t)}{dt^2} \Delta t^2+O(\Delta t^4)
+\label{verlet_x}
+\end{equation} 
+Esta es el algoritmo de Verlet para posiciones. Tiene un error de truncamiento local de ($\Delta^4$), por lo tanto es de tercer orden aunque no contenga derivadas de tercer orden. La aceleración es obtenida de fuerzas intermoleculares y la segunda ley de Newton.
+Para estimar la velocidad se utiliza:
+\begin{equation}
+v(t)\simeq \frac{x(t+\Delta t)-x(t-\Delta t)}{2\Delta t}
+\label{verlet_v}
+\end{equation}
+Para resolverlo se suelen llevar a cabo los siguientes pasos: se actualizan las velocidades, luego las posiciones, en tercer lugar las fuerzas y se vuelve a repetir el ciclo hasta completar las trayectorias. 
+El algoritmo de Verlet poseé buena estabilidad para pasos temporales moderadamente grandes.
