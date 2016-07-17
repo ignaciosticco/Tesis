@@ -1,1 +1,32 @@
+\section{Antecedentes}
+
+La práctica de incluir dos puertas para evacuaciones de emergencia se remonta a los tiempos de la última dinastía Qing en China (1644-1911 AD). Existía una ley que establecía que los edificios grandes debían tener dos salidas para evitar problemas en caso de incendio~\cite{cheng}.
+Los códigos estándar actuales cuantan con especificaciones detalladas de las ubicaciones de las puertas, el ancho y la separación entre éstas~\cite{OSHA,FLO}.
+ 
+Las reglamentaciones actuales exigen que el ancho mínimo de las puertas debe ser 0,813~m y el tamaño máximo de una hoja no debe ser mayor a 1,219~m\cite{FLO,FLO2}. Si se requieren más de dos puertas, la separación entre dos de ellas debe ser al menos un cuarto o un tercio de la distancia diagonal de la habitación. No hay ningún requerimiento especial sobre el resto de las puertas, más alla del hecho que no deben estar simultaneamente bloqueadas\cite{FLO,FLO2}.\\
+
+La reglamentación da lugar a ubicar las salidas adicionales (\emph{i.e.} las puertas arriba mencionadas) con una distancia de separación arbitraria. De esta forma, se pueden ubicar dos puertas en un mismo flanco del cuarto. El caso especial de dos puertas contiguas ha sido examinado en la literatura~\cite{kirchner1,perez1,daoliang1,huanhuan1}. \\
+
+Kirchner y Schadschneider estudiaron el proceso de evacuación de peatones a través de dos puertas contiguas usando un modelo de autómatas celulares\cite{kirchner1}. Los agentes podían abandonar la habitación con comportamientos que iban desde el individualismo hasta un movimiento fuertemente acoplado como el de una \emph{manada}. Se encontró que el tiempo de evacuación es independiente de la distancia de separacipón para el caso de peatones con comportamiento individualista. Pero, si los peatones se movían en manada, se reportó un tiempo de evacuación mayor para pequeñas separaciones (menores al tamaño de 10 individuos).\\
+
+El número de peatones que abandonó el recinto por unidad de tiempo mostró una disminución para distancias de separación menores al ancho de cuatro puertas\cite{perez1}. Esta disminución del flujo fue asociada a un efecto de interferencia debido a peatones cruzandose mutuamente. El umbral de cuatro anchos de puerta ($4\,d_w$) corresponde a la distancia de separación necesaria para distinguir dos  grupos independientes de peatones, cada uno de ellos rodeando a la puerta más cercana. \\
+
+Los investigadores destacaron el hecho que no importa cuan separadas estén las dos puertas, el rendimiento de la evacuación no mejora el doble respecto al rendimiento que tiene una única salida (con el mismo ancho). Este efecto se le atribuye a algún tipo de interferencia entre peatones\cite{perez1}.\\
+
+Aunque los resultados arriba mencionados fueron obtenidos para puertas muy angostas (\emph{i.e.} del ancho de un individuo), investigaciones posteriores mostraron que también aplican a puertas que permiten el paso de dos peatones. Sin embargo, esto no aplica a habitaciones con una única puerta\cite{daoliang1}. En este caso, el flujo medio de peatones evacuados aumenta con el ancho de la puerta, pero el flujo por unidad de ancho decrese\cite{daoliang1}. \\
+ 
+El rendimiento de la evacuación puede verse afectado por la distancia de separación de las puertas si éstas estan ubicadas cerca de una pared, es decir, cerca de la esquina del cuarto. La gente entra en contacto con las paredes, perdiendo eficiencia en la evacuación\cite{kirchner1,daoliang1}. \\
+
+Investigaciones más detalladas con automatas celulares mostraron que el rendimiento en la evacuación depende de cinco longitudes: el ancho total de las salida (es decir, sumar los anchos de cada puerta), la distancia de separación entre puertas, la diferencia de ancho entre las puertas y la distancia a la esquina más cercana \cite{huanhuan1}. \\
+
+El ancho total de las salidas puede mejorar el tiempo de evacuación para cualquier distancia de separación entre puertas, siempre que ambas tengan el mismo ancho. 
+Sin embargo, la separación controla la ubicación óptima para
+estas salidas. A grandes rasgos, la distancia de separación $d_g$ debe ser igual a $L-4\,d_w$, donde $L$ es la longitud del cuarto\cite{huanhuan1}. \\
+
+La ubicación optima concuerda con el fenómeno de disminución del flujo para pequeños valores de $d_g$. También se condice con el empeoramiento del rendimiento de la evacuación para puertas cercanas a la esquina. Pero esta disminución puede surgir por otras razones, ya que el aumento del recorrido de los peatones a las puertas juega un papel importante.\\ 
+
+La configuración con dos puertas no necesita ser simétrica a lo largo de la pared. La asimetría provoca demoras que dependen de la diferencia del ancho de las puertas y sus posiciones relativas. Ubicar a la puerta más ancha en el medio de la pared y a la menor en la esquina, ocasiona un mejora en el proceso de evacuación\cite{huanhuan1}.\\
+
+Esta investigación se centra en configuraciones simétricas con puertas de igual tamaño. A diferencia de la literatura arriba mencionada, se examina la dinámica de la evacuación a través del modelo de fuerza social. En el capítulo siguiente se encuentra una descripción de este modelo. \\
+
 \section{Objetivos}
