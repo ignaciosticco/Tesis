@@ -1,3 +1,8 @@
+\begin{flushleft}
+ {\footnotesize{ \textsl {An intellect which at a certain moment would know all forces that set nature in motion, and all positions of all items of which nature is composed, if this intellect were also vast enough to submit these data to analysis, it would embrace in a single formula the movements of the greatest bodies of the universe and those of the tiniest atom; for such an intellect nothing would be uncertain and the future just like the past would be present before its eyes.}}} \\
+\footnotesize  Pierre Simon Laplace, A Philosophical Essay on Probabilities\\
+\end{flushleft}
+
 En este capítulo se discutirán los resultados obtenidos a lo largo del trabajo. Está dividido en dos secciones, la primera está dedicada a recintos con una única puerta y la segunda a recintos con dos puertas sobre la misma pared.  
 
 \section{Una puerta}
@@ -59,7 +64,32 @@ En cambio, cuando se tienen recintos con puerta angosta, el flujo de evacuados e
     \label{pv_vel_t_100_1_2}
 \end{figure}
 
-En está subsección se comparó la presión y velocidad tanto a nivel "macroscópico" (promedio) como a nivel "microscopico" (variación temporal para un individuo en particular) tanto para recintos con puerta angosta ($1,2$~m) como para recintos de puerta ancha ($3,6$~m). Se obtuvo que con puertas angostas surge el efecto Stop-and-go que provoca altas presiones en el centro mientras que con puertas anchas este efecto no aparece y la evacuación fluye permanentemente. Con lo cual, la mayor presión se da en las zonas laterales. La máxima velocidad se tiene en el medio para ambos recintos. Por lo tanto, la correlación presión-velocidad se verifica en habitaciones con puertas anchas (a nivel macroscópico y microscópico) mientras que en recintos con puertas angostas solo se da a nivel microscópico.  
+En los sistemas de puerta angosta la máxima presión se da en la zona cercana a la puerta (a 1,5~m). La figura \ref{fis_g} muestra la presión en función de la distancia a la puerta. La curva con triángulos es presión en función de la distancia radial (p(r)) y la curva con cuadrados es presión en función de distancia 'x' para $9.5\,\mathrm{m}\leq y\leq 10.5\,\mathrm{m}$ (p(x)). La simetría de la configuración (bulk en forma de arco) hace que p(r) tenga valores mayores que p(x). 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{figuras/p_dist.eps}
+    \caption[width=5cm]{Presión media en función de la distancia a la salida. El tamaño del recinto fue $20\,\mathrm{m}\times20\,\mathrm{m}$  con una puerta de $L=1.2$~m width. Los valores medios fueron calculados a partir de 30 procesos hasta que 100 peatones abandonaron la habitación. La velocidad de deso fue $v_d=4\,$m/s. La distancia a la puerta fue dividida en bins de tamaño $0.3$~m o 1~m.  El símbolo $\bigcirc$  corresponde a bins de $0.3$~m. El símbolo $\bigtriangleup$ corresponde a bins de 1~m, pero en este caso los datos corresponden a  $9.5\,\mathrm{m}\leq y\leq 10.5\,\mathrm{m}$ }
+    \label{fis_g}
+\end{figure}
+
+La presión que soportan los individuos que forman parte del blocking cluster (aquellos individuos que bloquean la puerta) es mayor si el recinto tiene más individuos o si éstos están más apurados por salir. En la tabla \ref{tabla_p}  se muestra el promedio de presión del blocking cluster para para diferentes velocidades de deseo ($v_d=4$~m/s y $v_d=8$~m/s) y diferente cantidad de individuos ($N=225$ y $N=961$), todas las evacuaciones se cortaron al evacuar 100 peatones. Este resultado sugiere que la dinámica de evacuaciones con pocos individuos muy apurados sería similar a la de muchos individuos no apurados.
+
+\begin{table}[H]
+\begin{center}
+   \begin{tabular}{| l | c | r | }
+     \hline
+      & N=225 & N=961 \\ \hline
+     $v_d = 4$~m/s & $8.580 \pm 2580$   & $16.320 \pm 4990$ \\ \hline
+     $v_d = 8$~m/s & $13.500 \pm 4250$  & $27.960 \pm 8420$  \\
+     \hline
+   \end{tabular}
+ \end{center}
+   \caption[width=5cm]{Promedio de presión social que soportan los individuos del blocking cluster para un recinto de 20 $\times$ 20 y 40 $\times$ 40 con 225 y 961 individuos respectivamente. Para cada uno de ellos se uso $v_d=4$~m/s y $v_d=8$~m/s. Todas las simulaciones se terminaron al evacuar 100 individuos.}
+   \label{tabla_p}
+   \end{table}   
+   
+En está subsección se comparó la presión y velocidad tanto a nivel "macroscópico" (promedio) como a nivel "microscópico" (variación temporal para un individuo en particular) tanto para recintos con puerta angosta ($1,2$~m) como para recintos de puerta ancha ($3,6$~m). Se obtuvo que con puertas angostas surge el efecto Stop-and-go que provoca altas presiones en el centro mientras que con puertas anchas este efecto no aparece y la evacuación fluye permanentemente. Con lo cual, la mayor presión se da en las zonas laterales. La máxima velocidad se tiene en el medio para ambos recintos. Por lo tanto, la correlación presión-velocidad se verifica en habitaciones con puertas anchas (a nivel macroscópico y microscópico) mientras que en recintos con puertas angostas solo se da a nivel microscópico.  
 
 
 \section{Dos puertas}
@@ -68,6 +98,20 @@ En esta sección se muestran los resultados para recintos con dos puertas ubicad
 
 \subsection{Faster is slower}
 
+"Faster is slower" es un efecto típico de evacuaciones en estado de ansiedad. Cuanto mayor es el grado de apuro mayor es el tiempo que tardan en evacuar los individuos. 
+La figura \ref{fis_g} muestra el tiempo de evacuación cuando dos puertas están separadas por una distancia de $g=1\,$ 
+y cuando no hay separación ($g=0$). Esta última significa una única salida. Ambos casos (con y sin separación) exhiben un cambio en su correspondiente derivada. Es decir, el efecto ``faster is slower'' se obtiene aun para salidas distanciadas, teniendo un comportamiento cualititivo similar al que aparece en la bibliografía para cuartos con una única salida \cite{Helbing1,Dorso1}.\\ 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{figuras/fis_g.eps}
+    \caption[width=5cm]{Tiempo de evacuación para 160 individuos (segundos) vs. la velocidad de deseo de los peatones (m/s). Two doors were available for leaving the room (see text for details). Los valores medios fueron computados para 30 procesos de evacuación. El ancho de cada puerta era $L=1,2$~m. Se muestran dos situaciones:  $\bigtriangleup$ corresponde a separación nula entre puertas,es decir, una única puerta de ancho  $2L$. $\bigcirc$ corresponde a una separación entre puertas de 1~m.}
+    \label{fis_g}
+\end{figure}
+
+El tiempo de evacuación para puertas separadas siempre está por encima del tiempo que demora evacuar con una única puerta (\emph{i.e.} gap nulo). Para $v_d=6\,$m/s, una única salida mejora el rendimiento de la evacuación en la mitad de tiempo que demanda la configuración con $d_g=1\,$m. Otras distancias de separación (no exhibidas) muestran el mismo comportamiento que el de la figura \ref{fis_g}.\\
+
+Puede decirse que aun dejando fijo el tamaño total de la abertura, separar este ancho en dos salidas simétricas puede afectar significativamente el rendimiento de la evacuación.
 
 \subsection{Tiempo de evacuación}
 
