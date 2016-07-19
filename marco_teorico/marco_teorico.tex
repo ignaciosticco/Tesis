@@ -34,8 +34,45 @@ Con todo esto, mediante la fórmula \ref{newton}, puede expresarse el cambio de 
 m_i\frac{d\mathbf{v_i}}{dt}=\mathbf{f}_d^ {(i)}(t)+ \sum_{i\neq j}^{N}\mathbf{f}^{(ij)} + \sum_{W}^{N}\mathbf{f}^{(iW)}
 \label{newton}
 \end{equation}  
+
+Uno de los resultados más trasendentes de este modelo es el efecto "Faster is slower" \cite{Helbing1}. A partir de cierto grado de apuro ($v_d=2$~m/s) un incremento en la velocidad de deseo produce evacuaciones menos efectivas (los peatones tardan más en evacuar). 
  
-\section{Presión social}
+\section{Presión local}
+
+A pesar de que la fuerza de deseo $\mathbf{f}_d$ y la fuerza social $\mathbf{f}_s$, del modelo de fuerza social, no son magnitudes "Físicas" (\textit{i.e.} no tienen par de reacción), la ecuación de moviemiento sigue siendo válida. Por lo tanto, se puede derivar la relación del virial\cite{lion}. 
+
+\begin{equation}
+ \bigg\langle\displaystyle\sum_{i=1}^N\displaystyle\frac{p_i^2}{m_i} + 
+\displaystyle\sum_{i=1}^N 
+\mathbf{r}_i\cdot\mathbf{f}_i\bigg\rangle=0\label{virial1}
+\end{equation}
+
+
+\noindent Para un conjunto de $N$ pedestrians. $p_i$  y $\mathbf{f}_i$ son el impulso y la fuerza total actuando sobre el individuo $i$. $\langle\cdot\rangle$ corresponde al valor medio en el tiempo.  \\
+
+La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad de área) actuando sobre él debidas a los individuos que lo rodean y las paredes. Según Ref.~\cite{lion} se puede definir la "función de presión social" $P_i$ como:\\
+
+\begin{equation}
+3P_iV_i=\displaystyle\frac{p_i^2}{m_i} + \frac{1}{2}
+\displaystyle\sum_{j=1}^{N-1}
+\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}\label{pv}
+\end{equation}
+
+\noindent donde $V_i$ es el volumen que encierra al peatón $i$ y 
+$\mathbf{r}_{ij}=\mathbf{r}_{i}-\mathbf{r}_j$. Cabe destacar que el producto interno $\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}$ siempre es positivo debido a la repulsión y es igual al producto escalar $d_{ij}f_s^{(ij)}$.  \\ 
+
+El segundo término en la equación \ref{virial1} puede dividirse en la suma de productos internos $\mathbf{r}_i\cdot\mathbf{f}_d$ (deseo), 
+$\mathbf{r}_i\cdot\mathbf{f}_s$ (social) y $\mathbf{r}_i\cdot\mathbf{f}_g$ (granular). De hecho, la suma del producto social depende de la distancia entre partículas $d_{ij}f_s^{(ij)}$, mientras que la parte granular no tiene ningún rol por su ortogonalidad ($\mathbf{r}_{ij}\cdot\mathbf{f}_g^{(ij)}=0$). Por lo tanto, la relación del virial (\ref{virial1}) se expresa \\  
+
+
+\begin{equation}
+ \displaystyle\sum_{i=1}^N\langle3P_iV_i 
+\rangle=-\displaystyle\sum_{i=1}^N \langle
+\mathbf{r}_i\cdot\mathbf{f}_d^{(i)}\rangle\label{virial2}
+\end{equation}
+
+Hay que destacar que la ecuación (\ref{virial2}) se cumple si los peatones están en contacto o no. La "función de presión social" $P_i$ hace que los individuos puedan cambiar su patrón de comportamiento cuando se acercan mucho unos con otros o con las paredes. \\ 
+
 
 \section{Blocking Clusters}
 
