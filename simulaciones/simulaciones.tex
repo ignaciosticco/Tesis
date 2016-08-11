@@ -44,7 +44,7 @@ Se creó para que exista rozamiento entre los individuos que están en contacto.
 
 {\Large fix\_wall\_social y fix\_wall\_gran}
 
-Estos módulos son análogos a pair\_social y pair\_gran\_social pero aplicados a las fuerzas de interacción entre los individuos y las paredes. El primero simula la fuerza de repulsión y poseé los mismos parámetros que la repulsión entre individuos mientras que el segundo modela la fuerza de rozamiento dinámico. 
+Estos módulos son análogos a pair\_social y pair\_gran\_social pero aplicados a las fuerzas de interacción entre los individuos y las paredes. El primero simula la fuerza de repulsión y posee los mismos parámetros que la repulsión entre individuos mientras que el segundo modela la fuerza de rozamiento dinámico. 
 
 {\Large fix\_social\_self y fix\_social\_self\_multi}
 
@@ -83,7 +83,7 @@ Se registró el tiempo que demora evacuar más del 70\% de los individuos en dis
 
 {\Large Probabilidad de formar blocking clusters}
 
-Mediante el módulo que identifica los individuos que conforman un blocking cluster se calculó el cociente entre el tiempo en el que la salida está bloqueada y el tiempo total de la evacuación. Se graficó la probabilidad de formar blocking clusters (grandes y pequeños) para recintos de 20$\times$20~m con 225 individuos con velocidad de deseo de 4~m/s, 6~m/s y recintos de 40$\times$40~m con 961 individuos con $v_d$=4~m/s. 30 iteraciones fueron realizadas para promediar los resultados. 
+Mediante el módulo que identifica los individuos que conforman un blocking cluster se calculó el cociente entre el tiempo que la salida está bloqueada y el tiempo total de la evacuación. Este cociente es la probabilidad de formar blocking clusters. Se graficó esta probabilidad para clusters grandes y pequeños en recintos de 20$\times$20~m con 225 individuos con velocidad de deseo de 4~m/s, 6~m/s y recintos de 40$\times$40~m con 961 individuos con $v_d$=4~m/s. 30 iteraciones fueron realizadas para promediar los resultados. 
 
 {\Large Presión en función de distancia a la puerta}
 
@@ -96,7 +96,7 @@ A modo de ejemplo se describirá un script de Lammps que se hizo para simular 22
 El programa devuelve un video de la simulación en formato mpg y un archivo txt con una tabla que indica: $v_d$, número de iteración y el tiempo para el cual evacuaron más de 159 individuos.
 El script está dividido en cinco partes: condiciones iniciales, fuerzas, evacuados, visualización y ejecución del proceso.\\ 
 En las condiciones iniciales se fija la dimensión del problema (2d), las condiciones de contorno (no periódicas en las coordenadas x e y), el sistema de unidades usado (sistema internacional), también se configuran los atributos de los individuos como el tamaño (60 cm diámetro) y su peso (70~kg). La velocidad inicial se fijó con la función {\tt velocity}, la misma genera una distribución gausiana de velocidades que es asignada de forma aleatoria a los individuos. El módulo de la velocidad es 1,7~m/s. La semilla que genera la distribución de velocidades es el número de iteración.\\
-En cuanto al tamaño de la región de simulación, se crearon tres zonas: la zona 1 es la que inicialmente poseé a los individuos (ordenados tipo red cuadrada separados 1,3~m entre si), la zona 2 es la región de evacuación y la zona 3 es la conexión entre ambas regiones (la puerta por donde pasan).\\
+En cuanto al tamaño de la región de simulación, se crearon tres zonas: la zona 1 es la que inicialmente posee a los individuos (ordenados tipo red cuadrada separados 1,3~m entre si), la zona 2 es la región de evacuación y la zona 3 es la conexión entre ambas regiones (la puerta por donde pasan).\\
 En la parte de fuerzas se especifican las interacciones que sienten los individuos y sus respectivos parámetros. La repulsión entre individuos (pair style social) utiliza la expresión $\ref{fsocial}$ con los parámetros: A=2000~N, B=0,08~m y se asignó un cutoff de 3,5~m. La fuerza granular (pair style gran/social) se basa en la fórmula $\ref{frozamiento}$ con $\kappa =2,4 \times 10^5~kgm^{-1}s^{-1}$. Se usaron los mismos parámetros para las expresiones análogas en la interacción individuo-pared (fix wall/region social y granular). La fuerza de deseo (fix social/self) tomó como parámetro a la velocidad de deseo, ésta varía según el loop del encabezado del programa. \\
 En la parte de evacuación se cuenta a todos los individuos que salieron del recinto, es decir, a todos los peatones cuya posición en la coordenada x sea mayor a 20 m. Este cálculo queda almacenado en la variable {\tt evacuados} que se utiliza para terminar la simulación cuando la cantidad de individuos evacuados sea superior a 159. \\
 La visualización devuelve un video {\tt in.evacuation.mpg} que permite observar la dinámica de la evacuación. \\
