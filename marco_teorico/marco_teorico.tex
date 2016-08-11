@@ -1,10 +1,10 @@
 En este capítulo se describirá el modelo en el cual se basa toda la investigación, también se definirán los conceptos utilizados a lo largo del trabajo como la definición de la presión social y los blocking clusters. Además se comentará el algoritmo de Verlet, ya que fue utilizado para resolver la dinámica del problema. 
 
-\section{Modelo de Fuerza social}
+\section{\label{sfm}Modelo de Fuerza social}
 
 El modelo de fuerza social es un modelo basado en agentes utilizado para simular el movimiento de peatones. Supone que los individuos soportan tres tipos de fuerzas: fuerzas de deseo (autopropulsión), sociales (repulsión) y granulares (rozamiento).  \\
 
-La fuerza de autopropulsión refleja el hecho que el individuo i-esimo que poseé masa $m_i$, desea  moverse con una velocidad $v_d^ {(i)}(t)$ en una dirección $\hat{\mathbf{e}}_d^ {(i)}(t)$, por lo tanto readapta su velocidad $\mathbf{v}_i(t)$ con un cierto tiempo característico $\tau$.
+La fuerza de autopropulsión refleja el hecho que el individuo i-esimo que posee masa $m_i$, desea  moverse con una velocidad $v_d^ {(i)}(t)$ en una dirección $\hat{\mathbf{e}}_d^ {(i)}(t)$, por lo tanto readapta su velocidad $\mathbf{v}_i(t)$ con un cierto tiempo característico $\tau$.
 \begin{equation}
 \mathbf{f}_d^ {(i)}(t)=m_i\,\displaystyle\frac{v_d^ {(i)}(t)\,\hat{\mathbf{e}}_d^ {(i)}(t)-\mathbf{v}_i(t)}{\tau}\label{fdeseo}
 \end{equation}
@@ -15,8 +15,8 @@ La repulsión social es una fuerza que describe la tendencia que tienen las pers
 \mathbf{f}_s^{(ij)}=A_i\,e^{(r_{ij}-d_{ij})/B_i}\mathbf{n}_{ij}\label{fsocial}
 \end{equation} 
 
-Cuando los individuos están en contacto, comienza a actuar una fuerza de rozamiento, la misma es proporcional a la velocidad relativa entre individuos.  
-$\Delta \mathbf{v}_{ij}=(\mathbf{v}_i-\mathbf{v}_j)$, la dirección tangencia está representada por $\mathbf{t}_{ij}=(-n_{ij}^2,n_{ij}^1)$.  $\kappa$ es una constante y $g(x)$ es una función nula cuando los individuos no se toca $(r_{ij}<d_{ij})$ y toma el valor de su argumento en caso contrario. 
+Cuando los individuos están en contacto, comienza a actuar una fuerza de rozamiento, la misma es proporcional a la velocidad relativa entre los mismos.  
+$\Delta \mathbf{v}_{ij}=(\mathbf{v}_i-\mathbf{v}_j)$, la dirección tangencial está representada por $\mathbf{t}_{ij}=(-n_{ij}^2,n_{ij}^1)$.  $\kappa$ es una constante y $g(x)$ es una función nula cuando los individuos no se tocan $(r_{ij}<d_{ij})$ y toma el valor de su argumento en caso contrario. 
 \begin{equation}
 \mathbf{f}_g^{(ij)}=\kappa\,g(r_{ij}-d_{ij})\,\Delta \mathbf{v}_{ij}\cdot\mathbf{t}_{ij}\label{frozamiento}
 \end{equation}
@@ -28,18 +28,18 @@ Se trata de forma análoga a la interacción de los individuos con las paredes. 
 \label{fparedes}
 \end{equation} 
 
-Con todo esto, mediante la fórmula \ref{newton}, puede expresarse el cambio de velocidad en el tiempo que siente un individuo. $f^{ij}$ es el término de interacción entre individuos, es la suma de la repulsión y el rozamiento. El cambio de posición viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
+Con todo esto, mediante la fórmula \ref{newton}, puede expresarse la variación de velocidad en el tiempo que siente un individuo. $f^{ij}$ es el término de interacción entre individuos, es la suma de la repulsión y el rozamiento. El cambio de posición viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
 
 \begin{equation}
 m_i\frac{d\mathbf{v_i}}{dt}=\mathbf{f}_d^ {(i)}(t)+ \sum_{i\neq j}^{N}\mathbf{f}^{(ij)} + \sum_{W}^{N}\mathbf{f}^{(iW)}
 \label{newton}
 \end{equation}  
 
-Uno de los resultados más trasendentes de este modelo es el efecto "Faster is slower" \cite{Helbing1}. A partir de cierto grado de apuro ($v_d=2$~m/s) un incremento en la velocidad de deseo produce evacuaciones menos efectivas (los peatones tardan más en evacuar). 
+Uno de los resultados más trascendentes de este modelo es el efecto "Faster is slower" \cite{Helbing1}. A partir de cierto grado de apuro ($v_d=2$~m/s) un incremento en la velocidad de deseo produce evacuaciones menos eficientes (los peatones tardan más en evacuar). 
  
 \section{Presión local}
 
-A pesar de que la fuerza de deseo $\mathbf{f}_d$ y la fuerza social $\mathbf{f}_s$, del modelo de fuerza social, no son magnitudes "Físicas" (\textit{i.e.} no tienen par de reacción), la ecuación de moviemiento sigue siendo válida. Por lo tanto, se puede derivar la relación del virial\cite{lion}. 
+A pesar de que la fuerza de deseo $\mathbf{f}_d$ y la fuerza social $\mathbf{f}_s$, del modelo de fuerza social, no son magnitudes "Físicas" (\textit{i.e.} no tienen par de reacción), la ecuación de movimiento sigue siendo válida. Por lo tanto, se puede derivar la relación del virial\cite{lion}. 
 
 \begin{equation}
  \bigg\langle\displaystyle\sum_{i=1}^N\displaystyle\frac{p_i^2}{m_i} + 
@@ -76,7 +76,7 @@ Hay que destacar que la ecuación (\ref{virial2}) se cumple si los peatones est�
 
 \section{Blocking Clusters}
 
-Se utilizó el concepto de blocking cluster para estudiar a los individuos más cercanos a la salida. Se lo define como un conjunto de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están proximos a los costados de la puerta. Aquellos peatones que conforman el blocking cluster son los responsables de bloquear la salida.  Tipicamente los blocking cluster formados en las evacuaciones tiene estructura de "arco" como el que se muestra en la figura \ref{bc}. Basta que un solo peaton deje de estar en contacto con sus vecinos para que el blocking cluster deje de estar constituído. \\
+Se utilizó el concepto de blocking cluster~\cite{Dorso1} para estudiar a los individuos más cercanos a la salida. Se lo define como un conjunto de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. Aquellos peatones que conforman el blocking cluster son los responsables de bloquear la salida. Típicamente los blocking cluster formados en las evacuaciones tiene estructura de "arco" como el que se muestra en la figura \ref{bc}. Basta que un solo peatón deje de estar en contacto con sus vecinos para que el blocking cluster deje de estar constituído. \\
 
 \begin{figure}[H]
     \centering
@@ -89,18 +89,18 @@ A lo largo del trabajo se han usado dos tipos de blocking clusters: Big blocking
 
 \section{Algoritmo de Verlet}
 
-Para integrar las ecuaciones de moviemiento se usó el algoritmo de Verlet, este método es ampliamente utilizado en el campo de dinámica molecular.\\
+Para integrar las ecuaciones de movimiento se usó el algoritmo de Verlet, este método es ampliamente utilizado en el campo de dinámica molecular.\\
 Este algoritmo es una combinación de dos expansiones de taylor sumadas para dar lugar a una expresión con términos pares únicamente~\cite{haile}
 
 \begin{equation}
 x(t+\Delta t)=2x(t)-x(t-\Delta t)+\frac{d^2x(t)}{dt^2} \Delta t^2+O(\Delta t^4)
 \label{verlet_x}
 \end{equation} 
-Esta es el algoritmo de Verlet para posiciones. Tiene un error de truncamiento local de ($\Delta^4$), por lo tanto es de tercer orden aunque no contenga derivadas de tercer orden. La aceleración es obtenida de fuerzas intermoleculares y la segunda ley de Newton.
+Este es el algoritmo de Verlet para posiciones. Tiene un error de truncamiento local de ($\Delta^4$), por lo tanto es de tercer orden aunque no contenga derivadas de tercer orden. La aceleración es obtenida de fuerzas intermoleculares y la segunda ley de Newton.
 Para estimar la velocidad se utiliza:
 \begin{equation}
 v(t)\simeq \frac{x(t+\Delta t)-x(t-\Delta t)}{2\Delta t}
 \label{verlet_v}
 \end{equation}
 Para resolverlo se suelen llevar a cabo los siguientes pasos: se actualizan las velocidades, luego las posiciones, en tercer lugar las fuerzas y se vuelve a repetir el ciclo hasta completar las trayectorias. 
-El algoritmo de Verlet poseé buena estabilidad para pasos temporales moderadamente grandes.
+El algoritmo de Verlet posee buena estabilidad para pasos temporales moderadamente grandes.
