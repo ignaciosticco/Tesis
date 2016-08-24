@@ -14,13 +14,13 @@ La figura ~\ref{hilera2} representa una hilera de individuos empujando a la dere
 \end{figure}
 
 Los peatones empujan a la derecha gracias a la fuerza de deseo
-$f_d^{(i)}=mv_d/\tau$, según la ecuación Ec.~(\ref{fdeseo}). La repulsión social balancea la fuerza de deseo, pero solo se tienen en cuenta la interacción de los individuos en contacto (se desprecia la interacción de segundos vecinos). La ec ~\ref{eqn_6} muestra la ecuación de balance de cada individuo en la hilera. \\
+$f_d^{(i)}=mv_d/\tau$, según la ecuación Ec.~(\ref{fdeseo}). La repulsión social balancea la fuerza de deseo, pero solo se tiene en cuenta la interacción de los individuos en contacto (se desprecia la interacción de segundos vecinos). La ec ~\ref{eqn_6} muestra la ecuación de balance de cada individuo en la hilera. \\
 
 \begin{equation}
  f_s^{(i,i+1)}-f_s^{(i,i-1)}+\displaystyle\frac{mv_d}{\tau}=0\label{eqn_6}
 \end{equation}
 
-\noindent con $f_s^{(i,j)}$ la fuerza repulsiva que siente el individuo $i$ debido a la presencia del peatón $j$. Cabe destacar que la condición de contorno en la posición $x_0=0$ (condición de Dirichlet), mientras que la condición en el otro extremos es $f_s^{(N,N+1)}=0$ (condición de Neumann). Las fuerzas en los peatones se obtienen de forma recursiva a partir de la expresión Ec.~\ref{eqn_6}, empezando desde el extremo libre ($i=N$). El resultado es
+\noindent con $f_s^{(i,j)}$ la fuerza repulsiva que siente el individuo $i$ debido a la presencia del peatón $j$. Cabe destacar que la condición de contorno en la posición $x_0=0$  es condición de Dirichlet, mientras que la condición en el otro extremos es condición de Neumann $f_s^{(N,N+1)}=0$. Las fuerzas en los peatones se obtienen de forma recursiva a partir de la expresión Ec.~\ref{eqn_6}, empezando desde el extremo libre ($i=N$). El resultado es
 
 \begin{equation}
 f_s^{(i,i-1)}=(N-i+1)\,\displaystyle\frac{mv_d}{\tau}\ \ \ , \ \ \ 
@@ -35,8 +35,7 @@ x_i=x_{i-1}-(r_{i}+r_{i-1})+B\,\ln\bigg[(N-i+1)\,\displaystyle\frac{mv_d}{A\tau}
 \end{equation}
 
 La intuición sugiere que la presión que siente un peatón $P_i$ 
-corresponde a las fuerzas actuando en él (por unidad de área) debido a los primeros vecinos.  We can further assert this from the 
-``social pressure function'' definition (\ref{eqn_4})  
+corresponde a las fuerzas actuando en él (por unidad de área) debido a los primeros vecinos. De la definición de "función de presión social" (\ref{eqn_4}) se puede derivar
 
 \begin{equation}
 P_i=\displaystyle\frac{1}{2}\,\bigg[\displaystyle\frac{x_{i}-x_{i+1}}{3V_i}\,
