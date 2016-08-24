@@ -1,33 +1,65 @@
 \section{Antecedentes}
 
-La práctica de incluir dos puertas para evacuaciones de emergencia se remonta a los tiempos de la última dinastía Qing en China (1644-1911 AD). Existía una ley que establecía que los edificios grandes debían tener dos salidas para evitar problemas en caso de incendio~\cite{cheng}.
+A lo largo de los últimos años se evidenció cómo la dinámica descontrolada de multitudes (\emph{i.e.} en estado de pánico) llevó a tener que lamentar numerosas víctimas. Se recuerdan las fatalidades  de  la “puerta 12” en el estadio de River Plate (1968) y la catástrofe en el salón de espectáculos de Cromagnon (2004), por mencionar algunos hechos conmocionantes. Otras fatalidades se han convertido en recurrentes como las del puente de Jamaraat, durante la peregrinación anual a la  Meca. \\   
+
+\noindent Estos sucesos ocasionados por el movimiento de multitudes en estado de pánico ha atraído la atención de investigadores en diversas áreas (psicología social, ingeniería, física, etc.). Diversos modelos han sido propuestos para describir esta problemática, que van desde la dinámica de fluidos hasta los autómatas celulares.\\
+
+\noindent En una aproximación al continuo, algunos autores utilizan ecuaciones de evolución del tipo fluido.  El esfuerzo está puesto en analizar la evolución temporal de una cierta “densidad de masa” y del  flujo, que viene a representar, de manera simplificada, el movimiento de personas~\cite{bruno}. \\
+
+\noindent Por otro lado, los modelos de tipo autómata celular asimilan a los individuos como agentes autónomos sobre un arreglo regular de “celdas”. Éstos de desplazan “celda a celda” de acuerdo a reglas diseñadas para reproducir comportamientos típicos de peatones en multitudes. Tienen la ventaja de ser muy rápidos y fácilmente entendibles para los no habituados a problemas de dinámica molecular o granular. Sin embargo, no son muy aptos para describir la emergencia de situaciones de alta densidad y las correspondientes variaciones de la dinámica~\cite{blue}.\\
+
+\noindent Una mejor aproximación al estudio del movimiento de multitudes es el modelo de Fuerza Social de Helbing~\cite{Helbing1}. El modelo de Helbing se basa en observaciones empíricas sobre el comportamiento social de individuos. Considera que el movimiento de individuos se debe a una combinación de fuerzas socio-psicológicas y físicas. Las fuerzas ingresan entonces a una ecuación de movimiento clásica. \\
+
+\noindent El modelo básico de Helbing identifica al menos dos tipos de “fuerzas sociales” y una fuerza “física”.  Las dos primeras corresponden al “deseo” del individuo por moverse en cierta dirección (como consecuencia de sus propias motivaciones) y a la “preservación” de su “espacio de privacidad”, o sea, la tendencia de los individuos a estar alejados unos de otros. La fuerza “física” es la  fricción experimentada entre individuos en contacto. En las Refs~\cite{Helbing1,Dorso1,Dorso3} se puede encontrar información detallada sobre cada una de las fuerzas.\\ 
+
+\noindent La “fuerza de deseo” es el resultado de las motivaciones de los individuos. Allí se incluye, no sólo el nivel de ansiedad de una persona para llegar a destino, sino también otros factores de su personalidad y cultura, como por ejemplo, la tendencia a seguir a otros, o de establecer consensos~\cite{Dorso3,Dorso4}.  Puede consultarse las Refs.~\cite{Wang,low} para algunas situaciones específicas. 
+La formulación matemática del modelo de Helbing será detallada en el capítulo siguiente \\ %% Poner referencia
+
+El modelo de fuerza social es capaz de describir varios fenómenos propios de las evacuaciones. Entre ellos se tiene el aletargo producido cuando el nivel de ansiedad de los peatones es grande (Faster is slower~\cite{Helbing1}) o los "blocking clusters"~\cite{Dorso1} (conjunto de individuos que bloquea la salida formando un arco).
+
+\noindent El modelo básico de Helbing cubre una amplia variedad de situaciones y puede utilizarse para modelar evacuaciones en recintos con geometrías complejas. En este trabajo de tesis se aborda la problemática de evacuaciones en estado de pánico en recintos con una y dos puertas sobre la misma pared.\\ 
+
+\noindent La práctica de incluir dos puertas para evacuaciones de emergencia se remonta a los tiempos de la última dinastía Qing en China (1644-1911 AD). Existía una ley que establecía que los edificios grandes debían tener dos salidas para evitar problemas en caso de incendio~\cite{cheng}.
 Las reglamentaciones edilicias actuales cuentan con especificaciones detalladas de las ubicaciones de las puertas, el ancho y la separación entre éstas~\cite{OSHA,FLO}.
  
-Las reglamentaciones actuales exigen que el ancho mínimo de las puertas debe ser 0,813~m y el tamaño máximo de una hoja no debe ser mayor a 1,219~m\cite{FLO,FLO2}. Si se requieren más de dos puertas, la separación entre dos de ellas debe ser al menos un cuarto o un tercio de la distancia diagonal de la habitación. No hay ningún requerimiento especial sobre el resto de las puertas, más allá del hecho que no deben estar simultáneamente bloqueadas\cite{FLO,FLO2}.\\
+\noindent Las reglamentaciones actuales exigen que el ancho mínimo de las puertas debe ser 0,813~m y el tamaño máximo de una hoja no debe ser mayor a 1,219~m\cite{FLO,FLO2}. Si se requieren más de dos puertas, la separación entre dos de ellas debe ser al menos un cuarto o un tercio de la distancia diagonal de la habitación. No hay ningún requerimiento especial sobre el resto de las puertas, más allá del hecho que no deben estar simultáneamente bloqueadas\cite{FLO,FLO2}.\\
 
-La reglamentación da lugar a ubicar las salidas adicionales (\emph{i.e.} las puertas arriba mencionadas) con una distancia de separación arbitraria. De esta forma, se pueden ubicar dos puertas en un mismo flanco del cuarto. El caso especial de dos puertas contiguas ha sido examinado en la literatura~\cite{kirchner1,perez1,daoliang1,huanhuan1}. \\
+\noindent La reglamentación da lugar a ubicar las salidas adicionales (\emph{i.e.} las puertas arriba mencionadas) con una distancia de separación arbitraria. De esta forma, se pueden ubicar dos puertas en un mismo flanco del cuarto. El caso especial de dos puertas contiguas ha sido examinado en la literatura~\cite{kirchner1,perez1,daoliang1,huanhuan1}. \\
 
-Kirchner y Schadschneider estudiaron el proceso de evacuación de peatones a través de dos puertas contiguas usando un modelo de autómatas celulares\cite{kirchner1}. Los agentes podían abandonar la habitación con comportamientos que iban desde el individualismo hasta un movimiento fuertemente acoplado como el de una \emph{manada}. Se encontró que el tiempo de evacuación es independiente de la distancia de separación para el caso de peatones con comportamiento individualista. Pero, si los peatones se movían en manada, se reportó un tiempo de evacuación mayor para pequeñas separaciones (menores al tamaño de 10 individuos).\\
+\noindent Kirchner y Schadschneider estudiaron el proceso de evacuación de peatones a través de dos puertas contiguas usando un modelo de autómatas celulares\cite{kirchner1}. Los agentes podían abandonar la habitación con comportamientos que iban desde el individualismo hasta un movimiento fuertemente acoplado como el de una \emph{manada}. Se encontró que el tiempo de evacuación es independiente de la distancia de separación para el caso de peatones con comportamiento individualista. Pero, si los peatones se movían en manada, se reportó un tiempo de evacuación mayor para pequeñas separaciones (menores al tamaño de 10 individuos).\\
 
-El número de peatones que abandonó el recinto por unidad de tiempo mostró una disminución para distancias de separación menores al ancho de cuatro puertas\cite{perez1}. Esta disminución del flujo fue asociada a un efecto de interferencia debido a peatones cruzándose mutuamente. El umbral de cuatro anchos de puerta ($4\,d_w$) corresponde a la distancia de separación necesaria para distinguir dos  grupos independientes de peatones, cada uno de ellos rodeando a la puerta más cercana. \\
+\noindent El número de peatones que abandonó el recinto por unidad de tiempo mostró una disminución para distancias de separación menores al ancho de cuatro puertas\cite{perez1}. Esta disminución del flujo fue asociada a un efecto de interferencia debido a peatones cruzándose mutuamente. El umbral de cuatro anchos de puerta ($4\,d_w$) corresponde a la distancia de separación necesaria para distinguir dos  grupos independientes de peatones, cada uno de ellos rodeando a la puerta más cercana. \\
 
-Los investigadores destacaron el hecho que no importa cuan separadas estén las dos puertas, el rendimiento de la evacuación no mejora el doble respecto al rendimiento que tiene una única salida (con el mismo ancho). Este efecto se le atribuye a algún tipo de interferencia entre peatones\cite{perez1}.\\
+\noindent Los investigadores destacaron el hecho que no importa cuan separadas estén las dos puertas, el rendimiento de la evacuación no mejora el doble respecto al rendimiento que tiene una única salida (con el mismo ancho). Este efecto se le atribuye a algún tipo de interferencia entre peatones\cite{perez1}.\\
 
-Aunque los resultados arriba mencionados fueron obtenidos para puertas muy angostas (\emph{i.e.} del ancho de un individuo), investigaciones posteriores mostraron que también aplican a puertas que permiten el paso de dos peatones. Sin embargo, esto no aplica a habitaciones con una única puerta\cite{daoliang1}. En este caso, el flujo medio de peatones evacuados aumenta con el ancho de la puerta, pero el flujo por unidad de ancho decrece\cite{daoliang1}. \\
+\noindent Aunque los resultados arriba mencionados fueron obtenidos para puertas muy angostas (\emph{i.e.} del ancho de un individuo), investigaciones posteriores mostraron que también aplican a puertas que permiten el paso de dos peatones. Sin embargo, esto no aplica a habitaciones con una única puerta\cite{daoliang1}. En este caso, el flujo medio de peatones evacuados aumenta con el ancho de la puerta, pero el flujo por unidad de ancho decrece\cite{daoliang1}. \\
  
-El rendimiento de la evacuación puede verse afectado por la distancia de separación de las puertas si éstas están ubicadas cerca de una pared, es decir, cerca de la esquina del cuarto. La gente entra en contacto con las paredes, perdiendo eficiencia en la evacuación\cite{kirchner1,daoliang1}. \\
+\noindent El rendimiento de la evacuación puede verse afectado por la distancia de separación de las puertas si éstas están ubicadas cerca de una pared, es decir, cerca de la esquina del cuarto. La gente entra en contacto con las paredes, perdiendo eficiencia en la evacuación\cite{kirchner1,daoliang1}. \\
 
-Investigaciones más detalladas con autómatas celulares mostraron que el rendimiento en la evacuación depende de cinco longitudes: el ancho total de las salida (es decir, sumar los anchos de cada puerta), la distancia de separación entre puertas, la diferencia de ancho entre las puertas y la distancia a la esquina más cercana \cite{huanhuan1}. \\
+\noindent Investigaciones más detalladas con autómatas celulares mostraron que el rendimiento en la evacuación depende de cinco longitudes: el ancho total de las salida (es decir, sumar los anchos de cada puerta), la distancia de separación entre puertas, la diferencia de ancho entre las puertas y la distancia a la esquina más cercana \cite{huanhuan1}. \\
 
-El ancho total de las salidas puede mejorar el tiempo de evacuación para cualquier distancia de separación entre puertas, siempre que ambas tengan el mismo ancho. 
+\noindent El ancho total de las salidas puede mejorar el tiempo de evacuación para cualquier distancia de separación entre puertas, siempre que ambas tengan el mismo ancho. 
 Sin embargo, la separación controla la ubicación óptima para
 estas salidas. A grandes rasgos, la distancia de separación $d_g$ debe ser igual a $L-4\,d_w$, donde $L$ es la longitud del cuarto\cite{huanhuan1}. \\
 
-La ubicación óptima concuerda con el fenómeno de disminución del flujo para pequeños valores de $d_g$. También se condice con el empeoramiento del rendimiento de la evacuación para puertas cercanas a la esquina. Pero esta disminución puede surgir por otras razones, ya que el aumento del recorrido de los peatones a las puertas juega un papel importante.\\ 
+\noindent La ubicación óptima concuerda con el fenómeno de disminución del flujo para pequeños valores de $d_g$. También se condice con el empeoramiento del rendimiento de la evacuación para puertas cercanas a la esquina. Pero esta disminución puede surgir por otras razones, ya que el aumento del recorrido de los peatones a las puertas juega un papel importante.\\ 
 
-La configuración con dos puertas no necesita ser simétrica a lo largo de la pared. La asimetría provoca demoras que dependen de la diferencia del ancho de las puertas y sus posiciones relativas. Ubicar a la puerta más ancha en el medio de la pared y a la menor en la esquina, ocasiona un mejora en el proceso de evacuación\cite{huanhuan1}.\\
+\noindent La configuración con dos puertas no necesita ser simétrica a lo largo de la pared. La asimetría provoca demoras que dependen de la diferencia del ancho de las puertas y sus posiciones relativas. Ubicar a la puerta más ancha en el medio de la pared y a la menor en la esquina, ocasiona un mejora en el proceso de evacuación\cite{huanhuan1}.\\
 
-Esta investigación se centra en configuraciones simétricas con puertas de igual tamaño. A diferencia de la literatura arriba mencionada, se examina la dinámica de la evacuación a través del modelo de fuerza social. En el capítulo siguiente se encuentra una descripción de dicho modelo. \\
+%%% Hacer itemize
+En suma los resultados previos indican que:
+
+\forceindent \textbf{a)} El tiempo de evacuación es independiente de la distancia de separación para el caso de peatones con comportamiento individualista.
+
+\forceindent \textbf{b)} si los peatones se mueven en manada, el tiempo de evacuación para pequeñas separaciones es mayor. 
+
+\forceindent \textbf{c)} El número de peatones que abandonó el recinto por unidad de tiempo mostró una disminución para distancias de separación menores al ancho de cuatro puertas
+
+\forceindent \textbf{d)} No importa cuan separadas están las dos puertas, el rendimiento de la evacuación no mejora el doble respecto al rendimiento que tiene una única salida (con el mismo ancho).
+
+\forceindent \textbf{e)} El ancho total de las salidas puede mejorar el tiempo de evacuación para cualquier distancia de separación entre puertas, siempre que ambas tengan el mismo ancho.
+
+\noindent Esta investigación se centra en configuraciones simétricas con puertas de igual tamaño. A diferencia de la literatura arriba mencionada, se examina la dinámica de la evacuación a través del modelo de fuerza social. En el capítulo siguiente se encuentra una descripción de dicho modelo. \\
 
 \newpage
 
