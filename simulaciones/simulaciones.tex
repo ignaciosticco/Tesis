@@ -80,7 +80,7 @@ Se llevaron a cabo dos simulaciones (partículas centradas y partículas en hile
 
 \subsection{Partículas centradas}
 
-Se simuló un conjunto de 19 partículas cuyo target es el origen de coordenadas. Con una velocidad de deseo $v_d=4$~m/s en módulo. En el estado estacionario la disposición de las partículas es tal como se muestra en la figura \ref{central} . Las partículas se encuentran casi estáticas, poseen una pequeña oscilación en torno a la posición de equilibrio. 
+Se simuló un conjunto de 19 partículas cuyo target es el origen de coordenadas. Con una velocidad de deseo $v_d=4$~m/s en módulo. En el estado estacionario la disposición de las partículas es tal como se muestra en la figura \ref{central} . Las partículas se encuentran casi estáticas; poseen una pequeña oscilación en torno a la posición de equilibrio. 
 
 \begin{figure}[H]
     \centering
@@ -90,7 +90,7 @@ Se simuló un conjunto de 19 partículas cuyo target es el origen de coordenadas
 \end{figure}
 
 
-El resultado de esta simulación es el conjunto de valores (distancia y presión) que se exhiben en las tablas de abajo. 
+El resultado de esta simulación es el conjunto de valores que se exhiben en las tablas de abajo. Éstos son la distancia al origen y la presión social que siente cada individuo. 
 
 %\begin{table}[H]
 \begin{center}
@@ -133,7 +133,6 @@ Sumar todos los valores de presión social y dividir por dos da como resultado e
  \displaystyle\sum_{i=1}^N\langle3P_iV_i\rangle = 11618.6\ \text{N.m}
 \end{equation}
 
-
 La suma de todas las distancias multiplicada por la fuerza de deseo $f_d=mv_d/\tau$ da como resultado el lado derecho (despreciando el primer término porque no hay interacción con paredes):
 
 \begin{equation}
@@ -142,7 +141,6 @@ La suma de todas las distancias multiplicada por la fuerza de deseo $f_d=mv_d/\t
 \end{equation}
 
 Ambos valores son cercanos. Por lo tanto, el resultado de esta simulación verifica la relación del virial (\ref{virial2}).
-
 
 
 \subsection{Partículas en hilera}
@@ -156,7 +154,7 @@ Se creó un código que mide la presión que soportan los individuos dispuestos 
 % done with figuras_presion.odg
 \end{figure}
 
-Los resultados se muestran en la tabla \ref{simulados} La misma está ordenada del individuo más cercano al más lejano de la pared. La presión disminuye conforme se alejan de la pared y el valor de presión aumenta con la cantidad de individuos.\\
+Los resultados se muestran en la tabla \ref{simulados}. La misma está ordenada del individuo más cercano al más lejano de la pared. La presión disminuye conforme se alejan de la pared y el valor de presión aumenta con la cantidad de individuos.\\
 En la tabla \ref{teoricos} se muestran valores de presión teóricos (calculados a partir de las fórmulas \ref{eqn_7}, \ref{eqn_8} y \ref{eqn_9} del apéndice \ref{appendix:presion}). Las magnitudes de presión son comparables a las simuladas y el comportamiento a grandes rasgos es similar (las partículas más presionadas son las que se encuentran más cerca de la pared y aumentar N aumenta la presión general)  
 
 \begin{table}[h!]
@@ -204,6 +202,7 @@ $i$   &  1         &   2        &  3       &  4     &  5     &   6   \\
 \end{table}
 
 
+En esta sección se verificó que los resultados simulados verifican la relación del virial (partículas centradas) y a su vez concuerdan con los cálculos teóricos (partículas en hilera)
 
 
 \section{\label{med realizadas} Mediciones Realizadas}
