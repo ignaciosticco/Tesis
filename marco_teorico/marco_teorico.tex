@@ -1,3 +1,4 @@
+
 En este capítulo se describirá el modelo en el cual se basa toda la investigación, también se definirán los conceptos utilizados a lo largo del trabajo como la definición de la presión social y los blocking clusters. Además se comentará el algoritmo de Verlet, ya que fue utilizado para resolver la dinámica del problema. 
 
 \section{\label{sfm}Modelo de Fuerza social}
@@ -21,21 +22,21 @@ $\Delta \mathbf{v}_{ij}=(\mathbf{v}_i-\mathbf{v}_j)$, la dirección tangencial e
 \mathbf{f}_g^{(ij)}=\kappa\,g(r_{ij}-d_{ij})\,\Delta \mathbf{v}_{ij}\cdot\mathbf{t}_{ij}\label{frozamiento}
 \end{equation}
 
-Se trata de forma análoga a la interacción de los individuos con las paredes. $d_{iW}$ es la distancia del i-esimo peatón con la pared W, $n_{iW}$ la dirección perpendicular entre éstos y $t_{iW}$ la tangencial. La expresión \ref{fparedes} agrupa tanto a la repulsión como al rozamiento de la interacción peatón-pared.
+Se trata de forma análoga a la interacción de los individuos con las paredes. $d_{iW}$ es la distancia del i-esimo peatón con la pared W, $n_{iW}$ la dirección perpendicular entre éstos y $t_{iW}$ la tangencial. La expresión (\ref{fparedes}) agrupa tanto a la repulsión como al rozamiento de la interacción peatón-pared.
 
 \begin{equation}
 \mathbf{f}^{iW}=A_ie^{(r_{i}-d_{iW})/B_i}\mathbf{n}_{iW}-\kappa g(r_{i}-d_{iW})\Delta \mathbf{v}_{i}\cdot\mathbf{t}_{iW}
 \label{fparedes}
 \end{equation} 
 
-Con todo esto, mediante la fórmula \ref{newton}, puede expresarse la variación de velocidad en el tiempo que siente un individuo. $f^{ij}$ es el término de interacción entre individuos, es la suma de la repulsión y el rozamiento. El cambio de posición viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
+Con todo esto, mediante la fórmula (\ref{newton}), puede expresarse la variación de velocidad en el tiempo que siente un individuo. $f^{ij}$ es el término de interacción entre individuos, es la suma de la repulsión y el rozamiento. El cambio de posición viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
 
 \begin{equation}
 m_i\frac{d\mathbf{v_i}}{dt}=\mathbf{f}_d^ {(i)}(t)+ \sum_{i\neq j}^{N}\mathbf{f}^{(ij)} + \sum_{W}^{N}\mathbf{f}^{(iW)}
 \label{newton}
 \end{equation}  
 
-Uno de los resultados más trascendentes de este modelo es el efecto "Faster is slower" \cite{Helbing1}. A partir de cierto grado de apuro ($v_d=2$~m/s) un incremento en la velocidad de deseo produce evacuaciones menos eficientes (los peatones tardan más en evacuar). 
+Uno de los resultados más trascendentes de este modelo es el efecto "Faster is slower" \cite{Helbing1}. A partir de cierto grado de ansiedad ($v_d=2$~m/s) un incremento en la velocidad de deseo produce evacuaciones menos eficientes (los peatones tardan más en evacuar). 
  
 \section{Presión local}
 
@@ -44,11 +45,11 @@ A pesar de que la fuerza de deseo $\mathbf{f}_d$ y la fuerza social $\mathbf{f}_
 \begin{equation}
  \bigg\langle\displaystyle\sum_{i=1}^N\displaystyle\frac{p_i^2}{m_i} + 
 \displaystyle\sum_{i=1}^N 
-\mathbf{r}_i\cdot\mathbf{f}_i\bigg\rangle=0\label{virial1}
+\mathbf{r}_i\cdot\mathbf{f}_i\bigg\rangle=-3\mathcal{PV}\label{virial1}
 \end{equation}
 
 
-\noindent Para un conjunto de $N$ pedestrians. $p_i$  y $\mathbf{f}_i$ son el impulso y la fuerza total actuando sobre el individuo $i$. $\langle\cdot\rangle$ corresponde al valor medio en el tiempo.  \\
+\noindent Para un conjunto de $N$ peatones dentro del volumen $\mathcal{v}$. $p_i$  y $\mathbf{f}_i$ son el impulso y la fuerza total actuando sobre el individuo $i$. $\langle\cdot\rangle$ corresponde al valor medio en el tiempo. El lado derecho de la ecuación $-3\mathcal{PV}$ es la presón global en la superficie del recinto $\mathcal{v}$   \\
 
 La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad de área) actuando sobre él debidas a los individuos que lo rodean y las paredes. Según Ref.~\cite{lion} se puede definir la "función de presión social" $P_i$ como:\\
 
@@ -67,40 +68,69 @@ $\mathbf{r}_i\cdot\mathbf{f}_s$ (social) y $\mathbf{r}_i\cdot\mathbf{f}_g$ (gran
 
 \begin{equation}
  \displaystyle\sum_{i=1}^N\langle3P_iV_i 
-\rangle=-\displaystyle\sum_{i=1}^N \langle
+\rangle=-3\mathcal{PV} -\displaystyle\sum_{i=1}^N \langle
 \mathbf{r}_i\cdot\mathbf{f}_d^{(i)}\rangle\label{virial2}
 \end{equation}
 
 Hay que destacar que la ecuación (\ref{virial2}) se cumple si los peatones están en contacto o no. La "función de presión social" $P_i$ hace que los individuos puedan cambiar su patrón de comportamiento cuando se acercan mucho unos con otros o con las paredes. \\ 
 
+La definición de presión según Helbing es la suma de fuerzas radiales actuando en el individuo dividido su circunferencia~\cite{Helbing1}. Reporta que a valores de presión superiores a 1600 Nm$^{-1}$ los individuos se lastiman y se vuelven obstáculos inamovibles. En este trabajo no se tienen en cuenta los eventuales desmayos producidos por las altas presiones. 
+
 
 \section{Blocking Clusters}
 
-Se utilizó el concepto de blocking cluster~\cite{Dorso1} para estudiar a los individuos más cercanos a la salida. Se lo define como un conjunto de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. Aquellos peatones que conforman el blocking cluster son los responsables de bloquear la salida. Típicamente los blocking cluster formados en las evacuaciones tiene estructura de "arco" como el que se muestra en la figura \ref{bc}. Basta que un solo peatón deje de estar en contacto con sus vecinos para que el blocking cluster deje de estar constituído. \\
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[height=5.5cm]{figuras/in_image_2_120000_bkg.png}
-    \caption[width=5cm]{}
-    \label{bc}
-\end{figure}
+Se utilizó el concepto de blocking cluster~\cite{Dorso1} para estudiar a los individuos más proximos a la puerta que satisfacen la condicion de estar en contacto con ella.
+Se lo define como un conjunto de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. Aquellos peatones que conforman el blocking cluster son los responsables de bloquear la salida. Típicamente los blocking cluster formados en las evacuaciones tiene estructura de "arco" como el que se muestra en la figura \ref{bc}. Basta que un solo peatón deje de estar en contacto con sus vecinos para que el blocking cluster deje de estar constituído. \\
 
 A lo largo del trabajo se han usado dos tipos de blocking clusters: Big blocking cluster y small blocking cluster. El primero se tiene cuando hay dos puertas sobre la misma pared, son los individuos que van desde una puerta hasta la otra (encierran las dos salidas). El segundo es el bloqueo de una única salida. 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm]{figuras/big_bc.eps}
+    \hfill
+    \includegraphics[width=7cm]{figuras/small_bc.eps}
+    \caption[width=5cm]{Izquierda: Big blocking cluster. Conjunto de individuos que bloquea ambas salidas. Derecha: Small blocking cluster. Individuos que bloquean una única puerta.}
+    \label{bc}
+\end{figure}
+
+
 \section{Algoritmo de Verlet}
 
-Para integrar las ecuaciones de movimiento se usó el algoritmo de Verlet, este método es ampliamente utilizado en el campo de dinámica molecular.\\
-Este algoritmo es una combinación de dos expansiones de taylor sumadas para dar lugar a una expresión con términos pares únicamente~\cite{haile}
+Para integrar las ecuaciones de movimiento se usó el algoritmo de Verlet en velocidades~\cite{haile}. Este método es ampliamente utilizado en el campo de dinámica molecular.\\
+
+En esta forma de resolución la posición y velocidad son calculados en el mismo paso temporal. Las ecuaciones que lo describen son:
 
 \begin{equation}
-x(t+\Delta t)=2x(t)-x(t-\Delta t)+\frac{d^2x(t)}{dt^2} \Delta t^2+O(\Delta t^4)
+x(t+\Delta t)=x(t)-v(t)\Delta t + \frac{1}{2}a(t)\Delta t^2 
 \label{verlet_x}
 \end{equation} 
-Este es el algoritmo de Verlet para posiciones. Tiene un error de truncamiento local de ($\Delta^4$), por lo tanto es de tercer orden aunque no contenga derivadas de tercer orden. La aceleración es obtenida de fuerzas intermoleculares y la segunda ley de Newton.
-Para estimar la velocidad se utiliza:
+
 \begin{equation}
-v(t)\simeq \frac{x(t+\Delta t)-x(t-\Delta t)}{2\Delta t}
+v(t+\Delta t)=v(t)+\frac{a(t)+a(t+\Delta t)}{2}\Delta t
 \label{verlet_v}
 \end{equation}
-Para resolverlo se suelen llevar a cabo los siguientes pasos: se actualizan las velocidades, luego las posiciones, en tercer lugar las fuerzas y se vuelve a repetir el ciclo hasta completar las trayectorias. 
-El algoritmo de Verlet posee buena estabilidad para pasos temporales moderadamente grandes.
+
+Tiene un error de truncamiento local de ($\Delta^4$). El esquema estandar de implementación es: Actualizar las posiciones, con estas nuevas posiciones actualizar la aceleración (mediante las fuerzas), en tercer lugar se actualizan las velocidades. El ciclo se repite hasta construir las trayectorias completas. 
+
+
+%Este algoritmo es una combinación de dos expansiones de taylor sumadas para dar lugar a una expresión con términos pares únicamente~\cite{haile}
+
+%\begin{equation}
+%x(t+\Delta t)=2x(t)-x(t-\Delta t)+\frac{d^2x(t)}{dt^2} \Delta t^2+O(\Delta t^4)
+%\label{verlet_x}
+%\end{equation} 
+%Este es el algoritmo de Verlet para posiciones. Tiene un error de truncamiento local de ($\Delta^4$), por lo tanto es de tercer orden aunque no contenga derivadas de tercer orden. La aceleración es obtenida de fuerzas intermoleculares y la segunda ley de Newton.
+%Para estimar la velocidad se utiliza:
+%\begin{equation}
+%v(t)\simeq \frac{x(t+\Delta t)-x(t-\Delta t)}{2\Delta t}
+%\label{verlet_v}
+%\end{equation}
+%Para resolverlo se suelen llevar a cabo los siguientes pasos: se actualizan las velocidades, luego las posiciones, en tercer lugar las fuerzas y se vuelve a repetir el ciclo hasta completar las trayectorias. 
+El algoritmo de Verlet posee buena estabilidad incluso para pasos temporales moderadamente grandes. Es simpléctico y tiene reversibilidad temporal.
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.7]{figuras/esquema_verlet.png}
+    \caption[width=5cm]{Esquema del procedimiento algorítmico de Verlet en velocidades}
+    \label{esquema_verlet}
+\end{figure}
