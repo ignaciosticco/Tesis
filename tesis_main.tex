@@ -11,13 +11,16 @@
 \usepackage{graphicx}
 \usepackage{graphics}
 \usepackage{epstopdf}
+\usepackage[toc,page]{appendix}
+\usepackage{parskip}
+
 
 %\usepackage[spanish,es-tabla]{babel}
 %\usepackage[nottoc,numbib]{tocbibind}
 \renewcommand{\baselinestretch}{1.5}
 %caracteristicas de paginas
-\pdfpagewidth 8.5in
-\pdfpageheight 11in
+\pdfpagewidth 8.3in
+\pdfpageheight 11.7in
 \setlength\oddsidemargin{-0,21in}
 \setlength\evensidemargin{-0,21in}
 \setlength\topmargin{-2cm}
@@ -25,27 +28,42 @@
 \setlength\textheight{23.7cm}
 \setlength\parskip{0.1in}
 \def\thechapter{\arabic{chapter}}
+\newcommand{\forceindent}{\leavevmode{\parindent=1em\indent}}
+
 \renewcommand{\chaptername}{Capítulo}
 \renewcommand{\contentsname}{Contenidos}
 \renewcommand\bibname{Bibliografía}
+\renewcommand\appendixname{Apéndice}
+\renewcommand\appendixpagename{Apéndices}
+\addappheadtotoc
+\renewcommand\appendixtocname{Apéndices}
 
 % Biblio: http://www.csse.monash.edu.au/documents/bibtex/
 
 \begin{document} 
 
 \input{caratula/caratula.tex}
+\section*{}
 \input{agradecimientos/agradecimientos.tex}
 \tableofcontents
 \chapter{Introducción}
 \input{introduccion/introduccion.tex}
 \chapter{Marco Teórico}
-\input{marco_teorico/marco_teorico.tex}
+\input{marco_teorico/marco_teorico.tex} 
 \chapter{Simulaciones}
 \input{simulaciones/simulaciones.tex}
 \chapter{Resultados y Discusión}
 \input{resultados_discusion/resultados_discusion.tex}
 \chapter{Conclusiones}
 \input{conclusiones/conclusiones.tex}
+\begin{appendices}
+\chapter{Presión}
+\input{apendices/apendice_presion.tex}
+\chapter{Script básico de Lammps}
+\input{apendices/script_basico}
+\chapter{Caracterísicas del cluster}
+\input{apendices/caracteristicas_tecnicas.tex}
+\end{appendices}
 \bibliographystyle{plain} %Choose a bibliograhpic style
 \bibliography{bibliografia/biblio}
 
