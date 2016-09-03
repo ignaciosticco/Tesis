@@ -1,23 +1,23 @@
+\label{marco_teo}
 
-En este capítulo se describirá el modelo en el cual se basa toda la investigación, también se definirán los conceptos utilizados a lo largo del trabajo como la definición de la presión social y los blocking clusters. Además se comentará el algoritmo de Verlet, ya que fue utilizado para resolver la dinámica del problema. 
+En este capítulo se describirá el modelo en el cual se basa toda la investigación, también se definirán los conceptos utilizados a lo largo del trabajo como la definición de la presión social y los "blocking clusters". Además se comentará el algoritmo de integración temporal utilizado en la evolución temporal de cada proceso. 
 
 \section{\label{sfm}Modelo de Fuerza social}
 
-El modelo de fuerza social es un modelo basado en agentes utilizado para simular el movimiento de peatones. Supone que los individuos soportan tres tipos de fuerzas: fuerzas de deseo (autopropulsión), sociales (repulsión) y granulares (rozamiento).  \\
+El modelo de "fuerza social" básico considera a los individuos como partículas auto-impulsadas. El movimiento de de los individuos está dominado por tres tipos de fuerzas, de naturaleza diferente: la fuerza de deseo (autopropulsión), fuerzas sociales (repulsión) y fuerzas granulares (rozamiento).  \\
 
-La fuerza de autopropulsión refleja el hecho que el individuo i-esimo que posee masa $m_i$, desea  moverse con una velocidad $v_d^ {(i)}(t)$ en una dirección $\hat{\mathbf{e}}_d^ {(i)}(t)$, por lo tanto readapta su velocidad $\mathbf{v}_i(t)$ con un cierto tiempo característico $\tau$.
+La fuerza de deseo expresa el hecho de que cada persona es capaz de  acelerar o desacelerar hasta alcanzar la velocidad en que se siente más cómoda. La magnitud de esta velocidad se corresponde con el nivel de ansiedad que tenga por llegar a un cierto lugar. La expresión matemática de esta fuerza viene dada por la fórmula~\ref{fdeseo}. Esta fórmula refleja el hecho que el individuo i-esimo que posee masa $m_i$, desea  moverse con una velocidad $v_d^ {(i)}(t)$ en una dirección $\hat{\mathbf{e}}_d^ {(i)}(t)$, por lo tanto readapta su velocidad $\mathbf{v}_i(t)$ con un cierto tiempo característico $\tau$.
 \begin{equation}
 \mathbf{f}_d^ {(i)}(t)=m_i\,\displaystyle\frac{v_d^ {(i)}(t)\,\hat{\mathbf{e}}_d^ {(i)}(t)-\mathbf{v}_i(t)}{\tau}\label{fdeseo}
 \end{equation}
 
-La repulsión social es una fuerza que describe la tendencia que tienen las personas a mantenerse alejadas unas de otras. Depende de la distancia de separación entre individuos $d_{ij}=\left\|\mathbf{r_i}-\mathbf{r_j}\right\|$ y está en la dirección normal $\mathbf{n}_{ij}=(n_{ij}^1,n_{ij}^2)/d_{ij}$ (versor que apunta desde el individuo j al individuo i). Los peatones están en contacto si el valor de $d_{ij}$ es más chico que la suma de los radios $r_{ij}=(r_i+r_j)$. $A_i$ y 	$B_i$ son constantes.
+La repulsión social es una fuerza que describe la tendencia que tienen las personas a mantenerse alejadas unas de otras. Depende de la distancia de separación entre individuos $d_{ij}=\left\|\mathbf{r_i}-\mathbf{r_j}\right\|$ y está en la dirección normal $\mathbf{n}_{ij}=(\mathbf{r_i}-\mathbf{r_j})/d_{ij}$ (versor que apunta desde el individuo j al individuo i). Los peatones están en contacto si el valor de $d_{ij}$ es más chico que la suma de los radios $r_{ij}=(r_i+r_j)$. $A_i$ y 	$B_i$ son constantes que se determinan experimentalmente.
 
 \begin{equation}
 \mathbf{f}_s^{(ij)}=A_i\,e^{(r_{ij}-d_{ij})/B_i}\mathbf{n}_{ij}\label{fsocial}
 \end{equation} 
 
-Cuando los individuos están en contacto, comienza a actuar una fuerza de rozamiento, la misma es proporcional a la velocidad relativa entre los mismos.  
-$\Delta \mathbf{v}_{ij}=(\mathbf{v}_i-\mathbf{v}_j)$, la dirección tangencial está representada por $\mathbf{t}_{ij}=(-n_{ij}^2,n_{ij}^1)$.  $\kappa$ es una constante y $g(x)$ es una función nula cuando los individuos no se tocan $(r_{ij}<d_{ij})$ y toma el valor de su argumento en caso contrario. 
+Cuando los individuos están en contacto, comienza a actuar una fuerza de rozamiento, la misma es proporcional a la velocidad relativa entre los mismos $\Delta \mathbf{v}_{ij}=(\mathbf{v}_i-\mathbf{v}_j)$. La dirección tangencial está representada por $\mathbf{t}_{ij}=(-n_{ij}^2,n_{ij}^1)$.  $\kappa$ es una constante y $g(x)$ es una función nula cuando los individuos no se tocan $(r_{ij}<d_{ij})$ y toma el valor de su argumento en caso contrario. 
 \begin{equation}
 \mathbf{f}_g^{(ij)}=\kappa\,g(r_{ij}-d_{ij})\,\Delta \mathbf{v}_{ij}\cdot\mathbf{t}_{ij}\label{frozamiento}
 \end{equation}
@@ -40,7 +40,7 @@ Uno de los resultados más trascendentes de este modelo es el efecto "Faster is 
  
 \section{Presión local}
 
-A pesar de que la fuerza de deseo $\mathbf{f}_d$ y la fuerza social $\mathbf{f}_s$, del modelo de fuerza social, no son magnitudes "Físicas" (\textit{i.e.} no tienen par de reacción), la ecuación de movimiento sigue siendo válida. Por lo tanto, se puede derivar la relación del virial\cite{lion}. 
+A pesar de que la fuerza de deseo es una fuerza unilateral (\textit{i.e.} partícula auto-impulsada), la ecuación de movimiento continúa siendo válida, y por lo tanto, podemos derivar la relación del virial\cite{lion}.
 
 \begin{equation}
  \bigg\langle\displaystyle\sum_{i=1}^N\displaystyle\frac{p_i^2}{m_i} + 
@@ -49,9 +49,9 @@ A pesar de que la fuerza de deseo $\mathbf{f}_d$ y la fuerza social $\mathbf{f}_
 \end{equation}
 
 
-\noindent Para un conjunto de $N$ peatones dentro del volumen $\mathcal{v}$. $p_i$  y $\mathbf{f}_i$ son el impulso y la fuerza total actuando sobre el individuo $i$. $\langle\cdot\rangle$ corresponde al valor medio en el tiempo. El lado derecho de la ecuación $-3\mathcal{PV}$ es la presón global en la superficie del recinto $\mathcal{v}$   \\
-
-La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad de área) actuando sobre él debidas a los individuos que lo rodean y las paredes. Según Ref.~\cite{lion} se puede definir la "función de presión social" $P_i$ como:\\
+\noindent Para un conjunto de $N$ peatones dentro del volumen $\mathcal{V}$. $p_i$  y $\mathbf{f}_i$ son el momento y la fuerza total actuando sobre el individuo $i$. La fuerza $\mathbf{f}_i$ no contempla la interacción con las paredes.  $\langle\cdot\rangle$ corresponde al valor medio en el tiempo. El lado derecho de la ecuación $-3\mathcal{PV}$ es la presión global en la superficie del recinto $\mathcal{V}$.  \\
+% El término de la derecha es negativo porque se considera a la fuerza que la pared ejerce sobre el individuo. 
+La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad de área) actuando sobre él debidas a los individuos que lo rodean. Según Ref.~\cite{lion} se puede definir una "función de presión social" $P_i$ como:\\
 
 \begin{equation}
 3P_iV_i=\displaystyle\frac{p_i^2}{m_i} + \frac{1}{2}
@@ -60,11 +60,11 @@ La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad
 \end{equation}
 
 \noindent donde $V_i$ es el volumen que encierra al peatón $i$ y 
-$\mathbf{r}_{ij}=\mathbf{r}_{i}-\mathbf{r}_j$. Cabe destacar que el producto interno $\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}$ siempre es positivo debido a la repulsión y es igual al producto escalar $d_{ij}f_s^{(ij)}$.  \\ 
+$\mathbf{r}_{ij}=\mathbf{r}_{i}-\mathbf{r}_j$ (la distancia
+entre dos peatones en la dirección desde j hacia i). Cabe destacar que el producto interno $\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}$ siempre es positivo debido a la repulsión y es igual al producto escalar (positivo) $d_{ij}f_s^{(ij)}$. El factor 1/2 evita el doble conteo de las interacciones cuando se hace la suma de todos los $3P_iV_i$ \\ 
 
-El segundo término en la equación \ref{virial1} puede dividirse en la suma de productos internos $\mathbf{r}_i\cdot\mathbf{f}_d$ (deseo), 
+El segundo término en la ecuación (\ref{virial1}) puede dividirse en la suma de productos internos $\mathbf{r}_i\cdot\mathbf{f}_d$ (deseo), 
 $\mathbf{r}_i\cdot\mathbf{f}_s$ (social) y $\mathbf{r}_i\cdot\mathbf{f}_g$ (granular). De hecho, la suma del producto social depende de la distancia entre partículas $d_{ij}f_s^{(ij)}$, mientras que la parte granular no tiene ningún rol por su ortogonalidad ($\mathbf{r}_{ij}\cdot\mathbf{f}_g^{(ij)}=0$). Por lo tanto, la relación del virial (\ref{virial1}) se expresa \\  
-
 
 \begin{equation}
  \displaystyle\sum_{i=1}^N\langle3P_iV_i 
@@ -72,33 +72,32 @@ $\mathbf{r}_i\cdot\mathbf{f}_s$ (social) y $\mathbf{r}_i\cdot\mathbf{f}_g$ (gran
 \mathbf{r}_i\cdot\mathbf{f}_d^{(i)}\rangle\label{virial2}
 \end{equation}
 
-Hay que destacar que la ecuación (\ref{virial2}) se cumple si los peatones están en contacto o no. La "función de presión social" $P_i$ hace que los individuos puedan cambiar su patrón de comportamiento cuando se acercan mucho unos con otros o con las paredes. \\ 
+Hay que destacar que la ecuación (\ref{virial2}) se cumple si los peatones están en contacto o no. Esto significa que no se trata de una presión de contacto (habitual en los sistemas físicos tradicionales) sino de una presión que provoca una cambio en el patrón de movimiento del individuo.\\
 
-La definición de presión según Helbing es la suma de fuerzas radiales actuando en el individuo dividido su circunferencia~\cite{Helbing1}. Reporta que a valores de presión superiores a 1600 Nm$^{-1}$ los individuos se lastiman y se vuelven obstáculos inamovibles. En este trabajo no se tienen en cuenta los eventuales desmayos producidos por las altas presiones. 
+La suma de fuerzas por unidad de circunferencia (\textit{i.e.} medida de presión según la Ref.~\cite{Helbing1}) es similar a la definición dada en (\ref{pv}) y que, a su vez, se sigue de la Ref.\cite{lion}. Comprobamos durante la investigación que ambas son proporcionales (no mostrado en este trabajo).\\   
 
+En la Ref.~\cite{Helbing1} se reporta que a valores de presión superiores a 1600 Nm$^{-1}$ los individuos se lastiman y se vuelven obstáculos inamovibles. En este trabajo no se tienen en cuenta los eventuales desmayos producidos por las altas presiones. 
 
 \section{Blocking Clusters}
 
-Se utilizó el concepto de blocking cluster~\cite{Dorso1} para estudiar a los individuos más proximos a la puerta que satisfacen la condicion de estar en contacto con ella.
-Se lo define como un conjunto de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. Aquellos peatones que conforman el blocking cluster son los responsables de bloquear la salida. Típicamente los blocking cluster formados en las evacuaciones tiene estructura de "arco" como el que se muestra en la figura \ref{bc}. Basta que un solo peatón deje de estar en contacto con sus vecinos para que el blocking cluster deje de estar constituído. \\
+Se utilizó el concepto de blocking cluster~\cite{Dorso1} para estudiar a los individuos más próximos a la puerta que satisfacen la condición de estar en contacto con ella.
+Se lo define como un conjunto mínimo de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. Aquellos peatones que conforman el blocking cluster son los responsables de bloquear la salida. Típicamente los blocking cluster formados en las evacuaciones tiene estructura de "arco" como el que se muestra en la Fig. \ref{bc}. Basta que un solo peatón deje de estar en contacto con sus vecinos para que el blocking cluster deje de estar constituido. Además, estas estructuras mínimas actúan como una barrera para los individuos que tienen detrás, impidiendo la evacuación de peatones. \\
 
-A lo largo del trabajo se han usado dos tipos de blocking clusters: Big blocking cluster y small blocking cluster. El primero se tiene cuando hay dos puertas sobre la misma pared, son los individuos que van desde una puerta hasta la otra (encierran las dos salidas). El segundo es el bloqueo de una única salida. 
+En este trabajo consideramos dos definiciones adicionales referentes a los \textit{blocking clusters}: por un lado, si éste no está en contacto con la pared de separación entre las puertas (pero sí con las otras paredes del mismo lado del recinto) lo llamamos \textit{big blocking cluster}. En cambio, si una de las paredes de contacto es la pared de separación entre puertas, entonces los llamamos \textit{small blocking cluster} (ver ejemplos en la Fig.~\ref{bc}).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=7cm]{figuras/big_bc.eps}
     \hfill
     \includegraphics[width=7cm]{figuras/small_bc.eps}
-    \caption[width=5cm]{Izquierda: Big blocking cluster. Conjunto de individuos que bloquea ambas salidas. Derecha: Small blocking cluster. Individuos que bloquean una única puerta.}
+    \caption[width=5cm]{Imagen del proceso de evacuación de  200 individuos a través de dos puertas (velocidad de deseo $v_d=4\,$m/s). Las paredes se muestran en amarillo. Los inidividuos corresponden a las partículas en color azul. La salida de personas se produce de izquierda a derecha. Los \textit{blocking clusters} están identificados en color rojo. (a) se muestra un \textit{big blocking cluster}. Ningún individuo está en contacto con la pared de seperación entre puertas. (b)  Se muestra un \textit{small blocking cluster} alrededor de la puerta superior.}
     \label{bc}
 \end{figure}
 
 
 \section{Algoritmo de Verlet}
 
-Para integrar las ecuaciones de movimiento se usó el algoritmo de Verlet en velocidades~\cite{haile}. Este método es ampliamente utilizado en el campo de dinámica molecular.\\
-
-En esta forma de resolución la posición y velocidad son calculados en el mismo paso temporal. Las ecuaciones que lo describen son:
+Para integrar las ecuaciones de movimiento se usó el algoritmo de Verlet en velocidades~\cite{haile}. Este método es ampliamente utilizado en el campo de dinámica molecular.En esta forma de resolución la posición y velocidad son calculados en el mismo paso temporal. Las ecuaciones que lo describen son:
 
 \begin{equation}
 x(t+\Delta t)=x(t)-v(t)\Delta t + \frac{1}{2}a(t)\Delta t^2 
@@ -110,23 +109,11 @@ v(t+\Delta t)=v(t)+\frac{a(t)+a(t+\Delta t)}{2}\Delta t
 \label{verlet_v}
 \end{equation}
 
-Tiene un error de truncamiento local de ($\Delta^4$). El esquema estandar de implementación es: Actualizar las posiciones, con estas nuevas posiciones actualizar la aceleración (mediante las fuerzas), en tercer lugar se actualizan las velocidades. El ciclo se repite hasta construir las trayectorias completas. 
+El esquema de Verlet tiene un error de truncamiento local de ($\Delta t^2$). En la Fig. \ref{esquema_verlet} se muestra un diagrama del procedimiento, en donde se detalla la secuencia de actualización de variables para cada individuo. En el estado inicial disponemos únicamente de las posiciones y las velocidades de los individuos. Las aceleraciones se obtienen por medio de evaluación de las fuerzas $\mathbf{f}_d$, $\mathbf{f}_s$ y $\mathbf{f}_g$. Con estas magnitudes 
+se calcula una nueva posición, se re-evalúan las fuerzas (aceleraciones) y se re-calcula la velocidad. Luego se vuelven a actualizar la posiciones y se repite el ciclo hasta construir las trayectorias de las partículas.
+En la sección \ref{ci} del capítulo \ref{simulaciones} se detallarán las condiciones iniciales usadas en cada proceso de evacuación.\\
 
-
-%Este algoritmo es una combinación de dos expansiones de taylor sumadas para dar lugar a una expresión con términos pares únicamente~\cite{haile}
-
-%\begin{equation}
-%x(t+\Delta t)=2x(t)-x(t-\Delta t)+\frac{d^2x(t)}{dt^2} \Delta t^2+O(\Delta t^4)
-%\label{verlet_x}
-%\end{equation} 
-%Este es el algoritmo de Verlet para posiciones. Tiene un error de truncamiento local de ($\Delta^4$), por lo tanto es de tercer orden aunque no contenga derivadas de tercer orden. La aceleración es obtenida de fuerzas intermoleculares y la segunda ley de Newton.
-%Para estimar la velocidad se utiliza:
-%\begin{equation}
-%v(t)\simeq \frac{x(t+\Delta t)-x(t-\Delta t)}{2\Delta t}
-%\label{verlet_v}
-%\end{equation}
-%Para resolverlo se suelen llevar a cabo los siguientes pasos: se actualizan las velocidades, luego las posiciones, en tercer lugar las fuerzas y se vuelve a repetir el ciclo hasta completar las trayectorias. 
-El algoritmo de Verlet posee buena estabilidad incluso para pasos temporales moderadamente grandes. Es simpléctico y tiene reversibilidad temporal.
+El algoritmo de Verlet es ampliamente utilizado por preservar las simetrías de las ecuaciones de newton y las propiedades físicas de una gran cantidad de sistemas. Esto es gracias al hecho que tiene reversibilidad temporal y es simpléctico (preserva el volumen en el espacio de fases). Además, es simple de implementar y posee buena estabilidad incluso para pasos temporales moderadamente grandes.
 
 \begin{figure}[H]
     \centering
