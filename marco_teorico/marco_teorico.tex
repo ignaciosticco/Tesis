@@ -4,7 +4,14 @@ En este capítulo se describirá el modelo en el cual se basa toda la investigac
 
 \section{\label{sfm}Modelo de Fuerza social}
 
-El modelo de "fuerza social" básico considera a los individuos como partículas auto-impulsadas. El movimiento de de los individuos está dominado por tres tipos de fuerzas, de naturaleza diferente: la fuerza de deseo (autopropulsión), fuerzas sociales (repulsión) y fuerzas granulares (rozamiento).  \\
+El modelo de "fuerza social" básico considera a los individuos como partículas auto-impulsadas. El movimiento de de los individuos está dominado por tres tipos de fuerzas, de naturaleza diferente: la fuerza de deseo (autopropulsión), fuerzas sociales (repulsión) y fuerzas granulares (rozamiento). Se tienen en cuenta la interacción entre individuos y la interacción individuo-pared. Todas estas serán detalladas más adelante.   \\
+
+Las fuerzas del modelo básico ingresan a una ecuación de movimiento (ley de Newton) de la forma de Ec. (\ref{newton}); de esta manera queda expresada la variación de velocidad en el tiempo que siente un individuo. El término $\mathbf{f}^{(ij)}$ es la interacción entre individuos; mientras que $\mathbf{f}^{(iW)}$ refleja la interacción con las paredes. Ambos términos contemplan tanto a la repulsión como al rozamiento. La variación de la  posición viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
+
+\begin{equation}
+m_i\frac{d\mathbf{v_i}}{dt}=\mathbf{f}_d^ {(i)}(t)+ \sum_{i\neq j}^{N}\mathbf{f}^{(ij)} + \sum_{W}^{N}\mathbf{f}^{(iW)}
+\label{newton}
+\end{equation} 
 
 La fuerza de deseo expresa el hecho de que cada persona es capaz de  acelerar o desacelerar hasta alcanzar la velocidad en que se siente más cómoda. La magnitud de esta velocidad se corresponde con el nivel de ansiedad que tenga por llegar a un cierto lugar. La expresión matemática de esta fuerza viene dada por la fórmula~\ref{fdeseo}. Esta fórmula refleja el hecho que el individuo i-esimo que posee masa $m_i$, desea  moverse con una velocidad $v_d^ {(i)}(t)$ en una dirección $\hat{\mathbf{e}}_d^ {(i)}(t)$, por lo tanto readapta su velocidad $\mathbf{v}_i(t)$ con un cierto tiempo característico $\tau$.
 \begin{equation}
@@ -22,21 +29,17 @@ Cuando los individuos están en contacto, comienza a actuar una fuerza de rozami
 \mathbf{f}_g^{(ij)}=\kappa\,g(r_{ij}-d_{ij})\,\Delta \mathbf{v}_{ij}\cdot\mathbf{t}_{ij}\label{frozamiento}
 \end{equation}
 
-Se trata de forma análoga a la interacción de los individuos con las paredes. $d_{iW}$ es la distancia del i-esimo peatón con la pared W, $n_{iW}$ la dirección perpendicular entre éstos y $t_{iW}$ la tangencial. La expresión (\ref{fparedes}) agrupa tanto a la repulsión como al rozamiento de la interacción peatón-pared.
+La interacción de los individuos con las paredes tiene un tratamiento similar al que se tiene con la interacción entre individuos. La expresión (\ref{fparedes}) agrupa tanto a la repulsión como al rozamiento de la interacción peatón-pared. Las variables que componen esta expresión son: $d_{iW}$ que es la distancia del i-esimo peatón con la pared W, $n_{iW}$ es la dirección perpendicular entre éstos y $t_{iW}$ la dirección tangencial.
 
 \begin{equation}
 \mathbf{f}^{iW}=A_ie^{(r_{i}-d_{iW})/B_i}\mathbf{n}_{iW}-\kappa g(r_{i}-d_{iW})\Delta \mathbf{v}_{i}\cdot\mathbf{t}_{iW}
 \label{fparedes}
 \end{equation} 
 
-Con todo esto, mediante la fórmula (\ref{newton}), puede expresarse la variación de velocidad en el tiempo que siente un individuo. $f^{ij}$ es el término de interacción entre individuos, es la suma de la repulsión y el rozamiento. El cambio de posición viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
+A partir de la ecuación de movimiento (\ref{newton}) y de las condiciones iniciales en posición y velocidad de los individuos, es posible determinar la dinámica de los peatones a lo largo del tiempo. En la sección \ref{verlet} se detallará el cómputo de integración temporal de \ref{newton}, mientras que en la Sección \ref{ci} se comentarán qué condiciones iniciales se eligieron para cada situación de escape. 
 
-\begin{equation}
-m_i\frac{d\mathbf{v_i}}{dt}=\mathbf{f}_d^ {(i)}(t)+ \sum_{i\neq j}^{N}\mathbf{f}^{(ij)} + \sum_{W}^{N}\mathbf{f}^{(iW)}
-\label{newton}
-\end{equation}  
 
-Uno de los resultados más trascendentes de este modelo es el efecto "Faster is slower" \cite{Helbing1}. A partir de cierto grado de ansiedad ($v_d=2$~m/s) un incremento en la velocidad de deseo produce evacuaciones menos eficientes (los peatones tardan más en evacuar). 
+%Uno de los resultados más trascendentes de este modelo es el efecto "Faster is slower" \cite{Helbing1}. A partir de cierto grado de ansiedad ($v_d=2$~m/s) un incremento en la velocidad de deseo produce evacuaciones menos eficientes (los peatones tardan más en evacuar). 
  
 \section{Presión local}
 
@@ -87,15 +90,18 @@ En este trabajo consideramos dos definiciones adicionales referentes a los \text
 
 \begin{figure}[H]
     \centering
+    \subfloat[\textit{Big blocking cluster}]{
     \includegraphics[width=7cm]{figuras/big_bc.eps}
-    \hfill
+    }\hfill
+    \subfloat[\textit{Small blocking cluster}]{
     \includegraphics[width=7cm]{figuras/small_bc.eps}
+    }
     \caption[width=5cm]{Imagen del proceso de evacuación de  200 individuos a través de dos puertas (velocidad de deseo $v_d=4\,$m/s). Las paredes se muestran en amarillo. Los inidividuos corresponden a las partículas en color azul. La salida de personas se produce de izquierda a derecha. Los \textit{blocking clusters} están identificados en color rojo. (a) se muestra un \textit{big blocking cluster}. Ningún individuo está en contacto con la pared de seperación entre puertas. (b)  Se muestra un \textit{small blocking cluster} alrededor de la puerta superior.}
     \label{bc}
 \end{figure}
 
 
-\section{Algoritmo de Verlet}
+\section{\label{verlet} Algoritmo de Verlet}
 
 Para integrar las ecuaciones de movimiento se usó el algoritmo de Verlet en velocidades~\cite{haile}. Este método es ampliamente utilizado en el campo de dinámica molecular.En esta forma de resolución la posición y velocidad son calculados en el mismo paso temporal. Las ecuaciones que lo describen son:
 
