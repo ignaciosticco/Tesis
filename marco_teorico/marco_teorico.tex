@@ -43,7 +43,7 @@ A partir de la ecuación de movimiento (\ref{newton}) y de las condiciones inici
  
 \section{Presión local}
 
-A pesar de que la fuerza de deseo es una fuerza unilateral (\textit{i.e.} partícula auto-impulsada), la ecuación de movimiento continúa siendo válida, y por lo tanto, podemos derivar la relación del virial\cite{lion}.
+A pesar de que la fuerza de deseo es una fuerza unilateral (\textit{i.e.} partícula auto-impulsada), la ecuación de movimiento continúa siendo válida, y por lo tanto, podemos derivar la relación del virial\cite{lion}, para un conjunto de $N$ peatones dentro del volumen $\mathcal{V}$.
 
 \begin{equation}
  \bigg\langle\displaystyle\sum_{i=1}^N\displaystyle\frac{p_i^2}{m_i} + 
@@ -52,8 +52,7 @@ A pesar de que la fuerza de deseo es una fuerza unilateral (\textit{i.e.} partí
 \end{equation}
 
 
-\noindent Para un conjunto de $N$ peatones dentro del volumen $\mathcal{V}$. $p_i$  y $\mathbf{f}_i$ son el momento y la fuerza total actuando sobre el individuo $i$. La fuerza $\mathbf{f}_i$ no contempla la interacción con las paredes.  $\langle\cdot\rangle$ corresponde al valor medio en el tiempo. El lado derecho de la ecuación $-3\mathcal{PV}$ es la presión global en la superficie del recinto $\mathcal{V}$.  \\
-% El término de la derecha es negativo porque se considera a la fuerza que la pared ejerce sobre el individuo. 
+$p_i$  y $\mathbf{f}_i$ son el momento y la fuerza total actuando sobre el individuo $i$. La fuerza $\mathbf{f}_i$ no contempla la interacción con las paredes.  $\langle\cdot\rangle$ corresponde al valor medio en el tiempo. El lado derecho de la ecuación $-3\mathcal{PV}$ es la presión global en la superficie del recinto $\mathcal{V}$. Este término es negativo porque el producto de $\mathbf{r}_{iW}\cdot\mathbf{f}_s^{(iW)}$ es positivo y pasa al lado derecho con signo negativo (siendo $3\mathcal{PV}>0$). En la bibliografía, el término $3\mathcal{PV}$ aparece con signo positivo ya que se considera la presión que se ejerce sobre la pared y no la presión que se ejerce sobre las partículas como en este caso.  \\
 La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad de área) actuando sobre él debidas a los individuos que lo rodean. Según Ref.~\cite{lion} se puede definir una "función de presión social" $P_i$ como:\\
 
 \begin{equation}
@@ -84,7 +83,12 @@ En la Ref.~\cite{Helbing1} se reporta que a valores de presión superiores a 160
 \section{Blocking Clusters}
 
 Se utilizó el concepto de blocking cluster~\cite{Dorso1} para estudiar a los individuos más próximos a la puerta que satisfacen la condición de estar en contacto con ella.
-Se lo define como un conjunto mínimo de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. Aquellos peatones que conforman el blocking cluster son los responsables de bloquear la salida. Típicamente los blocking cluster formados en las evacuaciones tiene estructura de "arco" como el que se muestra en la Fig. \ref{bc}. Basta que un solo peatón deje de estar en contacto con sus vecinos para que el blocking cluster deje de estar constituido. Además, estas estructuras mínimas actúan como una barrera para los individuos que tienen detrás, impidiendo la evacuación de peatones. \\
+Se lo define como un conjunto mínimo de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. En forma más rigurosa si un cluster granular (cluster humano) se define como 
+\begin{equation}
+P_i \in C_g \Longleftrightarrow \exists j \in c_g ~/~ d_{ij}<(r_i+r_j)
+\end{equation} 
+Siendo $P_i$  la i-esima persona y $r_i$ su radio. Entonces el blocking cluster corresponde al subconjunto mínimo de individuos (del cluster granular) tal que se encuentran más cerca de la puerta y cuyas primer y última partícula estan en contacto con la pared a ambos lados de la puerta.   
+Aquellos peatones que conforman el blocking cluster son los responsables de bloquear la salida de los individuos que se encuentran detrás de ellos. Típicamente se observa que los blocking cluster formados en las evacuaciones tiene estructura de "arco" como el que se muestra en la Fig. \ref{bc}. Basta que un solo peatón deje de estar en contacto con sus vecinos para que el blocking cluster deje de estar constituido. Además, estas estructuras mínimas actúan como una barrera para los individuos que tienen detrás, impidiendo la evacuación de peatones. \\
 
 En este trabajo consideramos dos definiciones adicionales referentes a los \textit{blocking clusters}: por un lado, si éste no está en contacto con la pared de separación entre las puertas (pero sí con las otras paredes del mismo lado del recinto) lo llamamos \textit{big blocking cluster}. En cambio, si una de las paredes de contacto es la pared de separación entre puertas, entonces los llamamos \textit{small blocking cluster} (ver ejemplos en la Fig.~\ref{bc}).
 
