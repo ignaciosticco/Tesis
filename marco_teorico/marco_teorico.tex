@@ -4,7 +4,7 @@ En este capítulo se describirá el modelo en el cual se basa toda la investigac
 
 \section{\label{sfm}Modelo de Fuerza social}
 
-El modelo de "fuerza social" básico considera a los individuos como partículas auto-impulsadas. El movimiento de de los individuos está dominado por tres tipos de fuerzas, de naturaleza diferente: la fuerza de deseo (autopropulsión), fuerzas sociales (repulsión) y fuerzas granulares (rozamiento). Se tienen en cuenta la interacción entre individuos y la interacción individuo-pared. Todas estas serán detalladas más adelante.   \\
+El modelo de "fuerza social" básico considera a los individuos como partículas auto-impulsadas. El movimiento de de los individuos está dominado por tres tipos de fuerzas de naturaleza diferente: la fuerza de deseo (autopropulsión), fuerzas sociales (repulsión) y fuerzas granulares (rozamiento). Se tienen en cuenta la interacción entre individuos y la interacción individuo-pared. Todas estas serán detalladas más adelante.   \\
 
 Las fuerzas del modelo básico ingresan a una ecuación de movimiento (ley de Newton) de la forma de Ec. (\ref{newton}); de esta manera queda expresada la variación de velocidad en el tiempo que siente un individuo. El término $\mathbf{f}^{(ij)}$ es la interacción entre individuos; mientras que $\mathbf{f}^{(iW)}$ refleja la interacción con las paredes. Ambos términos contemplan tanto a la repulsión como al rozamiento. La variación de la  posición viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
 
@@ -13,7 +13,7 @@ m_i\frac{d\mathbf{v_i}}{dt}=\mathbf{f}_d^ {(i)}(t)+ \sum_{i\neq j}^{N}\mathbf{f}
 \label{newton}
 \end{equation} 
 
-La fuerza de deseo expresa el hecho de que cada persona es capaz de  acelerar o desacelerar hasta alcanzar la velocidad en que se siente más cómoda. La magnitud de esta velocidad se corresponde con el nivel de ansiedad que tenga por llegar a un cierto lugar. La expresión matemática de esta fuerza viene dada por la fórmula~\ref{fdeseo}. Esta fórmula refleja el hecho que el individuo i-esimo que posee masa $m_i$, desea  moverse con una velocidad $v_d^ {(i)}(t)$ en una dirección $\hat{\mathbf{e}}_d^ {(i)}(t)$, por lo tanto readapta su velocidad $\mathbf{v}_i(t)$ con un cierto tiempo característico $\tau$.
+La fuerza de deseo expresa el hecho de que cada persona es capaz de  acelerar o desacelerar hasta alcanzar la velocidad en que se siente más cómoda. La magnitud de esta velocidad se corresponde con el nivel de ansiedad que tenga por llegar a cierto lugar. La expresión matemática de esta fuerza viene dada por la fórmula~\ref{fdeseo}. Esta fórmula refleja el hecho que el individuo i-esimo, que posee masa $m_i$, desea  moverse con una velocidad $v_d^ {(i)}(t)$ en una dirección $\hat{\mathbf{e}}_d^ {(i)}(t)$, por lo tanto readapta su velocidad $\mathbf{v}_i(t)$ con un cierto tiempo característico $\tau$.
 \begin{equation}
 \mathbf{f}_d^ {(i)}(t)=m_i\,\displaystyle\frac{v_d^ {(i)}(t)\,\hat{\mathbf{e}}_d^ {(i)}(t)-\mathbf{v}_i(t)}{\tau}\label{fdeseo}
 \end{equation}
@@ -83,11 +83,11 @@ En la Ref.~\cite{Helbing1} se reporta que a valores de presión superiores a 160
 \section{Blocking Clusters}
 
 Se utilizó el concepto de blocking cluster~\cite{Dorso1} para estudiar a los individuos más próximos a la puerta que satisfacen la condición de estar en contacto con ella.
-Se lo define como un conjunto mínimo de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. En forma más rigurosa si un cluster granular (cluster humano) se define como 
+Se lo define como un conjunto mínimo de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. En forma más rigurosa, si un cluster granular (cluster humano) se define como 
 \begin{equation}
 P_i \in C_g \Longleftrightarrow \exists j \in c_g ~/~ d_{ij}<(r_i+r_j)
 \end{equation} 
-Siendo $P_i$  la i-esima persona y $r_i$ su radio. Entonces el blocking cluster corresponde al subconjunto mínimo de individuos (del cluster granular) tal que se encuentran más cerca de la puerta y cuyas primer y última partícula estan en contacto con la pared a ambos lados de la puerta.   
+Siendo $P_i$  la i-esima persona y $r_i$ su radio. Entonces el blocking cluster corresponde al subconjunto mínimo de individuos (del cluster granular) tal que se encuentran más cerca de la puerta y cuyas primer y última partículas están en contacto con la pared a ambos lados de la puerta.   
 Aquellos peatones que conforman el blocking cluster son los responsables de bloquear la salida de los individuos que se encuentran detrás de ellos. Típicamente se observa que los blocking cluster formados en las evacuaciones tiene estructura de "arco" como el que se muestra en la Fig. \ref{bc}. Basta que un solo peatón deje de estar en contacto con sus vecinos para que el blocking cluster deje de estar constituido. Además, estas estructuras mínimas actúan como una barrera para los individuos que tienen detrás, impidiendo la evacuación de peatones. \\
 
 En este trabajo consideramos dos definiciones adicionales referentes a los \textit{blocking clusters}: por un lado, si éste no está en contacto con la pared de separación entre las puertas (pero sí con las otras paredes del mismo lado del recinto) lo llamamos \textit{big blocking cluster}. En cambio, si una de las paredes de contacto es la pared de separación entre puertas, entonces los llamamos \textit{small blocking cluster} (ver ejemplos en la Fig.~\ref{bc}).
@@ -107,7 +107,7 @@ En este trabajo consideramos dos definiciones adicionales referentes a los \text
 
 \section{\label{verlet} Algoritmo de Verlet}
 
-Para integrar las ecuaciones de movimiento se usó el algoritmo de Verlet en velocidades~\cite{haile}. Este método es ampliamente utilizado en el campo de dinámica molecular.En esta forma de resolución la posición y velocidad son calculados en el mismo paso temporal. Las ecuaciones que lo describen son:
+Para integrar las ecuaciones de movimiento se usó el algoritmo de Verlet en velocidades~\cite{haile}. Este método es ampliamente utilizado en el campo de dinámica molecular. Para esta forma de resolución, las ecuaciones que lo describen son:
 
 \begin{equation}
 x(t+\Delta t)=x(t)-v(t)\Delta t + \frac{1}{2}a(t)\Delta t^2 
@@ -123,7 +123,7 @@ El esquema de Verlet tiene un error de truncamiento local de ($\Delta t^2$). En 
 se calcula una nueva posición, se re-evalúan las fuerzas (aceleraciones) y se re-calcula la velocidad. Luego se vuelven a actualizar la posiciones y se repite el ciclo hasta construir las trayectorias de las partículas.
 En la sección \ref{ci} del capítulo \ref{simulaciones} se detallarán las condiciones iniciales usadas en cada proceso de evacuación.\\
 
-El algoritmo de Verlet es ampliamente utilizado por preservar las simetrías de las ecuaciones de newton y las propiedades físicas de una gran cantidad de sistemas. Esto es gracias al hecho que tiene reversibilidad temporal y es simpléctico (preserva el volumen en el espacio de fases). Además, es simple de implementar y posee buena estabilidad incluso para pasos temporales moderadamente grandes.
+El algoritmo de Verlet es ampliamente utilizado por preservar las simetrías de las ecuaciones de Newton y las propiedades físicas de una gran cantidad de sistemas. Esto es gracias al hecho que tiene reversibilidad temporal y es simpléctico (conserva el volumen en el espacio de fases). Además, es simple de implementar y posee buena estabilidad incluso para pasos temporales moderadamente grandes.
 
 \begin{figure}[H]
     \centering
