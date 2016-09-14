@@ -3,9 +3,9 @@
 En este capítulo se describirán los métodos usados para llevar a cabo las simulaciones.
 
 Para realizar las simulaciones se utilizó el programa LAMMPS (Large-scale Atomic/Molecular Massively Parallel Simulator)~\cite{plimpton}.
-Es un software de código libre distribuido bajo los términos de GPL.
+Es un software de código libre distribuido bajo los términos de GPL. 
 LAMMPS se caracteriza por hacer uso de las listas de vecinos para efectuar cálculos que permiten reducir la 
-complejidad algorítmica, permite correr las simulaciones en un único procesador o en paralelo (valiéndose de técnicas message-passing y descomposición espacial del dominio de simulación), además cuenta con una gran cantidad de funciones implementadas orientadas al uso de simulaciones de dinámica molecular. \\
+complejidad algorítmica, hace posible correr las simulaciones en un único procesador o en paralelo (valiéndose de técnicas message-passing y descomposición espacial del dominio de simulación), además cuenta con una gran cantidad de funciones implementadas orientadas al uso de simulaciones de dinámica molecular. \\
 
 Todas las simulaciones constaron de N individuos en un recinto cuadrado cuyo tamaño estaba ligado a la cantidad de
 peatones de modo tal que mantenga constante la densidad. En una de las paredes se ubicaron una o dos puertas. Las puertas se ubicaban simétricamente respecto del medio para evitar efectos de borde. Cuando el recinto tenía dos salidas, ambas se fijaban del mismo ancho.
@@ -13,35 +13,37 @@ Las condiciones iniciales se detallan en la subsección \ref{ci}.  Luego del ins
 
 La información era guardada cada 0,05~s. Para integrar las ecuaciones de movimiento se utilizó el algoritmo de Verlet. 
 
-Los gráficos de la figura \ref{sim} representan el estado inicial de una simulación (izquierda) donde los individuos están ordenados en un arreglo periódico cuadrado. La imagen de la derecha muestra el estado 50000 iteraciones después (luego de 5 segundos de simulación). Puede verse que para ese entonces la multitud forma uan estructura de "semi círculo" en torno a la salida. Esta fenómeno emergente es propio de la dinámica granular~\cite{To} y característico de las evacuaciones en estado de pánico~\cite{Helbing1}  
+Los gráficos de la figura \ref{sim} representan el estado inicial de una simulación (izquierda) donde los individuos están ordenados en un arreglo periódico cuadrado. La imagen de la derecha muestra el estado 50000 iteraciones después (luego de 5 segundos de simulación). Puede verse que para ese entonces la multitud forma una estructura de "semi círculo" en torno a la salida. Este fenómeno emergente es propio de la dinámica granular~\cite{To} y característico de las evacuaciones en estado de pánico~\cite{Helbing1}  
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.45]{figuras/0.eps}
     \hfill   
     \includegraphics[scale=0.45]{figuras/500.eps}
-     \caption[width=5cm]{Izquierda: Estado inicial de una simulación de 225 individuos en un recinto de 20$\times$20~m. Derecha: Estado de la simulación en la iteración 50000. }
+     \caption[width=5cm]{Izquierda: Estado inicial de una simulación de 225 individuos en un recinto de 20$\times$20~m. Derecha: Estado de la simulación en la iteración 50000. Las barras amarillas representan las paredes. Los individuos evacúan de izquierda a derecha.}
     \label{sim}
 \end{figure}
 
 Con el fin de compatibilizar el modelo de fuerza social con LAMMPS, se crearon varios módulos con las fuerzas que caracterizan a este modelo. Todos estos fueron escritos en c++. En la  sección \ref{modulos} se describe cada uno de ellos. 
 En la sección \ref{med realizadas} se detallarán los distintos tipos de mediciones llevadas a cabo.
 
-\subsection{\label{ci}Condiciones iniciales}
+\section{\label{ci}Condiciones iniciales}
 
-Para todas los sistemas estudiados se configuró un arreglo bidimensional de individuos, ordenados inicialmente tipo red cuadrada, con una densidad de 0,6~personas/m$^2$, similar al límite de las regulaciones actuales~\cite{mysen} (con esta distancia la interacción de repulsión social es despreciable). Todos los individuos tenían una velocidad aleatoria con una distribución gausiana centrada en cero. El módulo de la velcidad inicial de los peatones se fijó con el comando {\tt velocity} de lammps. Esta instrucción requiere la "temperatura" del sistema. La misma se vincula con la energía cinética mediante la siguiente expresión
+Para todas los sistemas estudiados se configuró un arreglo bidimensional de individuos, ordenados inicialmente tipo red cuadrada, con una densidad de 0,6~personas/m$^2$, similar al límite de las regulaciones actuales~\cite{mysen} (con esta distancia la interacción de repulsión social es despreciable). Todos los individuos tenían una velocidad aleatoria con una distribución gausiana centrada en cero. El módulo de la velocidad inicial de los peatones se fijó con el comando {\tt velocity} de lammps. Esta instrucción requiere la "temperatura" del sistema. La misma se vincula con la energía cinética mediante la siguiente expresión
 
 \begin{equation}
 v=\sqrt{\frac{2k_b}{m}T}
 \end{equation}
 
-donde $k_b$ es la constante de Boltzman y T es la temperarura configurada en la simulación
+donde $k_b$ es la constante de Boltzman y T es la temperatura configurada en la simulación
 El valor usado de temperatura fue $10^{23}$ de modo que el módulo de la velocidad inicial sea $v=1.19$~m/s
 
 
 
 
 \section{\label{modulos}Módulos}
+
+Para hacer las simulaciones se construyeron varios módulos que permitieron compatibilizar Lammps con el modelo de fuerza social y el cálculo de la presión. A continuación se describirá cada uno de ellos. 
 
 {\Large {\tt pair\_social}}
 
@@ -53,7 +55,7 @@ sea despreciable ($\sim$ 10$^{-12}$ N). El resto de los parámetros fueron extra
 
 {\Large {\tt pair\_gran\_social}}
 
-Se creó para que exista rozamiento entre los individuos que están en contacto. Requiere como parámetro el valor de la constante de rozamiento, el mismo fue $\kappa =2,4 \times 10^5$~kgm$^{-1}$s$^{-1}$. Tanto el valor de $\kappa$ como la expresión de la fuerza concuerdan con los del modelo de Helbing.
+Se creó para que exista rozamiento entre los individuos que están en contacto. Requiere como parámetro el valor de la constante de rozamiento, el mismo fue $\kappa =2,4 \times 10^5$~kgm$^{-1}$s$^{-1}$. Tanto el valor de $\kappa$ como la expresión de la fuerza concuerdan con los del modelo de Helbing (ver Ec. \ref{frozamiento}).
 
 {\Large {\tt fix\_wall\_social} y {\tt fix\_wall\_gran}}
 
@@ -62,14 +64,14 @@ Estos módulos son análogos a pair\_social y pair\_gran\_social pero aplicados 
 {\Large {\tt fix\_social\_self} y {\tt fix\_social\_self\_multi}}
 
 La fuerza de deseo del modelo de Helbing fue simulada con estos módulos. El primero se usó para los recintos con una única puerta mientras que el segundo para recintos con dos. 
-fix\_social\_self requiere como parámetro la masa de los individuos y la velocidad de deseo. El target que tiene cada individuo, depende de la posición en donde se encuentre. Por cada puerta hay tres targets: superior, medio e inferior. El medio está ubicado en la mitad de la puerta, los otros 0,3 m por encima y por debajo.  Los individuos cuya posición en la coordenada 'y' sea mayor (menor) que el target superior (inferior) actualizan su velocidad para apuntar al target superior (inferior). Si se encuentran en medio de éstos, apuntan al centro de la puerta. De este modo los peatones siempre se dirigen al target más cercano.\\  
+fix\_social\_self requiere como parámetro la masa de los individuos y la velocidad de deseo. El target que tiene cada individuo, depende de la posición en donde se encuentre. Por cada puerta hay tres targets: superior, medio e inferior. El medio está ubicado en la mitad de la puerta, los otros 0,3 m por encima y por debajo.  Los individuos cuya posición en la coordenada 'y' sea mayor (menor) que el target superior (inferior) actualizan su velocidad para apuntar al target superior (inferior). Si se encuentran en medio de éstos, apuntan al centro de la puerta. De este modo los peatones siempre se dirigen al target más cercano. Cabe destacar que todos los individuos ven la salida independientemente de cuan lejos estén de la misma y cuantas personas tengan delante.\\  
 
 Cuando se simularon recintos con dos puertas se usó fix$\_$social$\_$self$\_$multi, sus parámetros son: la masa de los individuos, la velocidad de deseo y el gap (la distancia de separación entre puertas). Si el gap es nulo, las dos puertas están unidas (formando una única puerta ancha). En este caso, se establecen tres targets: el superior (inferior), que está 0.3 m debajo (encima) del final de la puerta superior (inferior). Los individuos que se encuentran en el medio apuntan al centro (al igual que en el caso de una única puerta).
 Si el gap no es nulo, es decir, existe una porción de pared entre ambas puertas, la dirección de la velocidad de los individuos se actualiza de forma análoga al caso de una puerta. De esta forma los individuos siempre buscan la salida más cercana. 
 
 {\Large {\tt compute\_social\_pressure}}
 
-Calcula la función de presión social de la expresión (\eqref{pv}) despreciando el término cinético y el factor 1/2. Para cada timestep devuelve un vector con la presión que soporta cada peatón como consecuencia de la interacción con sus vecinos. 
+Calcula la función de presión social de la expresión \eqref{pa} despreciando el término cinético y el factor 1/2. Para cada timestep devuelve un vector con la presión que soporta cada peatón como consecuencia de la interacción con sus vecinos. 
 
 {\Large \tt {compute\_dijkstra\_atom}}
 
@@ -81,12 +83,12 @@ Se llevaron a cabo dos simulaciones (partículas centradas y partículas en hile
 
 \subsection{Partículas centradas}
 
-Se simuló un conjunto de 19 partículas cuyo target es el origen de coordenadas. Con una velocidad de deseo $v_d=4$~m/s en módulo. En el estado estacionario la disposición de las partículas es tal como se muestra en la figura \ref{central} . Las partículas se encuentran casi estáticas; poseen una pequeña oscilación en torno a la posición de equilibrio. 
+Se simuló un conjunto de 19 partículas cuyo target es el origen de coordenadas. Con una velocidad de deseo $v_d=4$~m/s en módulo. En el estado estacionario la disposición de las partículas es tal como se muestra en la figura \ref{central} . Las partículas se encuentran casi estáticas (sus fuerzas de deseo se compensan con la repulsión social); pero aun así, poseen una pequeña oscilación en torno a la posición de equilibrio. 
 
 \begin{figure}[H]
     \centering
         \includegraphics[scale=0.5]{figuras/central.png}
-    \caption[width=5cm]{Esquema de las partículas. Partícula central rodeada por 6 primeros vecinos y doce segundos vecinos.}
+    \caption[width=5cm]{Esquema de las partículas. Partícula central (coloreada de negro) rodeada por 6 primeros vecinos y doce segundos vecinos.}
     \label{central}
 \end{figure}
 
@@ -131,13 +133,13 @@ Distancia (m) & Presión (N.m) \\ \hline
 
 Sumar todos los valores de presión social y dividir por dos da como resultado el lado izquierdo de la ecuación (\ref{virial2}).
 \begin{equation}
- \displaystyle\sum_{i=1}^N\langle3P_iV_i\rangle = 11618.6\ \text{N.m}
+ \displaystyle\sum_{i=1}^N\langle2P_iA_i\rangle = 11618.6\ \text{N.m}
 \end{equation}
 
 La suma de todas las distancias multiplicada por la fuerza de deseo $f_d=mv_d/\tau$ da como resultado el lado derecho (despreciando el primer término porque no hay interacción con paredes):
 
 \begin{equation}
- -3\mathcal{PV} -\displaystyle\sum_{i=1}^N \langle
+ -2\mathcal{PA} -\displaystyle\sum_{i=1}^N \langle
 \mathbf{r}_i\cdot\mathbf{f}_d^{(i)}\rangle\ =  11580.8\ \text{N.m}
 \end{equation}
 
@@ -146,12 +148,13 @@ Ambos valores son cercanos. Por lo tanto, el resultado de esta simulación verif
 
 \subsection{Partículas en hilera}
 
-Se creó un código que mide la presión que soportan los individuos dispuestos en hilera como muestra la figura \ref{hilera} 
+Se creó un código que mide la presión que soportan los individuos dispuestos en hilera como muestra la figura \ref{hilera}.  
 
 \begin{figure}[!htbp]
 \center
 \includegraphics[scale=1]{figuras/hilera.eps}
-\caption{\label{hilera}}
+\caption[width=5cm]{Hilera de individuos empujando a la derecha. Situación estática donde las fuerzas de deseo de cada individuo se compensan con la repulsión social.}
+\label{hilera}
 % done with figuras_presion.odg
 \end{figure}
 
@@ -159,7 +162,7 @@ Los resultados se muestran en la tabla \ref{simulados}. La misma está ordenada 
 En la tabla \ref{teoricos} se muestran valores de presión teóricos (calculados a partir de las fórmulas \ref{eqn_7}, \ref{eqn_8} y \ref{eqn_9} del apéndice \ref{appendix:presion}). Las magnitudes de presión son comparables a las simuladas y el comportamiento a grandes rasgos es similar (las partículas más presionadas son las que se encuentran más cerca de la pared y aumentar N aumenta la presión general)  
 
 \begin{table}[h!]
-\caption {Valores simulados de $6P_iV_i$ para $v_d=4\,$m/s.}
+\caption {Valores simulados de $4P_iA_i$ para $v_d=4\,$m/s.}
 \label{simulados}
 \begin{center}
 \begin{tabular}{|l|cccccc|}
@@ -182,7 +185,7 @@ $i$   &  1   &   2    &  3       &  4     &  5     &   6     \\
 
 
 \begin{table}[h!]
-\caption {Valores teóricos de $6P_iV_i$ para $v_d=4\,$m/s.}
+\caption {Valores teóricos de $4P_iA_i$ para $v_d=4\,$m/s.}
 \label{teoricos}
 \begin{center}
 \begin{tabular}{|l|cccccc|}
@@ -208,6 +211,8 @@ En esta sección se verificó que los resultados simulados verifican la relació
 
 \section{\label{med realizadas} Mediciones Realizadas}
 
+En esta sección se detallarán los experimentos llevados a cabo y el análisis de los observables que permitió describir el comportamiento de las evacuaciones en estado de pánico. 
+
 {\Large Isobaras}
 
 Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente. De esta
@@ -215,7 +220,7 @@ forma se obtuvieron datos de presión y posición en función del tiempo para ca
 
 %Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente. De esta forma se obtuvieron datos de presión y ubicación en función del tiempo para cada individuo. Éstos fueron analizados con Python para generar gráficos de isobaras (contour maps). Se creó una grilla con celdas de 1~m$^2$. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto.   
 
-Estos mapas de presión se hicieron para recintos de 20$\times$20~m con 225 individuos. La habitaión contaba con una única puerta de ancho: 1,2~m, 2,4~m, 3,6~m o con dos puertas de 1.2~m separadas a distintas distancias. Para cada tipo de medición se efectuaron 30 simulaciones. Cada una de estas se terminó al evacuar 100 individuos. 
+Estos mapas de presión se hicieron para recintos de 20$\times$20~m con 225 individuos. La habitación contaba con una única puerta de ancho: 1,2~m, 2,4~m, 3,6~m o con dos puertas de 1.2~m separadas a distintas distancias. Para cada tipo de medición se efectuaron 30 simulaciones. Cada una de estas se terminó al evacuar 100 individuos. 
 
 {\Large Flujo de velocidad}
 
@@ -223,21 +228,21 @@ De forma análoga se medió la velocidad de cada individuo ($v_x$ y $v_y$) con e
 
 {\Large Presión y velocidad en función del tiempo}
 
-Para un peatón cuya posición inicial es (x,y)=(12.35,8.45) en un recinto de 20$\times$20~m con 225 individuos se midió la presión social y velocidad (módulo) en función del tiempo desde que comienza la simulación hasta que logra evacuar. Estas simulaciones se hicieron para recintos con una única puerta de 1,2~m y 3,6~m. 
+Para un peatón cuya posición inicial es (x, y)=(12.35, 8.45) en un recinto de 20$\times$20~m con 225 individuos se midió la presión social y velocidad (módulo) en función del tiempo desde que comienza la simulación hasta que logra evacuar. Estas simulaciones se hicieron para recintos con una única puerta de 1,2~m y 3,6~m. 
 
 {\Large Tiempo de evacuación}
 
-Se registró el tiempo que demora evacuar más del 70\% de los individuos en distintos recintos y bajo diferentes condiciones. Se hicieron mediciones en recintos de 20$\times$20~m, 30$\times$30~m y 40$\times$40~m con 225, 583 y 961 individuos respectivamente para diferentes velocidades de deseo (de 2~m/s a 8~m/s). Algunas mediciones se hicieron para estudiar la variación del tiempo de evacuación en función del gap y otras para confirmar el efecto "Faster is slower". 
+Se registró el tiempo que tarda en evacuar más del 70\% de los individuos en distintos recintos y bajo diferentes condiciones. Se hicieron mediciones en recintos de 20$\times$20~m, 30$\times$30~m y 40$\times$40~m con 225, 583 y 961 individuos respectivamente para diferentes velocidades de deseo (de 2~m/s a 8~m/s). Algunas mediciones se hicieron para estudiar la variación del tiempo de evacuación en función del gap y otras para confirmar el efecto "Faster is slower". 
 
 {\Large Probabilidad de formar blocking clusters}
 
-Mediante el módulo que identifica los individuos que conforman un blocking cluster se calculó el cociente entre el tiempo que la salida está bloqueada y el tiempo total de la evacuación. Este cociente es la probabilidad de formar blocking clusters. Se graficó esta probabilidad para clusters grandes y pequeños en recintos de 20$\times$20~m con 225 individuos con velocidad de deseo de 4~m/s, 6~m/s y recintos de 40$\times$40~m con 961 individuos con $v_d$=4~m/s. 30 iteraciones fueron realizadas para promediar los resultados. 
+Mediante el módulo que identifica los individuos que conforman un blocking cluster se calculó el cociente entre el tiempo que la salida está bloqueada y el tiempo total de la evacuación. Este cociente es la probabilidad de formar blocking clusters. Se graficó esta probabilidad para clusters grandes y pequeños en recintos de 20$\times$20~m con 225 individuos con velocidades de deseo de 4~m/s y 6~m/s. También se hicieron mediciones en recintos de 40$\times$40~m con 961 individuos a $v_d$=4~m/s. 30 iteraciones fueron realizadas para promediar los resultados. 
 
 {\Large Presión en función de distancia a la puerta}
 
-Se midió la presión (social) media en función de la distancia a la salida en recintos de 20$\times$20~m con 225 individuos. El ancho de la puerta fue 1,2~m. La velocidad de deseo 4~m/s. Se promedió el resultado de 30 iteraciones las cuales terminaban cuando 100 peatones abandonaban el recinto. Se llevaron a cabo dos tipos de análisis: en uno la distancia a la puerta fue dividida en intervalos de 0,3~m y en el otro fue dividida con celdas 1~m pero restringidas a 9,5~m $\le$ y $\le$ 10,5~m. \\
+Se midió la presión (social) media en función de la distancia a la salida en recintos de 20$\times$20~m con 225 individuos. El ancho de la puerta fue 1,2~m. La velocidad de deseo 4~m/s. Se promedió el resultado de 30 iteraciones las cuales terminaban cuando 100 peatones abandonaban el recinto. Se dividió al recinto con un grillado en forma de discos separados a 0.3~m de distancia. De este modo se tomó el promedio de presión asociado a cada disco (p(r)). \\
 
-En el apéndice \ref{appendix:script} se presenta un script básico de Lammps con una descripción detallada del mismo. 
+En el apéndice \ref{appendix:script} se muestra un script básico de Lammps, el mismo cuenta con una descripción detallada de las funciones usadas. Este apéndice se creó con el fin de ejemplificar cómo es la sintaxis de los códigos utilizados a lo largo de la investigación. 
 
 
 %%%%%%%%%%%%%%%%%%%%% Ver si queda o se va %%%%%%%%%%%%%%%%%%%
