@@ -43,46 +43,47 @@ A partir de la ecuación de movimiento (\ref{newton}) y de las condiciones inici
  
 \section{Presión local}
 
-A pesar de que la fuerza de deseo es una fuerza unilateral (\textit{i.e.} partícula auto-impulsada), la ecuación de movimiento continúa siendo válida, y por lo tanto, podemos derivar la relación del virial\cite{lion}, para un conjunto de $N$ peatones dentro del volumen $\mathcal{V}$.
+A pesar de que la fuerza de deseo es una fuerza unilateral (\textit{i.e.} partícula auto-impulsada), la ecuación de movimiento continúa siendo válida, y por lo tanto, podemos derivar la relación del virial\cite{lion}, para un conjunto de $N$ peatones dentro del área $\mathcal{A}$.
 
 \begin{equation}
  \bigg\langle\displaystyle\sum_{i=1}^N\displaystyle\frac{p_i^2}{m_i} + 
 \displaystyle\sum_{i=1}^N 
-\mathbf{r}_i\cdot\mathbf{f}_i\bigg\rangle=-3\mathcal{PV}\label{virial1}
+\mathbf{r}_i\cdot\mathbf{f}_i\bigg\rangle=-2\mathcal{PA}\label{virial1}
 \end{equation}
 
 
-$p_i$  y $\mathbf{f}_i$ son el momento y la fuerza total actuando sobre el individuo $i$. La fuerza $\mathbf{f}_i$ no contempla la interacción con las paredes.  $\langle\cdot\rangle$ corresponde al valor medio en el tiempo. El lado derecho de la ecuación $-3\mathcal{PV}$ es la presión global en la superficie del recinto $\mathcal{V}$. Este término es negativo porque el producto de $\mathbf{r}_{iW}\cdot\mathbf{f}_s^{(iW)}$ es positivo y pasa al lado derecho con signo negativo (siendo $3\mathcal{PV}>0$). En la bibliografía, el término $3\mathcal{PV}$ aparece con signo positivo ya que se considera la presión que se ejerce sobre la pared y no la presión que se ejerce sobre las partículas como en este caso.  \\
+$p_i$  y $\mathbf{f}_i$ son el momento y la fuerza total actuando sobre el individuo $i$. La fuerza $\mathbf{f}_i$ no contempla la interacción con las paredes.  $\langle\cdot\rangle$ corresponde al valor medio en el tiempo. El lado derecho de la ecuación $-2\mathcal{PA}$ es la presión global en el perímetro del recinto $\mathcal{A}$. Este término es negativo porque el producto de $\mathbf{r}_{iW}\cdot\mathbf{f}_s^{(iW)}$ es positivo y pasa al lado derecho con signo negativo (siendo $2\mathcal{PA}>0$). En la bibliografía, el término $2\mathcal{PA}$ aparece con signo positivo ya que se considera la presión que se ejerce sobre la pared y no la presión que se ejerce sobre las partículas como en este caso.  \\
 La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad de área) actuando sobre él debidas a los individuos que lo rodean. Según Ref.~\cite{lion} se puede definir una "función de presión social" $P_i$ como:\\
 
 \begin{equation}
-3P_iV_i=\displaystyle\frac{p_i^2}{m_i} + \frac{1}{2}
+2P_iA_i=\displaystyle\frac{p_i^2}{m_i} + \frac{1}{2}
 \displaystyle\sum_{j=1}^{N-1}
-\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}\label{pv}
+\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}\label{pa}
 \end{equation}
 
-\noindent donde $V_i$ es el volumen que encierra al peatón $i$ y 
+\noindent donde $A_i$ es el área que encierra al peatón $i$ y 
 $\mathbf{r}_{ij}=\mathbf{r}_{i}-\mathbf{r}_j$ (la distancia
-entre dos peatones en la dirección desde j hacia i). Cabe destacar que el producto interno $\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}$ siempre es positivo debido a la repulsión y es igual al producto escalar (positivo) $d_{ij}f_s^{(ij)}$. El factor 1/2 evita el doble conteo de las interacciones cuando se hace la suma de todos los $3P_iV_i$ \\ 
+entre dos peatones en la dirección desde j hacia i). Cabe destacar que el producto interno $\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}$ siempre es positivo debido a la repulsión y es igual al producto escalar (positivo) $d_{ij}f_s^{(ij)}$. El factor 1/2 evita el doble conteo de las interacciones cuando se hace la suma de todos los $2P_iA_i$ \\ 
 
 El segundo término en la ecuación (\ref{virial1}) puede dividirse en la suma de productos internos $\mathbf{r}_i\cdot\mathbf{f}_d$ (deseo), 
 $\mathbf{r}_i\cdot\mathbf{f}_s$ (social) y $\mathbf{r}_i\cdot\mathbf{f}_g$ (granular). De hecho, la suma del producto social depende de la distancia entre partículas $d_{ij}f_s^{(ij)}$, mientras que la parte granular no tiene ningún rol por su ortogonalidad ($\mathbf{r}_{ij}\cdot\mathbf{f}_g^{(ij)}=0$). Por lo tanto, la relación del virial (\ref{virial1}) se expresa \\  
 
 \begin{equation}
- \displaystyle\sum_{i=1}^N\langle3P_iV_i 
-\rangle=-3\mathcal{PV} -\displaystyle\sum_{i=1}^N \langle
+ \displaystyle\sum_{i=1}^N\langle2P_iA_i 
+\rangle=-2\mathcal{PA} -\displaystyle\sum_{i=1}^N \langle
 \mathbf{r}_i\cdot\mathbf{f}_d^{(i)}\rangle\label{virial2}
 \end{equation}
 
 Hay que destacar que la ecuación (\ref{virial2}) se cumple si los peatones están en contacto o no. Esto significa que no se trata de una presión de contacto (habitual en los sistemas físicos tradicionales) sino de una presión que provoca una cambio en el patrón de movimiento del individuo.\\
 
-La suma de fuerzas por unidad de circunferencia (\textit{i.e.} medida de presión según la Ref.~\cite{Helbing1}) es similar a la definición dada en (\ref{pv}) y que, a su vez, se sigue de la Ref.\cite{lion}. Comprobamos durante la investigación que ambas son proporcionales (no mostrado en este trabajo).\\   
+La suma de fuerzas por unidad de circunferencia (\textit{i.e.} medida de presión según la Ref.~\cite{Helbing1}) es similar a la definición dada en (\ref{pa}) y que, a su vez, se sigue de la Ref.\cite{lion}. Comprobamos durante la investigación que ambas son proporcionales (no mostrado en este trabajo). En la sección \ref{Muestras de performace} se verifica la relación \eqref{virial2} a través de ejemplos particulares simulados.\\   
 
 En la Ref.~\cite{Helbing1} se reporta que a valores de presión superiores a 1600 Nm$^{-1}$ los individuos se lastiman y se vuelven obstáculos inamovibles. En este trabajo no se tienen en cuenta los eventuales desmayos producidos por las altas presiones. 
 
 \section{Blocking Clusters}
 
-Se utilizó el concepto de blocking cluster~\cite{Dorso1} para estudiar a los individuos más próximos a la puerta que satisfacen la condición de estar en contacto con ella.
+Al analizar la evolución de los individuos en estado de pánico se observó que el flujo no era constante y que presentaba "saltos" asociados a "taponamientos". Resultó entonces apropiado definir 
+el concepto de blocking cluster~\cite{Dorso1} para estudiar a los individuos más próximos a la puerta que satisfacen la condición de estar en contacto con ella.
 Se lo define como un conjunto mínimo de individuos en contacto que va desde un punto de la pared hacia otro. Estos puntos están próximos a los costados de la puerta. En forma más rigurosa, si un cluster granular (cluster humano) se define como 
 \begin{equation}
 P_i \in C_g \Longleftrightarrow \exists j \in c_g ~/~ d_{ij}<(r_i+r_j)
