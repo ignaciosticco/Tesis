@@ -39,8 +39,6 @@ donde $k_b$ es la constante de Boltzman y T es la temperatura configurada en la 
 El valor usado de temperatura fue $10^{23}$ de modo que el módulo de la velocidad inicial sea $v=1.19$~m/s
 
 
-
-
 \section{\label{modulos}Módulos}
 
 Para hacer las simulaciones se construyeron varios módulos que permitieron compatibilizar Lammps con el modelo de fuerza social y el cálculo de la presión. A continuación se describirá cada uno de ellos. 
@@ -71,7 +69,7 @@ Si el gap no es nulo, es decir, existe una porción de pared entre ambas puertas
 
 {\Large {\tt compute\_social\_pressure}}
 
-Calcula la función de presión social de la expresión \eqref{pa} despreciando el término cinético y el factor 1/2. Para cada timestep devuelve un vector con la presión que soporta cada peatón como consecuencia de la interacción con sus vecinos. 
+Calcula la función de presión social de la expresión (\eqref{pa}) despreciando el término cinético y el factor 1/2. Para cada timestep devuelve un vector con la presión que soporta cada peatón como consecuencia de la interacción con sus vecinos. Solo se tienen en cuenta las presiones producidas por la repulsión de fuerza social, es decir, se ignoran las interacciones con las paredes asi como el rozamiento entre individuos. Se desprecia el término cinético porque solo cuando los individuos están amontonados (situación cuasi estática) el valor de presión es apreciable. En esta situación el término asociado a la repulsión social es al menos un orden de magnitud mayor que el término asociado a la energía cinética.  
 
 {\Large \tt {compute\_dijkstra\_atom}}
 
@@ -79,7 +77,7 @@ Rotula con la misma etiqueta a todos los elementos que forman parte de un blocki
 
 \section{\label{Muestras de performace} Muestras de performance} 
 
-Se llevaron a cabo dos simulaciones (partículas centradas y partículas en hilera) para poner a prueba el módulo que calcula la presión y su relación con la ecuación del virial. \\ 
+Se llevaron a cabo dos simulaciones (partículas centradas y partículas en hilera) para poner a prueba el módulo que calcula la presión ({\tt compute\_social\_pressure}) y su relación con la ecuación del virial. \\ 
 
 \subsection{Partículas centradas}
 
@@ -215,8 +213,7 @@ En esta sección se detallarán los experimentos llevados a cabo y el análisis 
 
 {\Large Isobaras}
 
-Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente. De esta
-forma se obtuvieron datos de presión y posición en función del tiempo para cada individuo. Con Python se creó una grilla con celdas de 1~m$^2$. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto. Luego se generó un gráfico de isobaras (contour map). Los datos de cada celda fueron promediados con los de sus celdas vecinas para obtener gráficos de presiones "suavizados".
+Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente ({\tt compute\_social\_pressure}) a partir de la expresión (\ref{pa}). De esta forma se obtuvieron datos de presión y posición en función del tiempo para cada individuo. Con Python se creó una grilla con celdas de 1~m$^2$. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto. Luego se generó un gráfico de isobaras (contour map). Los datos de cada celda fueron promediados con los de sus celdas vecinas para obtener gráficos de presiones "suavizados".
 
 %Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente. De esta forma se obtuvieron datos de presión y ubicación en función del tiempo para cada individuo. Éstos fueron analizados con Python para generar gráficos de isobaras (contour maps). Se creó una grilla con celdas de 1~m$^2$. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto.   
 
