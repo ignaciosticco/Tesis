@@ -1,0 +1,1 @@
+El algoritmo de Verlet posee buena estabilidad incluso para pasos temporales moderadamente grandes. Es simpléctico (preserva el área en el espacio de fases) y tiene reversibilidad temporal. Por lo tanto, preserva la simetría de las ecuaciones de Newton y 

@@ -1,0 +1,122 @@
+\begin{thebibliography}{10}
+
+\bibitem{blue}
+V.~Blue and L.~Adler.
+\newblock Emergent fundamental pedestrian flows from cellular automata
+  micro-simulation.
+\newblock {\em Transportation Research Record}, 1644:29–36, 1998.
+
+\bibitem{cheng}
+W.G. Cheng, S.~Lo, Z.~Fang, and C.~Cheng.
+\newblock A view on the means of fire prevention of ancient chinese
+  buildings-from religious belief to practice.
+\newblock {\em Structural Survey}, 22:201–209, 2004.
+
+\bibitem{daoliang1}
+Z.~Daoliang, Y.~Lizhong, and L.~Jian.
+\newblock Exit dynamics of occupant evacuation in an emergency.
+\newblock {\em Physica A}, 363:501--511, 2006.
+
+\bibitem{bruno}
+L.~Bruno F.~Venutti and N.~Bellomo.
+\newblock Crowd dynamcis on a moving platform: mathematical modeling and
+  application to lively footbridges.
+\newblock {\em Mathematical and Computer Modeling}, 45:252–269, 2007.
+
+\bibitem{FLO2}
+FBC2010.
+\newblock Doors, gates and turnstiles.
+\newblock {\em Florida Building Code Handbook}, 1008.1:81, 2010.
+
+\bibitem{FLO}
+FBC2010.
+\newblock Exit and exit access doorways.
+\newblock {\em Florida Building Code Handbook}, 1015.1:90, 2010.
+
+\bibitem{Dorso3}
+G.~Frank and C.~Dorso.
+\newblock Room evacuation in the presence of an obstacle.
+\newblock {\em Physica A}, 390:2135--2145, 2011.
+
+\bibitem{Dorso4}
+G.~Frank and C.~Dorso.
+\newblock Evacuation under limited visibility.
+\newblock {\em International Journal of Modern Physics C}, 26:1--18, 2015.
+
+\bibitem{Helbing1}
+D.~Helbing, I.~Farkas, and T.~Vicsek.
+\newblock Simulating dynamical features of escape panic.
+\newblock {\em Nature}, 407:487--490, 2000.
+
+\bibitem{stop-go}
+Dirk Helbing, Anders Johansson, and Habib~Zein Al-Abideen.
+\newblock Dynamics of crowd disasters: An empirical study.
+\newblock {\em Phys. Rev. E}, 75:046109, Apr 2007.
+
+\bibitem{huanhuan1}
+T.~Huan-Huan, D.~Li-Yun, and X.~Yu.
+\newblock Influence of the exits' configuration on evacuation process in a room
+  without obstacle.
+\newblock {\em Physica A}, 420:164--178, 2015.
+
+\bibitem{haile}
+Haile J.M.
+\newblock {\em Molecular Dynamics Simulation}.
+\newblock John Wiley \& Sons, 2nd edition, 1997.
+
+\bibitem{To}
+H.K.~Bak K.~To, P.Y.~Lai.
+\newblock Jamming of granular ow in a two-dimensional hopper.
+\newblock {\em Phys. Rev. Lett}, 86:71–74, 2001.
+
+\bibitem{kirchner1}
+A.~Kirchner and A.~Schadschneider.
+\newblock Simulating of evacuation processes using a bionics-inspired cellular
+  automaton model for pedestrian dynamics.
+\newblock {\em Physica A}, 312:260--276, 2002.
+
+\bibitem{lion}
+Thomas~W Lion and Rosalind~J Allen.
+\newblock Computing the local pressure in molecular dynamics simulations.
+\newblock {\em Journal of Physics: Condensed Matter}, 24(28):284133, 2012.
+
+\bibitem{low}
+J.D. Low.
+\newblock ollowing the crowd.
+\newblock {\em Nature}, 407:465--466, 2000.
+
+\bibitem{mysen}
+Mads Mysen, Sveinung Berntsen, Per Nafstad, and Peter~G. Schild.
+\newblock Occupancy density and benefits of demand-controlled ventilation in
+  norwegian primary schools.
+\newblock {\em Energy and Buildings}, 37(12):1234 -- 1240, 2005.
+
+\bibitem{OSHA}
+OSHA.
+\newblock Design and construction requirements for exit routes.
+\newblock {\em Occupational Safety \& Health Administration Standards 29-CFR},
+  1910.36(b):1--3, 2015.
+
+\bibitem{Dorso1}
+D.~Parisi and C.~Dorso.
+\newblock Microscopic dynamics of pedestrian evacuation.
+\newblock {\em Physica A}, 354:606--618, 2005.
+
+\bibitem{perez1}
+G.~Perez, G.~Tapang, M.~Lim, and C.~Saloma.
+\newblock Streaming, disruptive interference and power-law behavior in the exit
+  dynamics of confined pedestrians.
+\newblock {\em Physica A}, 312:609--618, 2002.
+
+\bibitem{plimpton}
+Steve Plimpton.
+\newblock Fast parallel algorithms for short-range molecular dynamics.
+\newblock {\em Journal of Computational Physics}, 117(1):1 -- 19, 1995.
+
+\bibitem{Wang}
+W.~Song y W.~Lv S.J.~Wang.
+\newblock Moving characteristics of “blind” people evacuating from a room.
+\newblock {\em IEEE 17th International Conference on Intelligent Transportation
+  Systems (ITSC)}, 2014.
+
+\end{thebibliography}

@@ -1,0 +1,19 @@
+La presión que soportan los individuos que forman parte del blocking cluster (aquellos individuos que bloquean la puerta) es mayor si el recinto tiene más individuos o si éstos están más apurados por salir. En la tabla se muestra el promedio de presión del blocking cluster para para diferentes velocidades de deseo (v_d=4 y v_d=8) y diferente cantidad de individuos (N=225 y N=961), todas las evacuaciones se cortaron al evacuar 100 peatones. Este resultado sugiere que la dinámica de evacuaciones con pocos individuos muy apurados sería similar a la de muchos individuos no apurados. 
+
+La parte de resultados la separe en: "una puerta" y "dos puertas". Decidi hacerlo asi porque en la parte de "una puerta" analizo los casos de puerta angosta (1.2 m) y puerta ancha  (3.6 m). Me parecio que mencionar que la puerta ancha son 3 puertas de 1.2m juntas (con gap=0) vuelve confusa la lectura. Si prefieren que reemplace "puerta ancha" por "3 puertas con gap cero" no dudare en cambiarlo.  
+  
+El modelo de fuerza social es capaz de describir varios fenómenos propios de las evacuaciones. Entre ellos se tiene el aletargo producido cuando el nivel de ansiedad de los peatones es grande (Faster is slower~) o los "blocking clusters" (conjunto de individuos que bloquea la salida formando un arco).
+
+En suma los resultados previos indican que:
+
+a) El tiempo de evacuación es independiente de la distancia de separación para el caso de peatones con comportamiento individualista.
+
+b) si los peatones se mueven en manada, el tiempo de evacuación para pequeñas separaciones es mayor. 
+
+c) El número de peatones que abandonó el recinto por unidad de tiempo mostró una disminución
+para distancias de separación menores al ancho de cuatro puertas
+
+d) No importa cuan separadas están las dos puertas, el rendimiento de la evacuación no mejora el doble respecto al rendimiento que tiene una unica salida (con el mismo ancho).
+
+e) El ancho total de las salidas puede mejorar el tiempo de evacuación para cualquier distancia de
+separación entre puertas, siempre que ambas tengan el mismo ancho.

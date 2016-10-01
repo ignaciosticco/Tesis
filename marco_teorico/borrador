@@ -1,0 +1,6 @@
+El algoritmo de Verlet posee buena estabilidad incluso para pasos temporales moderadamente grandes. Es simpléctico (preserva el área en el espacio de fases) y tiene reversibilidad temporal. Es ampliamente utilizado por preservar las simetrias de las ecuaciones de newton y las propiedades de una gran cantidad de sistemas físicos. 
+
+El algoritmo de Verlet es ampliamente utilizado por preservar las simetrias de las ecuaciones de newton y las propiedades físicas de una gran cantidad de sistemas. Esto es gracias al hecho que tiene reversibilidad temporal y es simpléctico (preserva el volumen en el espacio de fases). Además es simple de implementar y see buena estabilidad incluso para pasos temporales moderadamente grandes.
+
+
+

@@ -12,11 +12,15 @@ peatones de modo tal que mantenga constante la densidad. En una de las paredes s
 se buscaba analizar.
 Para todas los sistemas estudiados se configuró un arreglo bidimensional de individuos, ordenados inicialmente tipo
 red cuadrada, separados entre si por una distancia de 1,3 m. La velocidad inicial se estipuló de modo que todos los individuos
-tengan en promedio 1.7 m/s (en módulo) con una dispersion de ## m/s, la dirección fue generada aleatoriamente para
+tengan en promedio 1.7 m/s (en módulo) con una dispersion de m/s, la dirección fue generada aleatoriamente para
 cada uno de ellos. Luego del instante inicial, los agentes cambiaban su velocidad acorde a la velocidad de deseo configurada 
 (con el fin de que todos busquen evacuar la habitación). Una vez que los individuos abandonaban el recinto no se los reinyectaba.
 De modo que al evacuar dejaba de importar sus observables. 
 Para resolver la dinámica se utilizó el algoritmo de Verlet. 
+\noindent Con el fin de compatibilizar el modelo de fuerza social con LAMMPS, se crearon varios módulos con las fuerzas que
+caracterizan al modelo y algulas fnnciones que sirvieron para caracterizar al sistema. Todos estos fueron escritos en c++.
+
+\section{Módulos}
 
 
 

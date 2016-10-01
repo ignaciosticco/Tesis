@@ -1,0 +1,284 @@
+@Book{Jensen,
+author = {Finn B. Jensen William A. Kuperman Michael B. Porter, Henrik Schmidt},
+editor = {Springer},
+title = {Computational Ocean Acoustics},
+publisher = {Springer},
+year = {2011},
+OPTkey = {},
+OPTvolume = {},
+OPTnumber = {},
+OPTseries = {},
+OPTaddress = {New York NY 10013 USA},
+edition = {2nd},
+OPTmonth = {},
+OPTnote = {},
+OPTannote = {}
+}
+
+@Article{Knott,
+author = {Knott C.},
+title = {Reflexi'on y refracci'on de ondas el'asticas con aplicaciones sismol'ogicas},
+journal = {Philosophical Magazine 48},
+year = {1989},
+OPTkey = {},
+OPTvolume = {},
+OPTnumber = {},
+OPTpages = {},
+OPTmonth = {},
+OPTnote = {},
+OPTannote = {}
+}
+
+@Book{Lavergne,
+author = {Lavergne Michel},
+editor = {},
+title = {Seismic Methods},
+publisher = {Institud Francais du P'etrole},
+year = {1989},
+OPTkey = {},
+OPTvolume = {},
+OPTnumber = {},
+OPTseries = {},
+OPTaddress = {},
+OPTedition = {},
+OPTmonth = {},
+OPTnote = {},
+OPTannote = {}
+}
+
+@Article{Shuo,
+author = {Shuo Ma and Pengcheng Liu},
+title = {Modeling of the Perfectly Matched Layer Absorbing Boundaries and Intrinsic Attenuation in Explicit Finite Element Methods},
+journal = {Bulletin of the Seismological Society of America},
+year = {2006},
+OPTkey = {10.1785/0120050219},
+volume = {Vol 96},
+number = {Number 5},
+pages = {1779-1794},
+OPTmonth = {October},
+OPTnote = {},
+OPTannote = {}
+}
+
+@Article{Clayton,
+author = {Robert W. {Clayton} and Bjorn Engquist},
+title = "{Absorbing boundary conditions for wave equation migration}",
+journal = {GEOPHYSICS},
+year = {1980},
+OPTkey = {},
+volume = {Vol 45},
+number = {Number 5},
+pages = {895 - 904},
+OPTmonth = {May},
+OPTnote = {},
+OPTannote = {}
+}
+
+@ARTICLE{Semblat,
+author = {{Semblat}, J.-F.},
+title = "{Modeling seismic wave propagation and amplification in 1D/2D/3D linear and nonlinear unbounded media}",
+journal = {ArXiv e-prints},
+archivePrefix = "arXiv",
+eprint = {1108.3402},
+primaryClass = "physics.geo-ph",
+keywords = {Physics - Geophysics},
+year = 2011,
+month = aug,
+adsurl = {http://adsabs.harvard.edu/abs/2011arXiv1108.3402S},
+adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@Book{Hesthaven,
+author = {Jan S. Hesthaven and Tim Warburton},
+ALTeditor = {•},
+title = {Nodal Discontinuous Galerkin Methods Algorithms, Analysis, and Applications},
+publisher = {Springer Science+Business Media},
+year = {2008},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTseries = {•},
+OPTaddress = {•},
+OPTedition = {•},
+OPTmonth = {•},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Book{Zienki,
+author = {O.C. Zienkiewicz and R.L. Taylor},
+ALTeditor = {•},
+title = {The Finite Element Method for Solid and Structural Mechanics},
+publisher = {Elsevier Butterworth-Heinemann},
+year = {2005},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTseries = {•},
+OPTaddress = {•},
+edition = {Sixth edition},
+OPTmonth = {•},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Book{Ciarlet,
+author = {P.G.Ciarlet},
+ALTeditor = {•},
+title = {The Finite Element Method for Elliptic Problems},
+publisher = {North Holland},
+year = {1978},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTseries = {•},
+OPTaddress = {•},
+OPTedition = {•},
+OPTmonth = {},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Book{Nikishkov,
+author = {G.P.Nikishkov},
+ALTeditor = {•},
+title = {Introduction to the Finite Element Method},
+publisher = {UCLA},
+year = {2001},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTseries = {•},
+OPTaddress = {•},
+OPTedition = {•},
+OPTmonth = {•},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Book{Landau,
+author = {L.D. Landau and E.M. Lifshitz},
+ALTeditor = {•},
+title = {Theory of Elasticity},
+publisher = {Pergamon Press},
+year = {1986},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTseries = {•},
+OPTaddress = {•},
+OPTedition = {Third English},
+OPTmonth = {•},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Book{Lizarza,
+author = {Juan Tom'as Celigueta Lizarza},
+ALTeditor = {•},
+title = {M'etodo de los Elementos Finitos para An'alisis Estructural},
+publisher = {UNICOPIA C.B.},
+year = {2011},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTseries = {•},
+OPTaddress = {•},
+edition = {4ta},
+month = {Marzo},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Book{Heermann,
+author = {Dieter W.Heermann},
+ALTeditor = {},
+title = {Computer Simulation Methods in Theoretical Physics},
+publisher = {Springer-Verlag},
+year = {1986},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTseries = {•},
+OPTaddress = {•},
+edition = {Second},
+OPTmonth = {•},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Book{Haile,
+author = {J.M.Haile},
+ALTeditor = {•},
+title = {Molecular Dynamics Simulation: elementary methods },
+publisher = {John Wiley and Sons, Inc.},
+year = {1992},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTseries = {•},
+OPTaddress = {•},
+OPTedition = {•},
+OPTmonth = {•},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Book{Burden,
+author = {Richard Burden and J.Douglas Faires},
+ALTeditor = {•},
+title = {An'alisis Num'erico},
+publisher = {International Thomson},
+year = {1998},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTseries = {•},
+OPTaddress = {•},
+edition = {Sexta},
+OPTmonth = {•},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Article{Biot,
+author = {Biot M.A},
+title = {Theory of propagation of elastic waves in a fluid-saturated porous solid},
+journal = {The Journal of The Acoustical Society of America},
+year = {1956},
+OPTkey = {•},
+volume = {28},
+OPTnumber = {•},
+pages = {168-171},
+OPTmonth = {•},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+@Article{Jinyun,
+author = {Y.Jinyun},
+title = {Symmetric Gaussian quadrature formulae for tetrahedronal regions },
+journal = {Comput. Methods Appl. Mech. Engrg. 43},
+year = {1984},
+OPTkey = {•},
+OPTvolume = {•},
+OPTnumber = {•},
+OPTpages = {•},
+OPTmonth = {•},
+OPTnote = {•},
+OPTannote = {•}
+}
+
+
+
+%
+%of elastic waves in a fluid saturated porous solid}
+%[6] Biot, M.A. Theory of propagation of elastic waves in a fluid-saturated porous solid.
+%I. Low frequency range. J. Acoust. Soc. Am., 28:168–171, 1956.
+%[7] Biot, M.A. Theory of propagation of elastic waves in a fluid-saturated porous solid.
+%II. High frequency range. J. Acoust. Soc. Am., 28:179–191, 1956.
+%[8] Biot, M.A. Mechanics of deformation and acoustic propagation in porous media.
+%Journal of Applied Physics, 33:1482–1498, 1962.
+
+
+

@@ -1,0 +1,181 @@
+LAMMPS (10 Aug 2015)
+#	Loop velocidad de deseo
+variable vdmax equal 6
+variable vd loop 1 ${vdmax}
+variable vd loop 1 6
+label start_of_loop1
+#	Loop de iteracion
+variable itermax equal 30
+variable iter loop 1 ${itermax}
+variable iter loop 1 30
+label start_of_loop2
+
+#			INITIAL CONDITIONS
+dimension        2
+boundary         f f p
+units            si
+atom_style       sphere
+lattice          sq 1.3 origin 0.5 0.5 0.0
+Lattice spacing in x,y,z = 1.3 1.3 1.3
+region           zona1 block 0 20 0 20 -1 1 units box
+region           zona2 block 20.12 40 0 20 -1 1 units box
+region           zona3 block 19 21 9.4 10.6 -1 1 units box
+region           todas union 3 zona1 zona2 zona3
+create_box       1 todas
+Created orthogonal box = (0 0 -1) to (40 20 1)
+  1 by 1 by 1 MPI processor grid
+create_atoms     1 region zona1
+Created 225 atoms
+set              atom * mass 70.0
+  225 settings made for mass
+set              atom * diameter 0.6
+  225 settings made for diameter
+velocity         all create 1e23 ${iter} dist gaussian
+velocity         all create 1e23 1 dist gaussian
+comm_modify      vel yes
+
+#			FORCES
+pair_style   hybrid/overlay gran/social 0 0 0 240000 0 1 social 0.08 3.5
+pair_coeff   * * social 2000 3.5 0.3
+pair_coeff   * * gran/social
+fix  walls all wall/region todas social 2000 0.08 3.5
+fix  wallg all wall/region todas granular 240000 120000 0.001
+fix  target all social/self 70 ${vd} xy
+fix  target all social/self 70 1 xy
+
+#			EVACUATED
+compute     1 all property/atom x
+variable    out atom c_1>20.0
+compute     mycompute all reduce sum v_out
+variable    evacuados equal c_mycompute
+
+#			VISUALIZE
+#dump  3 all movie 200 in.movie_press_onedoor.mpg type type #      axes yes 0.8 0.02 view 0 0 zoom 2 adiam 0.6
+
+#			RUN THE PROCESS
+atom_modify   sort 0 0.0
+timestep      0.0001
+fix           1 all nve
+thermo_style  custom step c_mycompute
+
+#	Loop de proceso
+variable nmax equal 20000
+variable n loop ${nmax}
+variable n loop 20000
+label    start_of_loop3
+run      500
+Neighbor list info ...
+  2 neighbor list requests
+  update every 1 steps, delay 10 steps, check yes
+  master list distance cutoff = 1.161
+  ghost atom cutoff = 1.161
+Memory usage per processor = 3.97168 Mbytes
+Step mycomput 
+       0            0 
+     500            0 
+Loop time of 0.301221 on 1 procs for 500 steps with 225 atoms
+
+Pair  time (%) = 0.00616121 (2.04541)
+Neigh time (%) = 0.0094595 (3.14038)
+Comm  time (%) = 0.00158525 (0.526273)
+Outpt time (%) = 0.000142097 (0.0471738)
+Other time (%) = 0.283873 (94.2408)
+
+Nlocal:    225 ave 225 max 225 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 0
+Ave neighs/atom = 0
+Neighbor list builds = 42
+Dangerous builds = 0
+if       "${evacuados} > 159" then "jump SELF break"
+variable t equal 0.05*$n
+variable t equal 0.05*1
+next n
+jump SELF start_of_loop3
+run      500
+Memory usage per processor = 4.22168 Mbytes
+Step mycomput 
+     500            0 
+    1000            0 
+Loop time of 0.302616 on 1 procs for 500 steps with 225 atoms
+
+Pair  time (%) = 0.00626826 (2.07136)
+Neigh time (%) = 0.00987887 (3.26449)
+Comm  time (%) = 0.00160408 (0.530071)
+Outpt time (%) = 0.000144005 (0.0475866)
+Other time (%) = 0.284721 (94.0865)
+
+Nlocal:    225 ave 225 max 225 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 0
+Ave neighs/atom = 0
+Neighbor list builds = 44
+Dangerous builds = 0
+if       "${evacuados} > 159" then "jump SELF break"
+variable t equal 0.05*$n
+variable t equal 0.05*2
+next n
+jump SELF start_of_loop3
+run      500
+Memory usage per processor = 4.22168 Mbytes
+Step mycomput 
+    1000            0 
+    1500            0 
+Loop time of 0.302413 on 1 procs for 500 steps with 225 atoms
+
+Pair  time (%) = 0.00610304 (2.01811)
+Neigh time (%) = 0.0108261 (3.57991)
+Comm  time (%) = 0.00165033 (0.545722)
+Outpt time (%) = 0.000149012 (0.0492742)
+Other time (%) = 0.283684 (93.807)
+
+Nlocal:    225 ave 225 max 225 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 0
+Ave neighs/atom = 0
+Neighbor list builds = 48
+Dangerous builds = 32
+if       "${evacuados} > 159" then "jump SELF break"
+variable t equal 0.05*$n
+variable t equal 0.05*3
+next n
+jump SELF start_of_loop3
+run      500
+Memory usage per processor = 4.22168 Mbytes
+Step mycomput 
+    1500            0 
+    2000            0 
+Loop time of 0.29907 on 1 procs for 500 steps with 225 atoms
+
+Pair  time (%) = 0.00580573 (1.94126)
+Neigh time (%) = 0.011287 (3.77403)
+Comm  time (%) = 0.0017457 (0.58371)
+Outpt time (%) = 0.000143051 (0.047832)
+Other time (%) = 0.280088 (93.6532)
+
+Nlocal:    225 ave 225 max 225 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 0
+Ave neighs/atom = 0
+Neighbor list builds = 50
+Dangerous builds = 50

@@ -1,0 +1,41 @@
+Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente. De esta forma se obtuvieron datos de presión y ubicación en función del tiempo para cada individuo. Éstos fueron analizados con Python para generar gráficos de isobaras (contour maps). Se creó una grilla con celdas de 1~m$^2$. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto.   
+
+Estos mapas de presión se hicieron para recintos de 20$\times$20~m con 225 individuos. La habitaión contaba con una única puerta de ancho: 1,2~m, 2,4~m, 3,6~m o con dos puertas de 1.2~m separadas a distintas distancias. Para cada tipo de medición se efectuaron 30 simulaciones. Cada una de estas se terminó al evacuar 100 individuos. 
+
+
+Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente. De esta
+forma se obtuvieron datos de presión y posición en función del tiempo para cada individuo. Con Python se creó una grilla con celdas de 1~m$^2$. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto. Luego se generó un gráfico de isobaras (contour map). Los datos de cada celda fueron promediados con los de sus celdas vecinas para obtener gráficos de presiones "suavizados".
+
+Partícula central
+
+Se simuló un conjunto de 19 partículas cuyo target es el origen de coordenadas. Con una velocidad de deseo $v_d=4$~m/s en módulo. En el estado estacionario la disposición de las partículas es tal como se muestra en la figura \ref{}. Las partículas se encuentran casi estáticas, poseen una pequeña oscilación en torno a la posición de equilibrio. 
+
+El resultado de esta simulación es el conjunto de valores (distancia y presión) que se exhiben en la tabla de abajo. 
+
+Tabla
+
+Sumar todos los valores de presión social y dividir por dos da como resultado el lado izquierdo de la ecuación (\ref{}).
+
+$ suma $= 11618.6 N.m
+
+La suma de todas las distancias multiplicada por la fuerza de deseo f_d=mv_d/tau 
+da como resultado el lado derecho
+
+$ suma $=  11580.8
+
+Ambos valores son cercanos. Por lo tanto, el resultado de esta simulación verifica la relación del virial (\ref{}).
+
+
+
+Para todas los sistemas estudiados se configuró un arreglo bidimensional de individuos, ordenados inicialmente tipo red cuadrada, con una densidad de 0,6~personas/m$^2$, similar al límite de las regulaciones actuales~\cite{mysen} (con esta distancia la interacción de repulsión social es despreciable). Todos los individuos tenían una velocidad aleatoria con una distribución gausiana centrada en cero. El módulo de la velcidad inicial de los peatones se fijó con el comando {\tt velocity} de lammps. Esta instrucción requiere la "temperatura" del sistema. La misma se vincula con la energía cinética mediante la siguiente expresión
+
+\begin{equation}
+v=\sqrt{\frac{2k_b}{m}T}
+\end{equation}
+
+donde $k_b$ es la constante de Boltzman y T es la temperarura configurada en la simulación
+El valor usado de temperatura fue $10^23$ de modo que el módulo de la velocidad inicial sea $v=1.19$~m/s
+
+La definición de presión según Helbing es la suma de fuerzas radiales actuando en el individuo dividido su circunferencia. Reporta que a valores de presión superiores a 1.600 Nm$^{-1}$ los individuos se lastiman y se vuelven obstáculos inamovibles. En este trabajo no se tienen en cuenta los eventuales desmayos producidos por las altas presiones. 
+
+

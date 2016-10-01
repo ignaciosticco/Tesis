@@ -1,0 +1,4 @@
+Se creó un módulo que cuantifica la "presión social" según esta definición alternativa (descripto abajo). Posteriormente se llevaron a cabo dos simulaciones (partículas centradas y partículas en hilera)  con el fin de verificar que se cumple la relación del virial y los cálculos de las simulaciones condicen con los resultados teóricos. 
+
+
+En esta sección se describirá el módulo creado para cuantificar la "presión social" según esta definición alternativa. Luego se compararán las dos definiciones de presión a través de un ejemplo particular. Por último se mostrán dos ejemplos para comprobar la 

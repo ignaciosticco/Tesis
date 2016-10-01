@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: tesis_main.aux
+The style file: plain.bst
+Database file #1: bibliografia/biblio.bib
+Warning--I didn't find a database entry for "daolinag1"
+Name 1 in "F. Venutti, L. Bruno, and N. Bellomo" has a comma at the end for entry bruno
+while executing---line 1049 of file plain.bst
+Name 1 in "F. Venutti, L. Bruno, and N. Bellomo" has a comma at the end for entry bruno
+while executing---line 1090 of file plain.bst
+Warning--can't use both author and editor fields in haile
+You've used 22 entries,
+            2118 wiz_defined-function locations,
+            643 strings with 6828 characters,
+and the built_in function-call counts, 6813 in all, are:
+= -- 665
+> -- 288
+< -- 0
++ -- 115
+- -- 92
+* -- 487
+:= -- 1183
+add.period$ -- 66
+call.type$ -- 22
+change.case$ -- 112
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 242
+empty$ -- 553
+format.name$ -- 92
+if$ -- 1405
+int.to.chr$ -- 0
+int.to.str$ -- 22
+missing$ -- 23
+newline$ -- 113
+num.names$ -- 44
+pop$ -- 74
+preamble$ -- 1
+purify$ -- 90
+quote$ -- 0
+skip$ -- 159
+stack$ -- 0
+substring$ -- 501
+swap$ -- 23
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 86
+warning$ -- 1
+while$ -- 64
+width$ -- 24
+write$ -- 243
+(There were 2 error messages)

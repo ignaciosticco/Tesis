@@ -62,149 +62,23 @@ Estos módulos son análogos a pair\_social y pair\_gran\_social pero aplicados 
 {\Large {\tt fix\_social\_self} y {\tt fix\_social\_self\_multi}}
 
 La fuerza de deseo del modelo de Helbing fue simulada con estos módulos. El primero se usó para los recintos con una única puerta mientras que el segundo para recintos con dos. 
-fix\_social\_self requiere como parámetro la masa de los individuos y la velocidad de deseo. El target que tiene cada individuo, depende de la posición en donde se encuentre. Por cada puerta hay tres targets: superior, medio e inferior. El medio está ubicado en la mitad de la puerta, los otros 0,3 m por encima y por debajo.  Los individuos cuya posición en la coordenada 'y' sea mayor (menor) que el target superior (inferior) actualizan su velocidad para apuntar al target superior (inferior). Si se encuentran en medio de éstos, apuntan al centro de la puerta. De este modo los peatones siempre se dirigen al target más cercano. Cabe destacar que todos los individuos ven la salida independientemente de cuan lejos estén de la misma y cuantas personas tengan delante.\\  
+fix\_social\_self requiere como parámetro la masa de los individuos y la velocidad de deseo. El target que tiene cada individuo, depende de la posición en donde se encuentre. Por cada puerta hay tres targets: superior, medio e inferior. El medio está ubicado en la mitad de la puerta, los otros 0,3 m por encima y por debajo de los bordes de la puerta.  Los individuos cuya posición en la coordenada 'y' sea mayor (menor) que el target superior (inferior) actualizan su velocidad para apuntar al target superior (inferior). Si se encuentran en medio de éstos, apuntan al centro de la puerta. De este modo los peatones siempre se dirigen al target más cercano. Cabe destacar que todos los individuos ven la salida independientemente de cuan lejos estén de la misma y cuantas personas tengan delante.\\  
 
-Cuando se simularon recintos con dos puertas se usó fix$\_$social$\_$self$\_$multi, sus parámetros son: la masa de los individuos, la velocidad de deseo y el gap (la distancia de separación entre puertas). Si el gap es nulo, las dos puertas están unidas (formando una única puerta ancha). En este caso, se establecen tres targets: el superior (inferior), que está 0.3 m debajo (encima) del final de la puerta superior (inferior). Los individuos que se encuentran en el medio apuntan al centro (al igual que en el caso de una única puerta).
+Cuando se simularon recintos con dos puertas se usó fix$\_$social$\_$self$\_$multi, sus parámetros son: la masa de los individuos, la velocidad de deseo y el gap (la distancia de separación entre puertas). Si el gap es nulo, las dos puertas están unidas (formando una única puerta ancha). En este caso, se establecen tres targets: el superior (inferior), que está 0.3 m debajo (encima) del borde de la puerta superior (inferior). Los individuos que se encuentran en el medio apuntan al centro (al igual que en el caso de una única puerta).
 Si el gap no es nulo, es decir, existe una porción de pared entre ambas puertas, la dirección de la velocidad de los individuos se actualiza de forma análoga al caso de una puerta. De esta forma los individuos siempre buscan la salida más cercana. 
 
-{\Large {\tt compute\_social\_pressure}}
+{\Large {\tt compute\_helbing\_pressure}}
 
-Calcula la función de presión social de la expresión (\eqref{pa}) despreciando el término cinético y el factor 1/2. Para cada timestep devuelve un vector con la presión que soporta cada peatón como consecuencia de la interacción con sus vecinos. Solo se tienen en cuenta las presiones producidas por la repulsión de fuerza social, es decir, se ignoran las interacciones con las paredes asi como el rozamiento entre individuos. Se desprecia el término cinético porque solo cuando los individuos están amontonados (situación cuasi estática) el valor de presión es apreciable. En esta situación el término asociado a la repulsión social es al menos un orden de magnitud mayor que el término asociado a la energía cinética.  
+Calcula la función de presión social de la expresión (\ref{phelbing}). Para cada timestep devuelve un vector con la presión que soporta cada peatón como consecuencia de la interacción con sus vecinos. Solo se tienen en cuenta las presiones producidas por la repulsión de fuerza social, es decir, se ignoran las interacciones con las paredes asi como el rozamiento entre individuos. Cabe destacar que esta forma de computar la presión no contempla el momento ni la fuerza de deseo.
+
+%{\Large {\tt compute\_social\_pressure}}
+
+%Calcula la función de presión social de la expresión (\ref{pa}) despreciando el término cinético y el factor 1/2. Para cada timestep devuelve un vector con la presión que soporta cada peatón como consecuencia de la interacción con sus vecinos. Solo se tienen en cuenta las presiones producidas por la repulsión de fuerza social, es decir, se ignoran las interacciones con las paredes asi como el rozamiento entre individuos. Se desprecia el término cinético porque solo cuando los individuos están amontonados (situación cuasi estática) el valor de presión es apreciable. En esta situación el término asociado a la repulsión social es al menos un orden de magnitud mayor que el término asociado a la energía cinética.  
 
 {\Large \tt {compute\_dijkstra\_atom}}
 
 Rotula con la misma etiqueta a todos los elementos que forman parte de un blocking cluster. Requiere como parámetro las posiciones en la coordenada 'y' de los puntos de origen y terminación del blocking cluster y la posición de la pared en la coordenada 'x'. Para cada timestep devuelve un vector con N componentes (siendo N la cantidad de peatones). Cada una de estas componentes esta asociada a un individuo; toma un número distinto de cero cuando el individuo forma parte de un cluster de bloqueo y cero en caso contrario.
 
-\section{\label{Muestras de performace} Muestras de performance} 
-
-Se llevaron a cabo dos simulaciones (partículas centradas y partículas en hilera) para poner a prueba el módulo que calcula la presión ({\tt compute\_social\_pressure}) y su relación con la ecuación del virial. \\ 
-
-\subsection{Partículas centradas}
-
-Se simuló un conjunto de 19 partículas cuyo target es el origen de coordenadas. Con una velocidad de deseo $v_d=4$~m/s en módulo. En el estado estacionario la disposición de las partículas es tal como se muestra en la figura \ref{central} . Las partículas se encuentran casi estáticas (sus fuerzas de deseo se compensan con la repulsión social); pero aun así, poseen una pequeña oscilación en torno a la posición de equilibrio. 
-
-\begin{figure}[H]
-    \centering
-        \includegraphics[scale=0.5]{figuras/central.png}
-    \caption[width=5cm]{Esquema de las partículas. Partícula central (coloreada de negro) rodeada por 6 primeros vecinos y doce segundos vecinos.}
-    \label{central}
-\end{figure}
-
-
-El resultado de esta simulación es el conjunto de valores que se exhiben en las tablas de abajo. Éstos son la distancia al origen y la presión social que siente cada individuo. 
-
-%\begin{table}[H]
-\begin{center}
-%\caption{Resultados numéricos de la simulación.}
-\label{my-label}
-\begin{tabular}{|l|l|}
-\hline
-Distancia (m) & Presión (N.m) \\ \hline
-1,48          & 664,0       \\ \hline
-1,26          & 999,9       \\ \hline
-1,49          & 653,3       \\ \hline
-1,48          & 664,0       \\ \hline
-1,27          & 988,7       \\ \hline
-0,7           & 1820,5       \\ \hline
-0,7           & 1820,9       \\ \hline
-0,0           & 2340,2       \\ \hline
-0,7           & 1829,9       \\ \hline
-0,7           & 1833,5       \\ \hline
-\end{tabular}
-\quad
-\begin{tabular}{|l|l|}
-\hline
-Distancia (m) & Presión (N.m) \\ \hline
-1,26          & 989,8       \\ \hline
-1,49          & 655,2       \\ \hline
-1,26          & 991,9       \\ \hline
-1,49          & 653,7        \\ \hline
-0,7           & 1828,0       \\ \hline
-1,26          & 1004,1       \\ \hline
-0,7           & 1833,6       \\ \hline
-1,48          & 663,1       \\ \hline
-1,26          & 1002,1       \\ \hline
-\end{tabular}
-%\end{table}
-\end{center}
-
-
-Sumar todos los valores de presión social y dividir por dos da como resultado el lado izquierdo de la ecuación (\ref{virial2}).
-\begin{equation}
- \displaystyle\sum_{i=1}^N\langle2P_iA_i\rangle = 11618.6\ \text{N.m}
-\end{equation}
-
-La suma de todas las distancias multiplicada por la fuerza de deseo $f_d=mv_d/\tau$ da como resultado el lado derecho (despreciando el primer término porque no hay interacción con paredes):
-
-\begin{equation}
- -2\mathcal{PA} -\displaystyle\sum_{i=1}^N \langle
-\mathbf{r}_i\cdot\mathbf{f}_d^{(i)}\rangle\ =  11580.8\ \text{N.m}
-\end{equation}
-
-Ambos valores son cercanos. Por lo tanto, el resultado de esta simulación verifica la relación del virial (\ref{virial2}).
-
-
-\subsection{Partículas en hilera}
-
-Se creó un código que mide la presión que soportan los individuos dispuestos en hilera como muestra la figura \ref{hilera}.  
-
-\begin{figure}[!htbp]
-\center
-\includegraphics[scale=1]{figuras/hilera.eps}
-\caption[width=5cm]{Hilera de individuos empujando a la derecha. Situación estática donde las fuerzas de deseo de cada individuo se compensan con la repulsión social.}
-\label{hilera}
-% done with figuras_presion.odg
-\end{figure}
-
-Los resultados se muestran en la tabla \ref{simulados}. La misma está ordenada del individuo más cercano al más lejano de la pared. La presión disminuye conforme se alejan de la pared y el valor de presión aumenta con la cantidad de individuos.\\
-En la tabla \ref{teoricos} se muestran valores de presión teóricos (calculados a partir de las fórmulas \ref{eqn_7}, \ref{eqn_8} y \ref{eqn_9} del apéndice \ref{appendix:presion}). Las magnitudes de presión son comparables a las simuladas y el comportamiento a grandes rasgos es similar (las partículas más presionadas son las que se encuentran más cerca de la pared y aumentar N aumenta la presión general)  
-
-\begin{table}[h!]
-\caption {Valores simulados de $4P_iA_i$ para $v_d=4\,$m/s.}
-\label{simulados}
-\begin{center}
-\begin{tabular}{|l|cccccc|}
-\hline
-      & \multicolumn{6}{c|}{$N$} \\
-\hline
-$i$   &  1   &   2    &  3       &  4     &  5     &   6     \\
-\hline
- 1    &  --- &  ---   &  ---     & ---    & ---    & ---     \\
- 2    &      &  393.2 &  1116.7  & 1751.4 & 2362.2 & 2927.0  \\
- 3    &      &        &  393.03  & 1113.8 & 1761.7 & 2355.1  \\
- 4    &      &        &          & 391.45 & 1120.3 & 1755.4  \\
- 5    &      &        &          &        & 394.03 & 1117.0  \\
- 6    &      &        &          &        &        & 393.03  \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-
-\begin{table}[h!]
-\caption {Valores teóricos de $4P_iA_i$ para $v_d=4\,$m/s.}
-\label{teoricos}
-\begin{center}
-\begin{tabular}{|l|cccccc|}
-\hline
-      & \multicolumn{6}{c|}{$N$} \\
-\hline
-$i$   &  1         &   2        &  3       &  4     &  5     &   6   \\
-\hline
- 1    &  225.03    &  780.98    &  1251.4  & 1683.1 & 2088.3 & 2473.2 \\
- 2    &            &  393.03    &  1117.0  & 1755.4 & 2355.1 & 2928.3 \\
- 3    &            &            &  393.03  & 1117.0 & 1755.4 & 2355.1 \\
- 4    &            &            &          & 393.03 & 1117.0 & 1755.4 \\
- 5    &            &            &          &        & 393.03 & 1117.0 \\
- 6    &            &            &          &        &        & 393.03 \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-En esta sección se verificó que los resultados simulados verifican la relación del virial (partículas centradas) y a su vez concuerdan con los cálculos teóricos (partículas en hilera)
 
 
 \section{\label{med realizadas} Mediciones Realizadas}
@@ -213,7 +87,7 @@ En esta sección se detallarán los experimentos llevados a cabo y el análisis 
 
 {\Large Isobaras}
 
-Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente ({\tt compute\_social\_pressure}) a partir de la expresión (\ref{pa}). De esta forma se obtuvieron datos de presión y posición en función del tiempo para cada individuo. Con Python se creó una grilla con celdas de 1~m$^2$. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto. Luego se generó un gráfico de isobaras (contour map). Los datos de cada celda fueron promediados con los de sus celdas vecinas para obtener gráficos de presiones "suavizados".
+Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente ({\tt compute\_helbing\_pressure}) a partir de la expresión (\ref{phelbing}). De esta forma se obtuvieron datos de presión y posición en función del tiempo para cada individuo. Con Python se creó una grilla con celdas de 1~m$^2$. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto. Luego se generó un gráfico de isobaras (contour map). Los datos de cada celda fueron promediados con los de sus celdas vecinas para obtener gráficos de presiones "suavizados".
 
 %Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada agente. De esta forma se obtuvieron datos de presión y ubicación en función del tiempo para cada individuo. Éstos fueron analizados con Python para generar gráficos de isobaras (contour maps). Se creó una grilla con celdas de 1~m$^2$. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto.   
 
@@ -225,7 +99,7 @@ De forma análoga se medió la velocidad de cada individuo ($v_x$ y $v_y$) con e
 
 {\Large Presión y velocidad en función del tiempo}
 
-Para un peatón cuya posición inicial es (x, y)=(12.35, 8.45) en un recinto de 20$\times$20~m con 225 individuos se midió la presión social y velocidad (módulo) en función del tiempo desde que comienza la simulación hasta que logra evacuar. Estas simulaciones se hicieron para recintos con una única puerta de 1,2~m y 3,6~m. 
+Para un peatón cuya posición inicial es (x, y)=(12.35, 8.45) en un recinto de 20$\times$20~m con 225 individuos se midió la presión social y velocidad (módulo) en función del tiempo desde que comienza la simulación hasta que logra evacuar. Estas simulaciones se hicieron para recintos con una única puerta de 1,2~m y 3,6~m de ancho. 
 
 {\Large Tiempo de evacuación}
 

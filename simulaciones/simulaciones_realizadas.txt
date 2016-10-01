@@ -1,0 +1,24 @@
+Mediciones realizadas
+
+Isobaras
+
+Se hicieron simulaciones con el módulo que cuantifica la presión social sobre cada individuo. De esta forma se obtuvieron datos de presión y ubicación en función del tiempo para cada individuo. Éstos fueron analizados con Python para generar gráficos de isobaras (contour maps).  Se creó una grilla con celdas de 1~m2. Se sumó la presión asociada a cada una y se la normalizó por la cantidad de individuos que pasaron por dicha celda. Así se obtuvo la presión promedio en cada región del recinto.   
+
+Estos mapas de presión se hicieron para recintos de 20$\times$20~m con 225 individuos. La habitaión contaba con una única puerta de ancho: 1,2~m, 2,4~m, 3,6~m o con dos puertas de 1.2~m separadas a distintas distancias. Para cada tipo de medición se efectuaron 30 simulaciones. Cada una de estas se terminó al evacuar 100 individuos. 
+
+Flujo de velocidad
+
+De forma análoga se medió la velodad de cada individuo (v_x y v_y) con el fin de realizar gráficos de líneas de corriente (stream plots). Las condiciones de medición y los recintos de simulación fueron los mismos que los del gráfico de isobaras. 
+
+Presión y velocidad en función del tiempo
+
+Para un peatón cuya posición inicial es (x,y)=() en un recinto de 20$\times$20~m con 225 individuos se midió la presión social y velocidad en función del tiempo (desde que comienza la simulación hasta que logra evacuar). Estas simulaciones se hiceron para recintos con una única puerta de 1,2~m y 3,6~m. 
+
+Tiempo de evacuación
+
+Se registró el tiempo que demora evacuar más del 70% de los individuos en distintos recintos y bajo diferentes condiciones. Se hicieron mediones en recintos de 20$\times$20~m, 30$\times$30~m y 40$\times$40~m con 225, 583 y 961 individuos respectivamente para diferentes velocidades de deseo (de 2~m/s a 8~m/s). Algunas mediciones se hiceron para estudiar la variación del tiempo de evacuación en función del gap y otras para confirmar el efecto "Faster is slower". 
+
+Probabilidad de formar blocking clusters
+
+Mediante el módulo que identifica los individuos que conforman un blocking cluster se calculó el cociente entre el tiempo en el que la salida está bloqueada y el tiempo total de la evacuación. Se graficó la probabilidad de formar blocking clusters (grandes y pequeños) para recintos de 20$\times$20~m con 225 individuos con velocidad de deseo de 4~m/s, 6~m/s y recintos de 40$\times$40~m con 961 indviduos con v_d=4~m/s. 30 iteraciones fueron realizadas para promediar los resultados. 
+

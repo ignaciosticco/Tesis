@@ -1,15 +1,31 @@
-\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{4}
-\contentsline {section}{\numberline {1.1}Objetivos}{4}
-\contentsline {chapter}{\numberline {2}Marco Te\IeC {\'o}rico}{5}
-\contentsline {chapter}{\numberline {3}Simulaciones}{6}
-\contentsline {chapter}{\numberline {4}Resultados y Discusi\IeC {\'o}n}{7}
-\contentsline {section}{\numberline {4.1}Una puerta}{7}
-\contentsline {subsubsection}{Puerta ancha (3,6 m)}{7}
-\contentsline {subsubsection}{Puerta angosta (1,2 m)}{8}
-\contentsline {section}{\numberline {4.2}Dos puertas}{9}
-\contentsline {subsection}{\numberline {4.2.1}Faster is slower}{9}
-\contentsline {subsection}{\numberline {4.2.2}Tiempo de evacuaci\IeC {\'o}n}{9}
-\contentsline {subsection}{\numberline {4.2.3}Blocking clusters}{11}
-\contentsline {subsection}{\numberline {4.2.4}Presi\IeC {\'o}n}{12}
-\contentsline {subsection}{\numberline {4.2.5}Comportamiento asint\IeC {\'o}tico}{13}
-\contentsline {chapter}{\numberline {5}Conclusiones}{14}
+\contentsline {chapter}{Appendices}{1}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{5}
+\contentsline {section}{\numberline {1.1}Antecedentes}{5}
+\contentsline {section}{\numberline {1.2}Objetivos}{10}
+\contentsline {chapter}{\numberline {2}Marco Te\IeC {\'o}rico}{11}
+\contentsline {section}{\numberline {2.1}Modelo de Fuerza social}{11}
+\contentsline {section}{\numberline {2.2}Blocking Clusters}{13}
+\contentsline {section}{\numberline {2.3} Algoritmo de Verlet}{15}
+\contentsline {chapter}{\numberline {3}Simulaciones}{17}
+\contentsline {section}{\numberline {3.1}Condiciones iniciales}{18}
+\contentsline {section}{\numberline {3.2}M\IeC {\'o}dulos}{19}
+\contentsline {section}{\numberline {3.3} Mediciones Realizadas}{21}
+\contentsline {chapter}{\numberline {4}Resultados y Discusi\IeC {\'o}n}{24}
+\contentsline {section}{\numberline {4.1} Una puerta}{24}
+\contentsline {subsubsection}{Puerta ancha (3,6\nobreakspace {}m)}{25}
+\contentsline {subsubsection}{Puerta angosta (1,2 m)}{27}
+\contentsline {section}{\numberline {4.2} Dos puertas}{32}
+\contentsline {subsection}{\numberline {4.2.1}Faster is slower}{32}
+\contentsline {subsection}{\numberline {4.2.2}Tiempo de evacuaci\IeC {\'o}n}{34}
+\contentsline {subsection}{\numberline {4.2.3}Blocking clusters}{36}
+\contentsline {subsection}{\numberline {4.2.4}Presi\IeC {\'o}n}{38}
+\contentsline {chapter}{\numberline {5}Conclusiones}{41}
+\contentsline {chapter}{Ap\IeC {\'e}ndices}{43}
+\contentsline {chapter}{\numberline {A}Presi\IeC {\'o}n}{44}
+\contentsline {section}{\numberline {A.1}Presi\IeC {\'o}n local}{44}
+\contentsline {section}{\numberline {A.2} Individuos en hilera}{46}
+\contentsline {section}{\numberline {A.3} Muestras de performance}{47}
+\contentsline {subsection}{\numberline {A.3.1}Part\IeC {\'\i }culas centradas}{49}
+\contentsline {subsection}{\numberline {A.3.2}Part\IeC {\'\i }culas en hilera}{50}
+\contentsline {chapter}{\numberline {B}Script b\IeC {\'a}sico de Lammps}{52}
+\contentsline {chapter}{\numberline {C}Caracter\IeC {\'\i }sicas del cluster}{57}

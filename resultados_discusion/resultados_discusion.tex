@@ -5,7 +5,7 @@
 \footnotesize  Pierre Simon Laplace, A Philosophical Essay on Probabilities\\
 \end{flushleft}
 
-En este capítulo se discutirán los resultados obtenidos a lo largo del trabajo. Está dividido en dos secciones, la primera está dedicada a recintos con una única puerta y la segunda a recintos con dos puertas sobre la misma pared.  
+En este capítulo se discutirán los resultados obtenidos en el trabajo. Está dividido en dos secciones, la primera está dedicada a recintos con una única puerta y la segunda a recintos con dos puertas sobre la misma pared.  
 
 \section{\label{una_puerta} Una puerta}
 
@@ -15,14 +15,14 @@ En esta sección se estudiará el caso de un recinto cuadrado con 225 individuos
 
 Los resultados que se presentan en esta subsección son de simulaciones hechas para un recinto de  $20\times 20$~(m) con 225 individuos y una puerta centrada en la posición $x=20$~m e $y=10$~m con un ancho $L=3,6$~m.\\
 
-En la figura \ref{isobaras_flujo_3_6m} (izquierda) se muestra un gráfico de isobaras. La presión que aparece en estos gráficos fue calculada a partir de la expresión (\ref{pa}). Puede verse que la zona de mayor presión se da a los costados de la puerta mientras que en el medio la presión es menor (sobre todo en la zona más próxima a la puerta). La distribución de presiones es simétrica con respecto al eje $y=10~m$.  
+En la figura \ref{isobaras_flujo_3_6m} (izquierda) se muestra un gráfico de isobaras. La presión que aparece en estos gráficos fue calculada a partir de la expresión (\ref{phelbing}). Puede verse que la zona de mayor presión se da a los costados de la puerta mientras que en el medio la presión es menor (sobre todo en la zona más próxima a la puerta). La distribución de presiones es simétrica con respecto al eje $y=10~m$.  
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{figuras/press_225p_v4_onedoor_3_6.eps}
     \hfill
         \includegraphics[scale=1]{figuras/flujo_door_3_6m.eps}
-    \caption[width=5cm]{Izquierda: Isobaras cercanas a la puerta; la escala a la derecha está expresada en [PA]=N.m. Derecha: Gráfico de flujo de velocidad. Para ambos gráficos, la salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=3,6$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar los campos de presiones y velocidad. La velocidad deseada de los individuos fue de $v_d=4$~m/s. Las barras rojas representan las paredes laterales.}
+    \caption[width=5cm]{Izquierda: Isobaras cercanas a la puerta; la escala a la derecha está expresada en [P]=N/m. Derecha: Gráfico de flujo de velocidad. Para ambos gráficos, la salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=3,6$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar los campos de presiones y velocidad. La velocidad deseada de los individuos fue de $v_d=4$~m/s. Las barras rojas representan las paredes laterales.}
     \label{isobaras_flujo_3_6m}
 \end{figure}
 
@@ -33,7 +33,7 @@ La relación entre presión y velocidad se condice con los resultados obtenidos 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=1.6]{figuras/pa_vel_t_100_3_6.eps}
+    \includegraphics[scale=1.6]{figuras/p_vel_t_100_3_6.eps}
     \caption[width=5cm]{Gráfico de velocidad(inferior) y presión(superior) en función del tiempo para un individuo ubicado inicialmente en $x=12,35$~m e $y=8,45$~m.  La salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=3,6$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a dos iteraciones diferentes (variando la velocidad incial). La velocidad deseada del individuo fue de $v_d=4$~m/s.}
     \label{pa_vel_t_100_3_6}
 \end{figure}
@@ -54,11 +54,11 @@ Cabe destacar que la zona de mayor velocidad no coincide con una región de baja
     \includegraphics[scale=1]{figuras/fig4_version0.eps}
     \hfill
         \includegraphics[scale=1]{figuras/flujo_door_1_2m.eps}
-    \caption[width=5cm]{Izquierda: Isobaras cercanas a la puerta; la escala a la derecha está expresada en [PA]=N.m. Derecha: Gráfico de flujo de velocidad. Para ambos gráficos, la salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=1,2$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar los campos de presiones y velocidad. La velocidad deseada de los individuos fue de $v_d=4$~m/s. Las barras rojas representan las paredes laterales.}
+    \caption[width=5cm]{Izquierda: Isobaras cercanas a la puerta; la escala a la derecha está expresada en [P]=N/m. Derecha: Gráfico de flujo de velocidad. Para ambos gráficos, la salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=1,2$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar los campos de presiones y velocidad. La velocidad deseada de los individuos fue de $v_d=4$~m/s. Las barras rojas representan las paredes laterales.}
     \label{isobaras_flujo_1_2m}
 \end{figure}
 
-En la figura \ref{pa_vel_t_100_1_2} se presenta un gráfico de presión y velocidad en función del tiempo para un individuo cuya posición inicial es: $x=12,35$~m e $y=8,45$~m. Luego de los primeros segundos (estado estacionario), los momentos en los que soporta alta presión son momentos de baja velocidad y viceversa. Esto coincide con lo obtenido para un peatón con la misma posición inicial en una habitación con puerta ancha (fig. \ref{pa_vel_t_100_3_6}).\\
+En la figura \ref{pa_vel_t_100_1_2} se presenta un gráfico de presión y velocidad en función del tiempo para un individuo cuya posición inicial es: $x=12,35$~m e $y=8,45$~m. Luego de los primeros segundos (estado estacionario), los momentos en los que soporta alta presión son momentos de baja velocidad y viceversa. Esto coincide con lo obtenido para un peatón con la misma posición inicial en una habitación con puerta ancha (fig. \ref{pa_vel_t_100_3_6}).A pesar de esta similitud, notar que el individuo tarda mucho más tiempo en evacuar el recinto cuando la puerta es angosta. \\
 
 Puede decirse que para recintos de puerta angosta, en cada instante de tiempo, se mantiene la correlación presión-velocidad (fig \ref{pa_vel_t_100_1_2}), sin embargo, al promediar, la correlación deja de manifestarse (fig \ref{isobaras_flujo_1_2m} ). Este fenómeno será explicado en los párrafos siguientes. \\
 El tamaño de la puerta influye en la relación presión-velocidad. Cuando la puerta es ancha se obtuvo que zonas de alta presión concuerdan con zonas de baja velocidad. El mismo comportamiento ocurre en cada instante para cada individuo. \\
@@ -70,7 +70,7 @@ En cambio, cuando se tienen recintos con puerta angosta, el flujo de evacuados e
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=1.6]{figuras/pa_vel_t_100_1_2.eps}
+    \includegraphics[scale=1.6]{figuras/p_vel_t_100_1_2.eps}
     \caption[width=5cm]{Gráfico de velocidad(inferior) y presión(superior) en función del tiempo para un individuo ubicado inicialmente en $x=12,35$~m e $y=8,45$~m.  La salida está centrada en la posición $x=20$~m e $y=10$~m y tiene ancho $L=1,2$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a cinco iteraciones diferentes (variando la velocidad incial). La velocidad deseada del individuo fue de $v_d=4$~m/s.}
     \label{pa_vel_t_100_1_2}
 \end{figure}
@@ -80,7 +80,7 @@ En los sistemas de puerta angosta la máxima presión se da en la zona cercana a
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1.6]{figuras/p_dist.eps}
-    \caption[width=5cm]{Presión media en función de la distancia a la salida. El tamaño del recinto fue $20\,\mathrm{m}\times20\,\mathrm{m}$  con una puerta de $L=1.2$~m width. Los valores medios fueron calculados a partir de 30 procesos hasta que 100 peatones abandonaron la habitación. La velocidad de deseo fue $v_d=4\,$m/s. La distancia a la puerta fue dividida en bins de tamaño $0.3$~m o 1~m.  El símbolo $\bigcirc$  corresponde a bins de $0.3$~m.}
+    \caption[width=5cm]{Presión media en función de la distancia a la salida. El tamaño del recinto fue $20\,\mathrm{m}\times20\,\mathrm{m}$  con una puerta de $L=1.2$~m width. Los valores medios fueron calculados a partir de 30 procesos hasta que 100 peatones abandonaron la habitación. La velocidad de deseo fue $v_d=4\,$m/s. La distancia a la puerta fue dividida en bins de tamaño $0.3$~m.}
     \label{p_dist}
 \end{figure}
 
@@ -91,8 +91,8 @@ Se hicieron simulaciones para determinar la presión que soportan los individuos
    \begin{tabular}{| l | c | r | }
      \hline
       & N=225 & N=961 \\ \hline
-     $v_d = 4$~m/s & $8580 \pm 2580$   & $16320 \pm 4990$ \\ \hline
-     $v_d = 8$~m/s & $13500 \pm 4250$  & $27960 \pm 8420$  \\
+     $v_d = 4$~m/s & $8580 \pm 2630$   & $19640 \pm 7330$ \\ \hline
+     $v_d = 8$~m/s & $14700 \pm 5240$  & $33130 \pm 11920$  \\
      \hline
    \end{tabular}
  \end{center}
@@ -103,19 +103,19 @@ Se hicieron simulaciones para determinar la presión que soportan los individuos
 En está sección se compararon la presión y velocidad tanto a nivel "macroscópico" (promedio) como a nivel "microscópico" (variación temporal para un individuo en particular) en recintos con puerta angosta ($1,2$~m) y recintos con puerta ancha ($3,6$~m). Se obtuvo que con puertas angostas surge el efecto Stop-and-go que provoca altas presiones en el centro mientras que con puertas anchas este efecto no aparece ya que la evacuación fluye de forma permanentemente (casi sin detenerse). Es por eso que la mayor presión se da en las zonas laterales. La máxima velocidad se tiene en el medio para ambos recintos. Por lo tanto, la relación inversa de presión-velocidad se verifica en habitaciones con puertas anchas (a nivel macroscópico y microscópico) mientras que en recintos con puertas angostas solo se da a nivel microscópico.\\
 
 También se verificó que la presión decae con la distancia y la magnitud de la presión soportada por los integrantes del blocking cluster aumenta con el número de individuos y el nivel de ansiedad.\\
-Además pudo comprobarse que las puertas anchas mejoran la evacuación~\cite{huanhuan1}.  
+Además pudo comprobarse que las puertas anchas mejoran la evacuación (produciendo tiempos de evacuación inferiores). Este resultado es consistente con lo discutido en la Ref.~\cite{huanhuan1}.  
 
 \newpage
 
 \section{\label{dos_puertas} Dos puertas}
 
-En esta sección se muestran los resultados para recintos con dos puertas ubicadas sobre la misma pared. Se estudió cómo varían el tiempo de evacuación, la probabilidad de formar clusters de bloqueo y la distribución de presión en función la distancia de separación entre puertas ($g$).  
+En esta sección se muestran los resultados para recintos con dos puertas ubicadas sobre la misma pared. Se estudió cómo varían el tiempo de evacuación, la probabilidad de formar clusters de bloqueo y la distribución de presión en función de la distancia de separación entre puertas ($g$).  
 
 \subsection{Faster is slower}
 
 "Faster is slower" es un efecto típico de evacuaciones en estado de ansiedad. Cuanto mayor es la velocidad de deseo, mayor es el tiempo que tardan en evacuar los individuos. 
 La figura \ref{fiss} muestra el tiempo de evacuación cuando dos puertas están separadas por una distancia de $g=1\,$~m 
-y cuando no hay separación ($g=0$~m). Esta última significa una única salida. Ambos casos (con y sin separación) exhiben un cambio en su correspondiente derivada. Es decir, el efecto ``faster is slower'' se obtiene aun para salidas distanciadas, teniendo un comportamiento cualitativo similar al que aparece en la bibliografía para cuartos con una única salida \cite{Helbing1,Dorso1}.\\ 
+y cuando no hay separación ($g=0$~m). Esta última significa una única salida. Ambos casos (con y sin separación) exhiben un cambio en su pendiente. Es decir, el efecto ``faster is slower'' se obtiene aun para salidas distanciadas, teniendo un comportamiento cualitativo similar al que aparece en la bibliografía para cuartos con una única salida \cite{Helbing1,Dorso1}.\\ 
 
 \begin{figure}[H]
     \centering
@@ -139,7 +139,7 @@ Es decir, existe un gap crítico ($g_c$) para el cual cambia la pendiente de la 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1.6]{figuras/gap_vste_225_v4.eps}
-    \caption[width=5cm]{Gráfico de tiempo de evacuación en función del gap. El recinto es de $20\times 20$~(m) con 225 individuos y dos puertas, cada una tiene un ancho de $L=1,2$~m. La gráfica corresponde al promedio de treinta iteraciones. La velocidad deseada del individuo fue de $v_d=4$~m/s. Cada simulación termina cuando evacúan 160 individuos.}
+    \caption[width=5cm]{Gráfico de tiempo de evacuación en función del gap. El recinto es de $20\times 20$~(m) con 225 individuos y dos puertas, cada una tiene un ancho de $L=1,2$~m. La gráfica corresponde al promedio de treinta iteraciones. La velocidad de deseo del individuo fue de $v_d=4$~m/s. Cada simulación termina cuando evacúan 160 individuos.}
     \label{gap_vste_225_v4}
 \end{figure}
 
@@ -149,7 +149,7 @@ Si bien en los tres casos la pendiente cambia luego del gap crítico, puede vers
 
 Algunos autores sostienen que el estado asintótico se alcanza cuando los bulks asociados a cada puerta están separados~\cite{perez1}. En la figura puede verse que para g$>$5~m el tiempo de evacuación por peatón se vuelve independiente del gap (asintótico) a pesar de que las áreas de bloqueo estén superpuestas. En las simulaciones de 961 individuos se requiere $g=16$~m para que los bulks estén disjuntos.\\
 
-El gráfico de la derecha muestra el tiempo de evacuación en función del gap para recintos con 225 individuos. La curva con cuadrados corresponde a sistemas de individuos con velocidad de deseo $v_d=8$~m/s, la curva de círculos es para sistemas de individuos con $v_d=4$~m/s. Ambas tienen igual valor de $g_c$, pero la curva correspondiente a $8~m/s$ no pasa a tener derivada negativa luego del $g_c$. Por lo tanto, el comportamiento para sistamas con individuos más apurados ($v_d=8$~m/s) es semejante al de sistemas con muchos individuos (N$=$961). \\
+El gráfico de la derecha muestra el tiempo de evacuación en función del gap para recintos con 225 individuos. La curva con cuadrados corresponde a sistemas de individuos con velocidad de deseo $v_d=8$~m/s, la curva de círculos es para sistemas de individuos con $v_d=4$~m/s. Ambas tienen igual valor de $g_c$, pero la curva correspondiente a $8~m/s$ no pasa a tener pendiente negativa luego del $g_c$. Por lo tanto, el comportamiento para sistamas con individuos más apurados ($v_d=8$~m/s) es semejante al de sistemas con muchos individuos (N$=$961). \\
 
 Cabe destacar que el tamaño de $g_c$ corresponde al ancho de dos individuos. Esto hace suponer que cuando el espacio entre puertas es suficientemente grande para que entren dos personas, la dinámica entra en un régimen diferente (para el cual cambia la pendiente). 
 
@@ -177,7 +177,7 @@ El tamaño del gap critico equivale al ancho de dos individuos. Este tamaño fav
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1.6]{figuras/proba_vsgap_v4_big_small.eps}
-    \caption[width=5cm]{Probabilidad de formar big y small blocking clusters (bloqueos de dos y una puerta respectivamente) en función del gap. El recinto es de $20\times 20$~(m) con 225 individuos y dos puertas, cada una tiene un ancho de $L=1,2$~m. Las gráficas corresponden al promedio de treinta iteraciones diferentes. La velocidad de deseo es de $v_d=4$~m/s. Cada simulación termina cuando evacúan 160 individuos.}
+    \caption[width=5cm]{Probabilidad de formar big (círculos) y small (cuadrados) blocking clusters (bloqueos de dos y una puerta respectivamente), ambos en función del gap. El recinto es de $20\times 20$~(m) con 225 individuos y dos puertas, cada una tiene un ancho de $L=1,2$~m. Las gráficas corresponden al promedio de treinta iteraciones diferentes. La velocidad de deseo es de $v_d=4$~m/s. Cada simulación termina cuando evacúan 160 individuos.}
     \label{proba_vsgap_v4_big_small}
 \end{figure}
 
@@ -198,20 +198,20 @@ Cuando la separación es nula (gap cero) se recupera una distribución de presi�
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1.6]{figuras/press_225p_v4_g0.eps}
-    \caption[width=5cm]{Isobaras cercanas a la puerta; la escala a la derecha está expresada en [PA]=N.m. La salida está centrada en la posición $x=20$~m e $y=10$~m, son dos puertas de ancho $L=1,2$~m con $g=0$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar el campo de presiones (PA). La velocidad deseada de los individuos fue de $v_d=4$~m/s. Las barras rojas representan las paredes laterales.}
+    \caption[width=5cm]{Isobaras cercanas a la puerta; la escala a la derecha está expresada en [P]=N/m. La salida está centrada en la posición $x=20$~m e $y=10$~m, son dos puertas de ancho $L=1,2$~m con $g=0$~m. El recinto es de $20\times 20$~(m) con 225 individuos. La gráfica corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar el campo de presiones (P). La velocidad deseada de los individuos fue de $v_d=4$~m/s. Las barras rojas representan las paredes laterales.}
     \label{presion_225p_g0}
 \end{figure}
 
-Cuando la separación entre puertas equivale al gap crítico $g=1,5$~m, la zona de más alta presión se extiende en superficie. Si $g=5$~m los focos de máxima presión se separan ya que a esta distancia los bulks están suficientemente lejos como para que las interacciones entre éstos sean chicas. Este fenómeno se muestra en las figuras de \ref{presion_225p_g1_5_y_5}. Puede verse que cuando el gap es grande no existen zonas de presión alta ($>$8000 N.m). Separar las puertas una distancia considerable produce una disminución general de la presión. \\
+Cuando la separación entre puertas equivale al gap crítico $g=1,5$~m, la zona de más alta presión se extiende en superficie. Si $g=5$~m los focos de máxima presión se separan ya que a esta distancia los bulks están suficientemente lejos como para que las interacciones entre éstos sean chicas. Estos fenómenos se muestran en las figuras de \ref{presion_225p_g1_5_y_5}. Puede verse que cuando el gap es grande no existen zonas de presión alta ($>$7000 N/m). Separar las puertas una distancia considerable produce una disminución general de la presión. \\
 
-Cabe destacar que todos los gráficos de isobaras mostrados en este capítulo tienen una distribución de presión similar a la obtenida con la definición de presión de Helbing~\cite{Helbing1}. Recordemos que en este trabajo la definición de presión usada deriva de la relación del virial y se expresa en la fórmula (\ref{pa}).
+Recordemos que en este trabajo la definición de presión usada es la que se desarrolla en~\cite{Helbing1} se expresa en la fórmula (\ref{phelbing}).
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{figuras/isobaras_g1_5.eps}
     \hfill
         \includegraphics[scale=1]{figuras/isobaras_g5.eps}	
-    \caption[width=5cm]{Isobaras cercanas a la puerta; la escala a la derecha está expresada en [PA]=N.m. La salida consta de dos puertas de ancho $L=1,2$~m separadas entre si por una distancia de $g=1,5$~m y $g=5$~m (figuras de izquierda y derecha respectivamente), puertas centrdas en $x=20$~m e $y=11,35$~m y $x=20$~m e $y=8,65$~m (izquierda) y $x=20$~m e $y=12,5$~m y $x=20$~m e $y=7,5$~m (derecha) . El recinto es de $20\times 20$~(m) con 225 individuos. Las gráficas corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar el campo de presiones (PA). La velocidad deseada de los individuos fue de $v_d=4$~m/s. Las barras rojas representan las paredes laterales.}
+    \caption[width=5cm]{Isobaras cercanas a la puerta; la escala a la derecha está expresada en [P]=N/m. La salida consta de dos puertas de ancho $L=1,2$~m separadas entre si por una distancia de $g=1,5$~m y $g=5$~m (figuras de izquierda y derecha respectivamente), puertas centrdas en $x=20$~m e $y=11,35$~m y $x=20$~m e $y=8,65$~m (izquierda) y $x=20$~m e $y=12,5$~m y $x=20$~m e $y=7,5$~m (derecha) . El recinto es de $20\times 20$~(m) con 225 individuos. Las gráficas corresponde a valores medios a lo largo de 30 procesos de evacuación. Se usó un grillado de 1m$^2$ para promediar el campo de presiones (P). La velocidad deseada de los individuos fue de $v_d=4$~m/s. Las barras rojas representan las paredes laterales.}
     \label{presion_225p_g1_5_y_5}
 \end{figure}
 
