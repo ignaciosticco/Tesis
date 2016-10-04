@@ -6,25 +6,28 @@ En este capítulo se describirá el modelo en el cual se basa toda la investigac
 
 El modelo de "fuerza social" básico considera a los individuos como partículas auto-impulsadas. El movimiento de de los individuos está dominado por tres tipos de fuerzas de naturaleza diferente: la fuerza de deseo (autopropulsión), fuerzas sociales (repulsión) y fuerzas granulares (rozamiento). Se tienen en cuenta la interacción entre individuos y la interacción individuo-pared. Todas estas serán detalladas más adelante.   \\
 
-Las fuerzas del modelo básico ingresan a una ecuación de movimiento (ley de Newton) de la forma de Ec. (\ref{newton}); de esta manera queda expresada la variación de velocidad en el tiempo que siente un individuo. El término $\mathbf{f}^{(ij)}$ es la interacción entre individuos; mientras que $\mathbf{f}^{(iW)}$ refleja la interacción con las paredes. Ambos términos contemplan tanto a la repulsión como al rozamiento. La variación de la  posición viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
+Las fuerzas del modelo básico ingresan a una ecuación de movimiento (ley de Newton) de la forma de Ec. (\ref{newton}); de esta manera queda expresada la variación de velocidad en el tiempo que siente un individuo. El término $\mathbf{f}^{(ij)}$ es la interacción entre individuos; mientras que $\mathbf{f}^{(iW)}$ refleja la interacción con las paredes. Ambos términos contemplan tanto a la repulsión como al rozamiento. $\mathbf{f}_d^ {(i)}(t)$ es la fuerza de deseo. La ecuación de movimiento viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
 
 \begin{equation}
 m_i\frac{d\mathbf{v_i}}{dt}=\mathbf{f}_d^ {(i)}(t)+ \sum_{i\neq j}^{N}\mathbf{f}^{(ij)} + \sum_{W}^{N}\mathbf{f}^{(iW)}
 \label{newton}
 \end{equation} 
 
-La fuerza de deseo expresa el hecho de que cada persona es capaz de  acelerar o desacelerar hasta alcanzar la velocidad en que se siente más cómoda. La magnitud de esta velocidad se corresponde con el nivel de ansiedad que tenga por llegar a cierto lugar. La expresión matemática de esta fuerza viene dada por la fórmula~\ref{fdeseo}. Esta fórmula refleja el hecho que el individuo i-esimo, que posee masa $m_i$, desea  moverse con una velocidad $v_d^ {(i)}(t)$ en una dirección $\hat{\mathbf{e}}_d^ {(i)}(t)$, por lo tanto readapta su velocidad $\mathbf{v}_i(t)$ con un cierto tiempo característico $\tau$.
+La fuerza de deseo: es la fuerza que expresa el hecho de que cada persona es capaz de  acelerar o desacelerar hasta alcanzar la velocidad en que se siente más cómoda. La magnitud de esta velocidad se corresponde con el nivel de ansiedad que tenga por llegar a cierto lugar. La expresión matemática de esta fuerza viene dada por la fórmula~\ref{fdeseo}. Esta fórmula refleja el hecho que el individuo i-esimo, que posee masa $m_i$, desea  moverse con una velocidad $v_d^ {(i)}(t)$ en una dirección $\hat{\mathbf{e}}_d^ {(i)}(t)$, por lo tanto readapta su velocidad $\mathbf{v}_i(t)$ con un cierto tiempo característico $\tau$.
+
 \begin{equation}
 \mathbf{f}_d^ {(i)}(t)=m_i\,\displaystyle\frac{v_d^ {(i)}(t)\,\hat{\mathbf{e}}_d^ {(i)}(t)-\mathbf{v}_i(t)}{\tau}\label{fdeseo}
 \end{equation}
+\\
 
-La repulsión social es una fuerza que describe la tendencia que tienen las personas a mantenerse alejadas unas de otras. Depende de la distancia de separación entre individuos $d_{ij}=\left\|\mathbf{r_i}-\mathbf{r_j}\right\|$ y está en la dirección normal $\mathbf{n}_{ij}=(\mathbf{r_i}-\mathbf{r_j})/d_{ij}$ (versor que apunta desde el individuo j al individuo i). Los peatones están en contacto si el valor de $d_{ij}$ es más chico que la suma de los radios $r_{ij}=(r_i+r_j)$. $A_i$ y 	$B_i$ son constantes que se determinan experimentalmente.
+La repulsión social: es una fuerza que describe la tendencia que tienen las personas a mantenerse alejadas unas de otras. Depende de la distancia de separación entre individuos $d_{ij}=\left\|\mathbf{r_i}-\mathbf{r_j}\right\|$ y está en la dirección normal $\mathbf{n}_{ij}=(\mathbf{r_i}-\mathbf{r_j})/d_{ij}$ (versor que apunta desde el individuo j al individuo i). Los peatones están en contacto si el valor de $d_{ij}$ es más chico que la suma de los radios $r_{ij}=(r_i+r_j)$. $A_i$ y 	$B_i$ son constantes que se determinan experimentalmente.
 
 \begin{equation}
 \mathbf{f}_s^{(ij)}=A_i\,e^{(r_{ij}-d_{ij})/B_i}\mathbf{n}_{ij}\label{fsocial}
 \end{equation} 
+\\
 
-Cuando los individuos están en contacto, comienza a actuar una fuerza de rozamiento, la misma es proporcional a la velocidad relativa entre los mismos $\Delta \mathbf{v}_{ij}=(\mathbf{v}_i-\mathbf{v}_j)$. La dirección tangencial está representada por $\mathbf{t}_{ij}=(-n_{ij}^2,n_{ij}^1)$.  $\kappa$ es una constante y $g(x)$ es una función nula cuando los individuos no se tocan $(r_{ij}<d_{ij})$ y toma el valor de su argumento en caso contrario. 
+La fuerza de rozamiento: aparece cuando los individuos están en contacto; esta fuerza es es proporcional a la velocidad relativa entre los mismos $\Delta \mathbf{v}_{ij}=(\mathbf{v}_i-\mathbf{v}_j)$. La dirección tangencial está representada por $\mathbf{t}_{ij}=(-n_{ij}^2,n_{ij}^1)$.  $\kappa$ es una constante y $g(x)$ es una función nula cuando los individuos no se tocan $(r_{ij}<d_{ij})$ y toma el valor de su argumento en caso contrario. 
 \begin{equation}
 \mathbf{f}_g^{(ij)}=\kappa\,g(r_{ij}-d_{ij})\,\Delta \mathbf{v}_{ij}\cdot\mathbf{t}_{ij}\label{frozamiento}
 \end{equation}
@@ -36,9 +39,9 @@ La interacción de los individuos con las paredes tiene un tratamiento similar a
 \label{fparedes}
 \end{equation} 
 
-A partir de la ecuación de movimiento (\ref{newton}) y de las condiciones iniciales en posición y velocidad de los individuos, es posible determinar la dinámica de los peatones a lo largo del tiempo.\\
+A partir de la ecuación de movimiento (\ref{newton}) y de las condiciones iniciales en posición y velocidad de los individuos, se determina la dinámica de los peatones a lo largo del tiempo.\\
 
-Una magnitud relevante y utilizada para caracterizar las multitudes evacuando en estado de pánico es la presión que siente cada individuo. En el área de la dinámica molecular existen diversas formas de definir la "presión local"~\cite{lion}. Según Helbing, esta se define como la suma de fuerzas normales actuando sobre un individuo, dividido su perímetro~\cite{Helbing1}. Por lo tanto, se tiene una fuerza por unidad de longitud; esta misma se representa en la ecuación (\ref{phelbing}).
+Una magnitud relevante y utilizada para caracterizar las multitudes evacuando en estado de pánico es la presión que siente cada individuo. En el área de la dinámica molecular existen diversas formas de definir la "presión local"~\cite{lion}. Según Helbing, para sistemas bidimiensionales como el que tratamos nosotros, esta se define como la suma de fuerzas normales actuando sobre un individuo, dividido su perímetro~\cite{Helbing1}. Por lo tanto, se tiene una fuerza por unidad de longitud; esta misma se representa en la ecuación (\ref{phelbing}).
 En la Ref.~\cite{Helbing1} se reporta que a valores de presión superiores a 1600 Nm$^{-1}$ los individuos se lastiman y se vuelven obstáculos inamovibles. En este trabajo no se tienen en cuenta los eventuales desmayos producidos por las altas presiones. 
 
 \begin{equation}
@@ -94,7 +97,7 @@ El esquema de Verlet tiene un error de truncamiento local de ($\Delta t^2$). En 
 se calcula una nueva posición, se re-evalúan las fuerzas (aceleraciones) y se re-calcula la velocidad. Luego se vuelven a actualizar la posiciones y se repite el ciclo hasta construir las trayectorias de las partículas.
 En la sección \ref{ci} del capítulo \ref{simulaciones} se detallarán las condiciones iniciales usadas en cada proceso de evacuación.\\
 
-El algoritmo de Verlet es ampliamente utilizado por preservar las simetrías de las ecuaciones de Newton y las propiedades físicas de una gran cantidad de sistemas. Esto es gracias al hecho que tiene reversibilidad temporal y es simpléctico (conserva el volumen en el espacio de fases). Además, es simple de implementar y posee buena estabilidad incluso para pasos temporales moderadamente grandes.
+El algoritmo de Verlet es ampliamente utilizado por preservar las simetrías de las ecuaciones de Newton y las propiedades físicas de una gran cantidad de sistemas. Esto es gracias al hecho que tiene reversibilidad temporal y es simpléctico (conserva el volumen en el espacio de fases). En nuestro caso, esta propiedad es irrelevante porque la fuerza de deseo hace que no valga el teorema de Liouville. Además, es simple de implementar y posee buena estabilidad incluso para pasos temporales moderadamente grandes.
 
 \begin{figure}[H]
     \centering
