@@ -6,7 +6,7 @@ En este capítulo se describirá el modelo en el cual se basa toda la investigac
 
 El modelo de "fuerza social" básico considera a los individuos como partículas auto-impulsadas. El movimiento de de los individuos está dominado por tres tipos de fuerzas de naturaleza diferente: la fuerza de deseo (autopropulsión), fuerzas sociales (repulsión) y fuerzas granulares (rozamiento). Se tienen en cuenta la interacción entre individuos y la interacción individuo-pared. Todas estas serán detalladas más adelante.   \\
 
-Las fuerzas del modelo básico ingresan a una ecuación de movimiento (ley de Newton) de la forma de Ec. (\ref{newton}); de esta manera queda expresada la variación de velocidad en el tiempo que siente un individuo. El término $\mathbf{f}^{(ij)}$ es la interacción entre individuos; mientras que $\mathbf{f}^{(iW)}$ refleja la interacción con las paredes. Ambos términos contemplan tanto a la repulsión como al rozamiento. $\mathbf{f}_d^ {(i)}(t)$ es la fuerza de deseo. La ecuación de movimiento viene dado por $v_{i}(t)=d\mathbf{r_i}/dt$.
+Las fuerzas del modelo básico ingresan a una ecuación de movimiento (ley de Newton) de la forma de Ec. (\ref{newton}); de esta manera queda expresada la variación de velocidad en el tiempo que siente un individuo. El término $\mathbf{f}^{(ij)}$ es la interacción entre individuos; mientras que $\mathbf{f}^{(iW)}$ refleja la interacción con las paredes. Ambos términos contemplan tanto a la repulsión como al rozamiento. $\mathbf{f}_d^ {(i)}(t)$ representa la fuerza de deseo. La ecuación de movimiento viene dada por $v_{i}(t)=d\mathbf{r_i}/dt$.
 
 \begin{equation}
 m_i\frac{d\mathbf{v_i}}{dt}=\mathbf{f}_d^ {(i)}(t)+ \sum_{i\neq j}^{N}\mathbf{f}^{(ij)} + \sum_{W}^{N}\mathbf{f}^{(iW)}
@@ -41,7 +41,7 @@ La interacción de los individuos con las paredes tiene un tratamiento similar a
 
 A partir de la ecuación de movimiento (\ref{newton}) y de las condiciones iniciales en posición y velocidad de los individuos, se determina la dinámica de los peatones a lo largo del tiempo.\\
 
-Una magnitud relevante y utilizada para caracterizar las multitudes evacuando en estado de pánico es la presión que siente cada individuo. En el área de la dinámica molecular existen diversas formas de definir la "presión local"~\cite{lion}. Según Helbing, para sistemas bidimiensionales como el que tratamos nosotros, esta se define como la suma de fuerzas normales actuando sobre un individuo, dividido su perímetro~\cite{Helbing1}. Por lo tanto, se tiene una fuerza por unidad de longitud; esta misma se representa en la ecuación (\ref{phelbing}).
+Un observable relevante y utilizado para caracterizar las multitudes evacuando en estado de pánico es la presión que siente cada individuo. En el área de la dinámica molecular existen diversas formas de definir la "presión local"~\cite{lion}. Según Helbing, para sistemas bidimiensionales como el que tratamos nosotros, esta se define como la suma de fuerzas normales actuando sobre un individuo, dividido su perímetro~\cite{Helbing1}. Por lo tanto, se tiene una fuerza por unidad de longitud; esta misma se representa en la ecuación (\ref{phelbing}).
 En la Ref.~\cite{Helbing1} se reporta que a valores de presión superiores a 1600 Nm$^{-1}$ los individuos se lastiman y se vuelven obstáculos inamovibles. En este trabajo no se tienen en cuenta los eventuales desmayos producidos por las altas presiones. 
 
 \begin{equation}
@@ -97,7 +97,7 @@ El esquema de Verlet tiene un error de truncamiento local de ($\Delta t^2$). En 
 se calcula una nueva posición, se re-evalúan las fuerzas (aceleraciones) y se re-calcula la velocidad. Luego se vuelven a actualizar la posiciones y se repite el ciclo hasta construir las trayectorias de las partículas.
 En la sección \ref{ci} del capítulo \ref{simulaciones} se detallarán las condiciones iniciales usadas en cada proceso de evacuación.\\
 
-El algoritmo de Verlet es ampliamente utilizado por preservar las simetrías de las ecuaciones de Newton y las propiedades físicas de una gran cantidad de sistemas. Esto es gracias al hecho que tiene reversibilidad temporal y es simpléctico (conserva el volumen en el espacio de fases). En nuestro caso, esta propiedad es irrelevante porque la fuerza de deseo hace que no valga el teorema de Liouville. Además, es simple de implementar y posee buena estabilidad incluso para pasos temporales moderadamente grandes.
+El algoritmo de Verlet es ampliamente utilizado por preservar las simetrías de las ecuaciones de Newton y las propiedades físicas de una gran cantidad de sistemas. Esto es gracias al hecho que tiene reversibilidad temporal y es simpléctico (conserva el volumen en el espacio de fases). En nuestro caso, esta propiedad es irrelevante porque la fuerza de deseo hace que no valga el teorema de Liouville. Además, el algoritmo es simple de implementar y posee buena estabilidad incluso para pasos temporales moderadamente grandes.
 
 \begin{figure}[H]
     \centering
