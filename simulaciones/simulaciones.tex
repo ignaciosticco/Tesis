@@ -9,11 +9,11 @@ complejidad algorítmica, hace posible correr las simulaciones en un único proc
 
 Todas las simulaciones constaron de N individuos en un recinto cuadrado cuyo tamaño estaba ligado a la cantidad de
 peatones de modo tal que mantenga constante la densidad. En una de las paredes se ubicaron una o dos puertas. Las puertas se ubicaban simétricamente respecto del medio para evitar efectos de borde. Cuando el recinto tenía dos salidas, ambas se fijaban del mismo ancho.
-Las condiciones iniciales se detallan en la subsección \ref{ci}.  Luego del instante inicial, los agentes cambiaban su velocidad acorde a la velocidad de deseo (parámetro asociado al apuro) configurada de forma tal que los individuos evacúen por la puerta más cercana. Una vez que los individuos abandonaban el recinto no se los reinyectaba. De esta forma, al evacuar dejaban de importar sus observables. \\
+Las condiciones iniciales se detallan en la subsección \ref{ci}.  Luego del instante inicial, los agentes cambiaban su velocidad acorde a la velocidad de deseo (parámetro asociado a la ansiedad) configurada de forma tal que los individuos evacúen por la puerta más cercana. Una vez que los individuos abandonaban el recinto no se los reinyectaba. De esta forma, al evacuar dejaban de importar sus observables. \\
 
 La información era guardada cada 0,05~s. Para integrar las ecuaciones de movimiento se utilizó el algoritmo de Verlet. 
 
-Los gráficos de la figura \ref{sim} representan el estado inicial de una simulación (izquierda) donde los individuos están ordenados en un arreglo periódico cuadrado. La imagen de la derecha muestra el estado 50000 iteraciones después (luego de 5 segundos de simulación). Puede verse que para ese entonces la multitud forma una estructura de "semi círculo" en torno a la salida. Este fenómeno emergente es propio de la dinámica granular~\cite{To} y característico de las evacuaciones en estado de pánico~\cite{Helbing1}  
+Los gráficos de la figura \ref{sim} representan el estado inicial de una simulación (izquierda) donde los individuos están ordenados en un arreglo periódico cuadrado. La imagen de la derecha muestra el estado 50000 iteraciones después (luego de 5 segundos de simulación). Puede verse que para ese entonces la multitud forma una estructura de "semi círculo" en torno a la salida. Este fenómeno es propio de la dinámica granular~\cite{To} y característico de las evacuaciones en estado de pánico~\cite{Helbing1}  
 
 \begin{figure}[H]
     \centering
@@ -105,9 +105,9 @@ Para un peatón cuya posición inicial es (x, y)=(12.35, 8.45) en un recinto de 
 
 Se registro el tiempo que tarda en evacuar una cantidad de individuos del orden del 70\% de la cantidad inicial. Se hicieron mediciones en recintos de 20$\times$20~m, 30$\times$30~m y 40$\times$40~m con 225, 583 y 961 individuos respectivamente para diferentes velocidades de deseo (de 2~m/s a 8~m/s). Algunas mediciones se hicieron para estudiar la variación del tiempo de evacuación en función del gap y otras para confirmar el efecto "Faster is slower". 
 
-{\Large Probabilidad de formar blocking clusters}
+{\Large Probabilidad de encontrar blocking clusters}
 
-Mediante el módulo que identifica los individuos que conforman un blocking cluster se calculó el cociente entre el tiempo que la salida está bloqueada y el tiempo total de la evacuación. Este cociente es la probabilidad de formar blocking clusters. Se graficó esta probabilidad para clusters grandes y pequeños en recintos de 20$\times$20~m con 225 individuos con velocidades de deseo de 4~m/s y 6~m/s. También se hicieron mediciones en recintos de 40$\times$40~m con 961 individuos a $v_d$=4~m/s. 30 iteraciones fueron realizadas para promediar los resultados. 
+Mediante el módulo que identifica los individuos que conforman un blocking cluster se calculó el cociente entre el tiempo que la salida está bloqueada y el tiempo total de la evacuación. Este cociente es la probabilidad de encontrar blocking clusters. Se graficó esta probabilidad para clusters grandes y pequeños en recintos de 20$\times$20~m con 225 individuos con velocidades de deseo de 4~m/s y 6~m/s. También se hicieron mediciones en recintos de 40$\times$40~m con 961 individuos a $v_d$=4~m/s. 30 iteraciones fueron realizadas para promediar los resultados. 
 
 {\Large Presión en función de distancia a la puerta}
 
