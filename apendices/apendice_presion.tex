@@ -1,11 +1,11 @@
 \label{appendix:presion}
 
-Este apéndice está destinado a mostrar una definición alternativa de la "presión local". Se mostrará un ejemplo teórico (partículas en hilera) para aclarar algunos conceptos y por último se presentarán muestras de performance con el fin de evidenciar la similitud con la definición de presión de Helbing y el rendimiento que tiene el cálculo de la presión según esta definición alternativa.  
+Este apéndice está destinado a mostrar una definición alternativa de la ``presión local". Se mostrará un ejemplo teórico (partículas en hilera) para aclarar algunos conceptos y por último se presentarán muestras de ``performance" con el fin de evidenciar la similitud con la definición de presión de Helbing y el rendimiento que tiene el cálculo de la presión según esta definición alternativa.  
 \\
 
 \section{Presión local}
 
-A pesar de que la fuerza de deseo es una fuerza unilateral (\textit{i.e.} partícula auto-impulsada), la ecuación de movimiento continúa siendo válida, y por lo tanto, podemos derivar la relación del virial\cite{lion}, para un conjunto de $N$ peatones dentro del área $\mathcal{A}$.
+A pesar de que la fuerza de deseo es una fuerza unilateral (\textit{i.e.} partícula auto-impulsada), la ecuación de movimiento continúa siendo válida, y por lo tanto, podemos derivar la relación del virial~\cite{lion}, para un conjunto de $N$ peatones dentro del área $\mathcal{A}$.
 
 \begin{equation}
  \bigg\langle\displaystyle\sum_{i=1}^N\displaystyle\frac{p_i^2}{m_i} + 
@@ -14,8 +14,8 @@ A pesar de que la fuerza de deseo es una fuerza unilateral (\textit{i.e.} partí
 \end{equation}
 
 
-$p_i$  y $\mathbf{f}_i$ son el momento y la fuerza total actuando sobre el individuo $i$. La fuerza $\mathbf{f}_i$ no contempla la interacción con las paredes.  $\langle\cdot\rangle$ corresponde al valor medio en el tiempo. El lado derecho de la ecuación $-2\mathcal{PA}$ es la presión global en el perímetro del recinto $\mathcal{A}$. Este término es negativo porque el producto de $\mathbf{r}_{iW}\cdot\mathbf{f}_s^{(iW)}$ es positivo y pasa al lado derecho con signo negativo (siendo $2\mathcal{PA}>0$). En la bibliografía, el término $2\mathcal{PA}$ aparece con signo positivo ya que se considera la presión que se ejerce sobre la pared y no la presión que se ejerce sobre las partículas como en este caso.  \\
-La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad de área) actuando sobre él debidas a los individuos que lo rodean. Según Ref.~\cite{lion} se puede definir una "función de presión social" $P_i$ como:\\
+$p_i$  y $\mathbf{f}_i$ son el momento y la fuerza total actuando sobre el individuo $i$. La fuerza $\mathbf{f}_i$ no contempla la interacción con las paredes.  $\langle\cdot\rangle$ corresponde al valor medio en el tiempo. El lado derecho de la ecuación $-2\mathcal{PA}$ es la presión global en el perímetro del recinto $\mathcal{A}$. Este término es negativo porque el producto de $\mathbf{r}_{iW}\cdot\mathbf{f}_s^{(iW)}$ es positivo y pasa al lado derecho con signo negativo (siendo $2\mathcal{PA}>0$). En la bibliografía, el término $2\mathcal{PA}$ aparece con signo positivo ya que se considera la presión que se ejerce sobre la pared y no la presión que se ejerce sobre las partículas, en contacto con ella, como en este caso.  \\
+La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad de área) actuando sobre él y debidas a los individuos que lo rodean. Según la Ref.~\cite{lion} se puede definir una ``función de presión social" $P_i$ como:\\
 
 \begin{equation}
 2P_iA_i=\displaystyle\frac{p_i^2}{m_i} + \frac{1}{2}
@@ -25,7 +25,7 @@ La presión local para un peatón ($i$) está asociada a las fuerzas (por unidad
 
 donde $A_i$ es el área que encierra al peatón $i$ y 
 $\mathbf{r}_{ij}=\mathbf{r}_{i}-\mathbf{r}_j$ (la distancia
-entre dos peatones en la dirección desde j hacia i). Cabe destacar que el producto interno $\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}$ siempre es positivo debido a la repulsión y es igual al producto escalar (positivo) $d_{ij}f_s^{(ij)}$. El factor 1/2 evita el doble conteo de las interacciones cuando se hace la suma de todos los $2P_iA_i$. Esta función de presión local contempla un término cinético que la definición de presión Helbing ignora. \\ 
+entre dos peatones en la dirección desde $j$ hacia $i$). Cabe destacar que el producto interno $\mathbf{r}_{ij}\cdot\mathbf{f}_s^{(ij)}$ siempre es positivo debido a la repulsión y es igual al producto escalar (positivo) $d_{ij}f_s^{(ij)}$. El factor 1/2 evita el doble conteo de las interacciones cuando se hace la suma de todos los $2P_iA_i$. Esta función de presión local contempla un término cinético que la definición de presión Helbing ignora. \\ 
 
 El segundo término en la ecuación (\ref{virial1}) puede dividirse en la suma de productos internos $\mathbf{r}_i\cdot\mathbf{f}_d$ (deseo), 
 $\mathbf{r}_i\cdot\mathbf{f}_s$ (social) y $\mathbf{r}_i\cdot\mathbf{f}_g$ (granular). De hecho, la suma del producto social depende de la distancia entre partículas $d_{ij}f_s^{(ij)}$, mientras que la parte granular no tiene ningún rol por su ortogonalidad ($\mathbf{r}_{ij}\cdot\mathbf{f}_g^{(ij)}=0$). Por lo tanto, la relación del virial (\ref{virial1}) se expresa \\  
@@ -36,29 +36,29 @@ $\mathbf{r}_i\cdot\mathbf{f}_s$ (social) y $\mathbf{r}_i\cdot\mathbf{f}_g$ (gran
 \mathbf{r}_i\cdot\mathbf{f}_d^{(i)}\rangle\label{virial2}
 \end{equation}
 
-Hay que destacar que la ecuación (\ref{virial2}) se cumple si los peatones están en contacto o no. Esto significa que no se trata de una presión de contacto (habitual en los sistemas físicos tradicionales) sino de una presión que provoca una cambio en el patrón de movimiento del individuo.\\
+Hay que destacar que la ecuación (\ref{virial2}) se cumple ya sea si los peatones están en contacto o no. Esto significa que no se trata de una presión de contacto (habitual en los sistemas físicos tradicionales) sino de una presión que provoca una cambio en el patrón de movimiento del individuo.\\
 
 La suma de fuerzas por unidad de circunferencia (\textit{i.e.} medida de presión según la Ref.~\cite{Helbing1}) es similar a la definición dada en (\ref{pa}) y que, a su vez, se sigue de la Ref.\cite{lion}. Comprobamos durante la investigación que ambas son proporcionales. En la sección \ref{Muestras de performace} se verifica la relación \eqref{virial2} a través de ejemplos particulares simulados.\\   
 
 \section{\label{social_pressure} Individuos en hilera}
 
-La figura ~\ref{hilera2} representa una hilera de individuos empujando a la derecha. La pared impide el movimiento de los peatones. Todos los individuos de la hilera están en su posición de equilibrio $x_1,x_2,...,x_{i},...x_N$, mientras que la pared está en la posición $x_0=0$. 
+La figura ~\ref{hilera2} representa una hilera de individuos empujando hacia la derecha. La pared impide el movimiento de los peatones. Todos los individuos de la hilera están en su posición de equilibrio $x_1,x_2,...,x_{i},...x_N$, mientras que la pared está en la posición $x_0=0$. 
 
 \begin{figure}[!htbp]
 \center
 \includegraphics[scale=1]{figuras/hilera.eps}
-\caption{\label{hilera2} Hilera de individuos empujando a la derecha. El eje horizontal indica la posición positiva. }
+\caption{\label{hilera2} Hilera de individuos empujando hacia la derecha. El eje horizontal indica la posición positiva. }
 % done with figuras_presion.odg
 \end{figure}
 
-Los peatones empujan a la derecha gracias a la fuerza de deseo
-$f_d^{(i)}=mv_d/\tau$, según la Ec.~(\ref{fdeseo}). La repulsión social balancea la fuerza de deseo, pero solo se tiene en cuenta la interacción de los individuos en contacto (se desprecia la interacción de segundos vecinos). La Ec ~\ref{eqn_6} muestra la ecuación de balance de cada individuo en la hilera. \\
+Los peatones empujan hacia la derecha gracias a la fuerza de deseo
+$f_d^{(i)}=mv_d/\tau$, según la Ec.~(\ref{fdeseo}). La repulsión social balancea la fuerza de deseo, pero sólo se tiene en cuenta la interacción de los individuos en contacto (se desprecia la interacción de segundos vecinos). La Ec. ~\ref{eqn_6} muestra la ecuación de balance de cada individuo en la hilera. \\
 
 \begin{equation}
  f_s^{(i,i+1)}-f_s^{(i,i-1)}+\displaystyle\frac{mv_d}{\tau}=0\label{eqn_6}
 \end{equation}
 
-con $f_s^{(i,j)}$ la fuerza repulsiva que siente el individuo $i$ debido a la presencia del peatón $j$. Cabe destacar que la condición de contorno en la posición $x_0=0$  es condición de Dirichlet, mientras que la condición en el otro extremos es condición de Neumann $f_s^{(N,N+1)}=0$. Las fuerzas en los peatones se obtienen de forma recursiva a partir de la expresión~\ref{eqn_6}, empezando desde el extremo libre ($i=N$). El resultado es
+siendo $f_s^{(i,j)}$ la fuerza repulsiva que siente el individuo $i$ debido a la presencia del peatón $j$. Cabe destacar que la condición de contorno para la posición $x_0=0$ es condición de Dirichlet, mientras que la condición en el otro extremo es una condición de Neumann $f_s^{(N,N+1)}=0$. Las fuerzas sobre los peatones se obtienen de forma recursiva a partir de la expresión~\ref{eqn_6}, empezando desde el extremo libre ($i=N$). El resultado es
 
 \begin{equation}
 f_s^{(i,i-1)}=(N-i+1)\,\displaystyle\frac{mv_d}{\tau}\ \ \ , \ \ \ 
@@ -83,7 +83,7 @@ f_s^ { (i , i+1) } +\displaystyle\frac { x_ {i-1}-x_{i}}{2A_i}\,f_s^{(i,i-1)
 
 \vspace{3mm}
 
-donde la magnitud $x_{ij}/2A_i$ corresponde a la inversa de la superficie efectiva del peatón. Para individuos modelados como esferas rígidas, la distancia entre peatones es $x_{ij}=2r_i$ y el área $A_i=\pi r_i^2$. Por lo tanto, 
+donde la magnitud $x_{ij}/2A_i$ corresponde a la inversa de la superficie efectiva del peatón. Para individuos modelados como círculos rígidos, la distancia entre peatones es $x_{ij}=2r_i$ y el área $A_i=\pi r_i^2$. Por lo tanto, 
 
 \begin{equation}
 P_i=\displaystyle\frac{1}{4\pi 
@@ -95,18 +95,18 @@ como es de esperar para la presión del individuo. Notar que esta expresión, al
 
 \section{\label{Muestras de performace} Muestras de performance} 
 
-En esta sección se describirá el módulo creado para cuantificar la "presión social" según esta definición alternativa. Luego se compararán las dos definiciones de presión a través de un ejemplo particular. Por último se mostrarán dos ejemplos para comprobar que la definición alternativa satisface la ecuación del virial. 
+En esta sección se describirá el módulo creado para cuantificar la ``presión social" según esta definición alternativa. Luego se compararán las dos definiciones de presión a través de un ejemplo particular. Por último se mostrarán dos ejemplos para comprobar que la definición alternativa satisface la ecuación del virial. 
 
 {\Large {\tt compute\_social\_pressure}}
 
-Calcula la función de presión social de la expresión (\ref{pa}) despreciando el término cinético y el factor 1/2. Para cada timestep devuelve un vector con la presión que soporta cada peatón como consecuencia de la interacción con sus vecinos. Solo se tienen en cuenta las presiones producidas por la repulsión de fuerza social, es decir, se ignoran las interacciones con las paredes asi como el rozamiento entre individuos. Se desprecia el término cinético porque solo cuando los individuos están amontonados (situación cuasi estática) el valor de presión es apreciable. En esta situación el término asociado a la repulsión social es al menos un orden de magnitud mayor que el término asociado a la energía cinética. \\
+Calcula la función de presión social de la expresión (\ref{pa}) despreciando el término cinético y el factor 1/2. Para cada timestep devuelve un vector con la presión que soporta cada peatón como consecuencia de la interacción con sus vecinos. Sólo se tienen en cuenta las presiones producidas por la repulsión de fuerza social, es decir, se ignoran las interacciones con las paredes así como el rozamiento entre individuos. Se desprecia el término cinético porque sólo cuando los individuos están amontonados (situación cuasi estática) el valor de presión es apreciable. En esta situación el término asociado a la repulsión social es al menos un orden de magnitud mayor que el término asociado a la energía cinética. \\
 
-Con este módulo de presión se hicieron cálculos para comparar la "definición alternativa" con la definición de presión de Helbing. En la figura \ref{comparacion} se muestra la presión en función de la distancia a la puerta para un recinto con 225 individuos a $v_d=4$~m/s. Los triángulos representan la presión según la Ec.~(\ref{phelbing}), mientras que los círculos la presión según Ec.~(\ref{pa}). Puede verse que ambas definiciones generan resultados similares. 
+Con este módulo de presión se hicieron cálculos para comparar la ``definición alternativa" con la definición de presión de Helbing. En la figura \ref{comparacion} se muestra la presión en función de la distancia a la puerta para un recinto con 225 individuos a $v_d=4$~m/s. Los triángulos representan la presión según la Ec.~(\ref{phelbing}), mientras que los círculos la presión según Ec.~(\ref{pa}). Puede verse que ambas definiciones generan resultados similares. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{figuras/fig16.eps}
-    \caption[width=5cm]{Presión media en función de la distancia a la salida. El recinto era de $20\,\mathrm{m}\times20\,\mathrm{m}$, con una puerta de 1.2~m de ancho. Se realizaron promedios sobre 30 procesos de evacuación, hasta que evacuaron 100 individuos. La velocidad de deseo era $v_d=4\,$m/s. La distancia a la puerta fue segmentada en intervalos de $0.3$~m.  El $\bigcirc$  corresponde al valor medio de la presión según Ec. \ref{pa}, despreciando la parte cinética ($p_i=0$) y $\mathcal{A}_i=\pi r_i^2$. El símbolo $\bigtriangleup$ corresponde a la presión computada según \ref{phelbing}. }
+    \caption[width=5cm]{Presión media en función de la distancia a la salida. El recinto era de $20\,\mathrm{m}\times20\,\mathrm{m}$, con una puerta de 1,2~m de ancho. Se realizaron promedios sobre 30 procesos de evacuación, hasta que evacuaron 100 individuos. La velocidad de deseo era $v_d=4\,$m/s. La distancia a la puerta fue segmentada en intervalos de $0,3$~m.  El $\bigcirc$  corresponde al valor medio de la presión según Ec. \ref{pa}, despreciando la parte cinética ($p_i=0$) y $\mathcal{A}_i=\pi r_i^2$. El símbolo $\bigtriangleup$ corresponde a la presión computada según la Ec. \ref{phelbing}. }
     \label{comparacion}
 \end{figure}
 
@@ -114,7 +114,7 @@ A continuación se mostrarán los ejemplos que demuestran cómo el módulo    {\
 
 \subsection{Partículas centradas}
 
-Se simuló un conjunto de 19 partículas cuyo target es el origen de coordenadas. Con una velocidad de deseo $v_d=4$~m/s en módulo. En el estado estacionario la disposición de las partículas es tal como se muestra en la figura \ref{central} . Las partículas se encuentran casi estáticas (sus fuerzas de deseo se compensan con la repulsión social); pero aun así, poseen una pequeña oscilación en torno a la posición de equilibrio. 
+Se simuló un conjunto de 19 partículas cuyo ``target" es el origen de coordenadas (partícula central en la figura \ref{central}). Con una velocidad de deseo $v_d=4$~m/s en módulo. En el estado estacionario la disposición de las partículas es tal como se muestra en la figura \ref{central} . Las partículas se encuentran casi estáticas (sus fuerzas de deseo se compensan con la repulsión social); pero aun así, poseen una pequeña oscilación en torno a la posición de equilibrio. 
 
 \begin{figure}[H]
     \centering
@@ -132,7 +132,7 @@ El resultado de esta simulación es el conjunto de valores que se exhiben en las
 \label{my-label}
 \begin{tabular}{|l|l|}
 \hline
-Distancia (m) & Presión (N.m) \\ \hline
+Distancia (m) & Presión (N/m) \\ \hline
 1,48          & 664,0       \\ \hline
 1,26          & 999,9       \\ \hline
 1,49          & 653,3       \\ \hline
@@ -147,7 +147,7 @@ Distancia (m) & Presión (N.m) \\ \hline
 \quad
 \begin{tabular}{|l|l|}
 \hline
-Distancia (m) & Presión (N.m) \\ \hline
+Distancia (m) & Presión (N/m) \\ \hline
 1,26          & 989,8       \\ \hline
 1,49          & 655,2       \\ \hline
 1,26          & 991,9       \\ \hline
@@ -164,14 +164,14 @@ Distancia (m) & Presión (N.m) \\ \hline
 
 Sumar todos los valores de presión social y dividir por dos da como resultado el lado izquierdo de la ecuación (\ref{virial2}).
 \begin{equation}
- \displaystyle\sum_{i=1}^N\langle2P_iA_i\rangle = 11618.6\ \text{N.m}
+ \displaystyle\sum_{i=1}^N\langle2P_iA_i\rangle = 11618.6\ \text{N/m}
 \end{equation}
 
 La suma de todas las distancias multiplicada por la fuerza de deseo $f_d=mv_d/\tau$ da como resultado el lado derecho (despreciando el primer término porque no hay interacción con paredes):
 
 \begin{equation}
  -2\mathcal{PA} -\displaystyle\sum_{i=1}^N \langle
-\mathbf{r}_i\cdot\mathbf{f}_d^{(i)}\rangle\ =  11580.8\ \text{N.m}
+\mathbf{r}_i\cdot\mathbf{f}_d^{(i)}\rangle\ =  11580.8\ \text{N/m}
 \end{equation}
 
 Ambos valores son cercanos. Por lo tanto, el resultado de esta simulación verifica la relación del virial (\ref{virial2}).
